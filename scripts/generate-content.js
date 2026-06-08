@@ -72,11 +72,13 @@ async function generateReview(app) {
   
   try {
     const baseUrl = process.env.ANTHROPIC_BASE_URL || 'https://api.anthropic.com'
+    const apiKey = process.env.ANTHROPIC_AUTH_TOKEN || process.env.ANTHROPIC_API_KEY
+    
     const response = await fetch(`${baseUrl}/v1/messages`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'x-api-key': process.env.ANTHROPIC_API_KEY,
+        'x-api-key': apiKey,
         'anthropic-version': '2023-06-01'
       },
       body: JSON.stringify({
@@ -125,8 +127,9 @@ generated_at: "${new Date().toISOString()}"
 }
 
 async function main() {
-  if (!process.env.ANTHROPIC_API_KEY) {
-    console.error('❌ Please set ANTHROPIC_API_KEY in .env file')
+  const apiKey = process.env.ANTHROPIC_AUTH_TOKEN || process.env.ANTHROPIC_API_KEY
+  if (!apiKey) {
+    console.error('❌ Please set ANTHROPIC_AUTH_TOKEN or ANTHROPIC_API_KEY in .env file')
     process.exit(1)
   }
   
