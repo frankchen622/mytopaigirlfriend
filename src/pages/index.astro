@@ -42,6 +42,20 @@ nav a:hover{color:#fff}
 .trust-badges{display:flex;gap:24px;margin-top:28px}
 .trust-badges span{font-size:13px;color:#A0A0B8;display:flex;align-items:center;gap:6px}
 .trust-badges span::before{content:"✓";color:#E91E8C;font-weight:700}
+.hero-right{flex:0 0 420px;height:480px;border-radius:24px;background:linear-gradient(160deg,#1A1A2E 0%,#2D1B4E 100%);position:relative;overflow:hidden;border:1px solid rgba(155,81,224,0.2);box-shadow:0 0 80px rgba(155,81,224,0.15);padding:32px;display:flex;align-items:center;justify-content:center}
+.hero-right::before{content:"";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:300px;height:300px;background:radial-gradient(circle,rgba(233,30,140,0.15),transparent 70%);border-radius:50%;animation:pulse 4s ease-in-out infinite}
+@keyframes pulse{0%,100%{transform:translate(-50%,-50%) scale(1);opacity:0.5}50%{transform:translate(-50%,-50%) scale(1.1);opacity:0.8}}
+.chat-preview{width:100%;max-width:340px;display:flex;flex-direction:column;gap:16px;z-index:1}
+.chat-bubble{padding:14px 18px;border-radius:18px;font-size:14px;line-height:1.5;max-width:85%;animation:slideIn 0.4s ease-out;position:relative}
+@keyframes slideIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.chat-bubble.user{background:linear-gradient(135deg,#E91E8C,#9B51E0);margin-left:auto;border-radius:18px 18px 4px 18px;box-shadow:0 4px 12px rgba(233,30,140,0.3)}
+.chat-bubble.ai{background:rgba(26,26,46,0.8);border:1px solid rgba(255,255,255,0.1);backdrop-filter:blur(8px);margin-right:auto;border-radius:18px 18px 18px 4px}
+.chat-bubble p{margin:0;color:#fff}
+.chat-bubble.typing{display:flex;gap:6px;padding:18px;align-items:center}
+.chat-bubble.typing span{width:8px;height:8px;border-radius:50%;background:#A0A0B8;animation:bounce 1.4s ease-in-out infinite}
+.chat-bubble.typing span:nth-child(2){animation-delay:0.2s}
+.chat-bubble.typing span:nth-child(3){animation-delay:0.4s}
+@keyframes bounce{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-8px)}}
 
 /* Top 3 Picks */
 .top-picks{padding:80px 0}
@@ -146,6 +160,24 @@ footer{padding:60px 0 40px;border-top:1px solid rgba(255,255,255,0.06)}
         <span>10+ Apps Reviewed</span>
         <span>Real User Feedback</span>
         <span>Updated Weekly</span>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="chat-preview">
+        <div class="chat-bubble user">
+          <p>Hey, how was your day?</p>
+        </div>
+        <div class="chat-bubble ai">
+          <p>Hi! I'm doing great, thanks for asking! 💕 I've been thinking about our conversation yesterday...</p>
+        </div>
+        <div class="chat-bubble user">
+          <p>Tell me more</p>
+        </div>
+        <div class="chat-bubble ai typing">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </div>
     </div>
   </div>
