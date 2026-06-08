@@ -2,10 +2,7 @@
 import { getCollection } from 'astro:content';
 
 const allReviews = await getCollection('en');
-const aiGirlfriends = allReviews.filter(r => r.data.type === 'ai_girlfriend').sort((a, b) => {
-  // 按某种顺序排序，这里简单按名字
-  return a.data.app_name.localeCompare(b.data.app_name);
-});
+const aiGirlfriends = allReviews.filter(r => r.data.type === 'ai_girlfriend');
 ---
 
 <!DOCTYPE html>
@@ -20,35 +17,40 @@ const aiGirlfriends = allReviews.filter(r => r.data.type === 'ai_girlfriend').so
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Inter',sans-serif;background:#0D0D1A;color:#fff;line-height:1.6}
-.container{max-width:1200px;margin:0 auto;padding:0 24px}
 
-header{padding:20px 0;border-bottom:1px solid rgba(255,255,255,0.06);background:rgba(13,13,26,0.95);backdrop-filter:blur(12px)}
+header{padding:20px 0;border-bottom:1px solid rgba(255,255,255,0.06);background:rgba(13,13,26,0.95)}
 .header-inner{display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto;padding:0 24px}
-.logo{font-size:20px;font-weight:800;letter-spacing:-0.5px;color:#fff;text-decoration:none}
+.logo{font-size:20px;font-weight:800;color:#fff;text-decoration:none}
 .logo span{background:linear-gradient(135deg,#E91E8C,#9B51E0);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-nav{display:flex;gap:28px;align-items:center}
+nav{display:flex;gap:28px}
 nav a{font-size:14px;font-weight:500;color:#A0A0B8;transition:color .2s;text-decoration:none}
 nav a:hover{color:#fff}
 
-.hero{padding:80px 0 60px;background:linear-gradient(160deg,#1A1A2E 0%,#2D1B4E 100%)}
+.hero{padding:60px 0 40px;background:linear-gradient(160deg,#1A1A2E 0%,#2D1B4E 100%)}
 .hero-inner{max-width:1200px;margin:0 auto;padding:0 24px;text-align:center}
-.hero h1{font-size:48px;font-weight:800;margin-bottom:16px;letter-spacing:-1px}
-.hero p{font-size:18px;color:#A0A0B8;max-width:600px;margin:0 auto}
+.hero h1{font-size:42px;font-weight:800;margin-bottom:12px}
+.hero p{font-size:16px;color:#A0A0B8;max-width:600px;margin:0 auto}
 
-.apps-grid{padding:80px 0;max-width:1200px;margin:0 auto;padding:80px 24px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:24px}
-.app-card{background:#1A1A2E;border-radius:20px;padding:32px;border:1px solid rgba(255,255,255,0.06);transition:transform .2s,border-color .2s;text-decoration:none;display:block}
-.app-card:hover{transform:translateY(-4px);border-color:rgba(155,81,224,0.3)}
-.app-card.featured{border-color:rgba(233,30,140,0.3);box-shadow:0 0 40px rgba(233,30,140,0.1)}
-.app-header{display:flex;justify-content:space-between;align-items:start;margin-bottom:16px}
-.app-name{font-size:24px;font-weight:700;color:#fff;margin-bottom:8px}
-.nsfw-badge{font-size:11px;padding:4px 8px;background:rgba(239,68,68,0.2);color:#EF4444;border-radius:12px;font-weight:600}
-.app-category{font-size:14px;color:#A0A0B8;margin-bottom:16px}
-.app-pricing{font-size:18px;font-weight:600;color:#fff;margin-bottom:16px}
-.app-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
-.tag{font-size:11px;padding:4px 10px;background:rgba(255,255,255,0.06);border-radius:20px;color:#A0A0B8}
-.app-cta{display:inline-block;padding:12px 24px;background:linear-gradient(135deg,#E91E8C,#9B51E0);border-radius:12px;font-size:14px;font-weight:600;color:#fff;text-align:center;transition:opacity .2s}
-.app-cta:hover{opacity:0.85}
+.rankings{padding:60px 0;max-width:1200px;margin:0 auto;padding:60px 24px}
+.rank-list{display:flex;flex-direction:column;gap:16px}
+.rank-card{display:flex;align-items:center;gap:20px;background:#1A1A2E;border-radius:16px;padding:24px;border:1px solid rgba(255,255,255,0.06);transition:border-color .2s;text-decoration:none}
+.rank-card:hover{border-color:rgba(155,81,224,0.25)}
+.rank-num{font-size:28px;font-weight:800;width:40px;text-align:center;background:linear-gradient(135deg,#E91E8C,#9B51E0);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.rank-avatar{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#E91E8C,#9B51E0);flex-shrink:0;opacity:0.75}
+.rank-card:nth-child(2) .rank-avatar{background:linear-gradient(135deg,#6366F1,#8B5CF6)}
+.rank-card:nth-child(3) .rank-avatar{background:linear-gradient(135deg,#F59E0B,#EF4444)}
+.rank-card:nth-child(4) .rank-avatar{background:linear-gradient(135deg,#10B981,#3B82F6)}
+.rank-card:nth-child(5) .rank-avatar{background:linear-gradient(135deg,#EC4899,#F43F5E)}
+.rank-info{flex:1}
+.rank-info h4{font-size:18px;font-weight:700;color:#fff;margin-bottom:4px}
+.rank-desc{font-size:13px;color:#A0A0B8;margin-bottom:8px}
+.rank-tags{display:flex;gap:6px;flex-wrap:wrap}
+.rank-tags span{font-size:11px;padding:3px 8px;background:rgba(255,255,255,0.05);border-radius:12px;color:#A0A0B8}
+.rank-right{text-align:right;flex-shrink:0}
+.rank-price{font-size:22px;font-weight:700;color:#fff;margin-bottom:8px}
+.rank-price small{font-size:12px;color:#A0A0B8;font-weight:400;display:block}
+.rank-cta{display:inline-block;padding:10px 20px;background:linear-gradient(135deg,#E91E8C,#9B51E0);border-radius:10px;font-size:13px;font-weight:600;color:#fff;transition:opacity .2s}
+.rank-cta:hover{opacity:0.85}
 
 footer{padding:60px 0 40px;border-top:1px solid rgba(255,255,255,0.06);text-align:center}
 footer p{color:#A0A0B8;font-size:14px}
@@ -74,37 +76,34 @@ footer .warning{color:#EF4444;margin-top:12px}
   <div class="hero-inner">
     <h1>All AI Girlfriend Apps</h1>
     <p>
-      Complete guide to every AI companion app we've reviewed. 
-      Compare features, pricing, and find your perfect match.
+      Complete guide to every AI companion app. Compare features, pricing, and find your perfect match.
     </p>
   </div>
 </section>
 
-<section class="apps-grid">
-  <div class="grid">
+<section class="rankings">
+  <div class="rank-list">
     {aiGirlfriends.map((review, index) => (
-      <a href={`/${review.slug}`} class={`app-card ${index < 3 ? 'featured' : ''}`}>
-        <div class="app-header">
-          <div>
-            <h3 class="app-name">{review.data.app_name}</h3>
+      <a href={`/${review.slug}`} class="rank-card">
+        <div class="rank-num">{index + 1}</div>
+        <div class="rank-avatar"></div>
+        <div class="rank-info">
+          <h4>{review.data.app_name}</h4>
+          <p class="rank-desc">{review.data.category}</p>
+          <div class="rank-tags">
+            {review.data.has_free && <span>Free</span>}
+            {review.data.has_nsfw && <span>NSFW</span>}
+            <span>AI Companion</span>
           </div>
-          {review.data.has_nsfw && (
-            <span class="nsfw-badge">18+</span>
-          )}
         </div>
-        
-        <p class="app-category">{review.data.category}</p>
-        
-        <div class="app-pricing">{review.data.pricing}</div>
-        
-        <div class="app-tags">
-          {review.data.has_free && <span class="tag">Free Trial</span>}
-          {review.data.has_nsfw && <span class="tag">NSFW</span>}
-          <span class="tag">AI Companion</span>
-        </div>
-        
-        <div class="app-cta">
-          Read Full Review →
+        <div class="rank-right">
+          <div class="rank-price">
+            {review.data.pricing.split('/')[0]}
+            <small>{review.data.pricing.includes('/') ? '/' + review.data.pricing.split('/')[1] : ''}</small>
+          </div>
+          <span class="rank-cta">
+            View Details
+          </span>
         </div>
       </a>
     ))}
@@ -112,7 +111,7 @@ footer .warning{color:#EF4444;margin-top:12px}
 </section>
 
 <footer>
-  <div class="container">
+  <div style="max-width:1200px;margin:0 auto;padding:0 24px">
     <p>© 2026 MyTopAIGirlfriend. All rights reserved.</p>
     <p class="warning">⚠️ 18+ Content Warning: Some apps contain mature content</p>
   </div>
