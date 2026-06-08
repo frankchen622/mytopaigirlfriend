@@ -46,31 +46,28 @@ nav a:hover{color:#fff}
 .hero-right img{width:100%;height:100%;object-fit:cover;display:block}
 .chat-preview{display:none}
 
-/* Full Rankings */
+/* Rankings - Card Grid */
 .rankings{padding:80px 0;background:rgba(26,26,46,0.3)}
 .section-title{font-size:32px;font-weight:700;text-align:center;margin-bottom:48px;letter-spacing:-0.5px}
 .rankings-inner{max-width:1200px;margin:0 auto;padding:0 24px}
-.rankings-list{display:flex;flex-direction:column;gap:16px}
-.rank-card{display:flex;align-items:center;gap:20px;background:#1A1A2E;border-radius:16px;padding:24px;border:1px solid rgba(255,255,255,0.06);transition:border-color .2s}
-.rank-card:hover{border-color:rgba(155,81,224,0.25)}
-.rank-num{font-size:28px;font-weight:800;width:40px;text-align:center;background:linear-gradient(135deg,#E91E8C,#9B51E0);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.rank-avatar{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#E91E8C,#9B51E0);flex-shrink:0;opacity:0.75}
-.rank-card:nth-child(2) .rank-avatar{background:linear-gradient(135deg,#6366F1,#8B5CF6)}
-.rank-card:nth-child(3) .rank-avatar{background:linear-gradient(135deg,#F59E0B,#EF4444)}
-.rank-card:nth-child(4) .rank-avatar{background:linear-gradient(135deg,#10B981,#3B82F6)}
-.rank-card:nth-child(5) .rank-avatar{background:linear-gradient(135deg,#EC4899,#F43F5E)}
-.rank-info{flex:1}
-.rank-info h4{font-size:18px;font-weight:700;margin-bottom:4px}
-.rank-stars{color:#FBBF24;font-size:13px;margin-bottom:6px}
-.rank-stars span{color:#A0A0B8;margin-left:6px}
-.rank-desc{font-size:13px;color:#A0A0B8;margin-bottom:8px}
-.rank-tags{display:flex;gap:6px;flex-wrap:wrap}
-.rank-tags span{font-size:11px;padding:3px 8px;background:rgba(255,255,255,0.05);border-radius:12px;color:#A0A0B8}
-.rank-right{text-align:right;flex-shrink:0}
-.rank-price{font-size:22px;font-weight:700;margin-bottom:8px}
-.rank-price small{font-size:12px;color:#A0A0B8;font-weight:400;display:block}
-.rank-cta{display:inline-block;padding:10px 20px;background:linear-gradient(135deg,#E91E8C,#9B51E0);border-radius:10px;font-size:13px;font-weight:600;transition:opacity .2s}
-.rank-cta:hover{opacity:0.85}
+.apps-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px}
+.app-card{background:#1A1A2E;border-radius:20px;padding:32px 24px;border:1px solid rgba(255,255,255,0.06);transition:transform .2s,border-color .2s;text-align:center;position:relative;display:block}
+.app-card:hover{transform:translateY(-4px);border-color:rgba(155,81,224,0.3)}
+.app-rank{position:absolute;top:-12px;left:24px;width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#E91E8C,#9B51E0);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;color:#fff;box-shadow:0 4px 12px rgba(233,30,140,0.4)}
+.app-avatar{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#E91E8C,#9B51E0);margin:0 auto 16px;opacity:0.8}
+.app-card:nth-child(2) .app-avatar{background:linear-gradient(135deg,#6366F1,#8B5CF6)}
+.app-card:nth-child(3) .app-avatar{background:linear-gradient(135deg,#F59E0B,#EF4444)}
+.app-card:nth-child(4) .app-avatar{background:linear-gradient(135deg,#10B981,#3B82F6)}
+.app-card:nth-child(5) .app-avatar{background:linear-gradient(135deg,#EC4899,#F43F5E)}
+.app-name{font-size:20px;font-weight:700;margin-bottom:8px;color:#fff}
+.app-rating{color:#FBBF24;font-size:14px;margin-bottom:12px}
+.app-rating span{color:#A0A0B8;margin-left:8px}
+.app-category{font-size:14px;color:#A0A0B8;margin-bottom:12px}
+.app-tags{display:flex;gap:6px;justify-content:center;margin-bottom:16px;flex-wrap:wrap}
+.app-tags span{font-size:11px;padding:4px 10px;background:rgba(255,255,255,0.06);border-radius:20px;color:#A0A0B8}
+.app-price{font-size:20px;font-weight:700;color:#fff;margin-bottom:16px}
+.app-cta{display:inline-block;padding:12px 24px;background:linear-gradient(135deg,#E91E8C,#9B51E0);border-radius:12px;font-size:14px;font-weight:600;color:#fff;transition:opacity .2s}
+.app-cta:hover{opacity:0.85}
 
 /* Footer */
 footer{padding:60px 0 40px;border-top:1px solid rgba(255,255,255,0.06)}
@@ -140,32 +137,22 @@ footer{padding:60px 0 40px;border-top:1px solid rgba(255,255,255,0.06)}
 <section class="rankings">
   <div class="rankings-inner">
     <h2 class="section-title" id="top-picks">🏆 Top AI Girlfriends 2026</h2>
-    <div class="rankings-list">
+    <div class="apps-grid">
       {aiGirlfriends.map((review, index) => (
-        <a href={`/${review.slug}`} class="rank-card">
-          <div class="rank-num">{index + 1}</div>
-          <div class="rank-avatar"></div>
-          <div class="rank-info">
-            <h4>{review.data.app_name}</h4>
-            <div class="rank-stars">
-              ⭐⭐⭐⭐{index < 2 ? '⭐' : '☆'} <span>4.{5-index}/5</span>
-            </div>
-            <p class="rank-desc">{review.data.category}</p>
-            <div class="rank-tags">
-              {review.data.has_free && <span>Free</span>}
-              {review.data.has_nsfw && <span>NSFW</span>}
-              <span>{review.data.type === 'ai_girlfriend' ? 'AI Companion' : 'Dating App'}</span>
-            </div>
+        <a href={`/${review.slug}`} class="app-card">
+          <div class="app-rank">{index + 1}</div>
+          <div class="app-avatar"></div>
+          <h3 class="app-name">{review.data.app_name}</h3>
+          <div class="app-rating">
+            ⭐⭐⭐⭐{index < 2 ? '⭐' : '☆'} <span>4.{5-index}/5</span>
           </div>
-          <div class="rank-right">
-            <div class="rank-price">
-              {review.data.pricing.split('/')[0]}
-              <small>{review.data.pricing.includes('/') ? '/' + review.data.pricing.split('/')[1] : ''}</small>
-            </div>
-            <span class="rank-cta">
-              View Details
-            </span>
+          <p class="app-category">{review.data.category}</p>
+          <div class="app-tags">
+            {review.data.has_free && <span>Free</span>}
+            {review.data.has_nsfw && <span>18+</span>}
           </div>
+          <div class="app-price">{review.data.pricing}</div>
+          <div class="app-cta">Read Review →</div>
         </a>
       ))}
     </div>
