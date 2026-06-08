@@ -20,7 +20,7 @@ const datingApps = allReviews.filter(r => r.data.type === 'dating');
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {datingApps.map((review) => (
         <a 
-          href={`/${review.slug}`} 
+          href={`/blog/${review.slug}`} 
           class="bg-white rounded-lg shadow-md hover:shadow-xl transition-all overflow-hidden group"
         >
           <div class="p-6">

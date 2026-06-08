@@ -27,7 +27,7 @@ const datingApps = allReviews.filter(r => r.data.type === 'dating');
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           {comparisons.map((review) => (
             <a 
-              href={`/${review.slug}`}
+              href={`/blog/${review.slug}`}
               class="bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-lg hover:shadow-lg transition group"
             >
               <h3 class="text-2xl font-bold mb-3 group-hover:text-primary-600 transition">
@@ -57,7 +57,7 @@ const datingApps = allReviews.filter(r => r.data.type === 'dating');
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           {aiGirlfriends.slice(0, 6).map((review) => (
             <a 
-              href={`/${review.slug}`}
+              href={`/blog/${review.slug}`}
               class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition group"
             >
               <div class="flex items-start justify-between mb-3">
@@ -88,7 +88,7 @@ const datingApps = allReviews.filter(r => r.data.type === 'dating');
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           {datingApps.map((review) => (
             <a 
-              href={`/${review.slug}`}
+              href={`/blog/${review.slug}`}
               class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition group"
             >
               <h3 class="text-xl font-bold group-hover:text-primary-600 transition mb-3">
