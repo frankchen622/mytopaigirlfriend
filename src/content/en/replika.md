@@ -1,7 +1,6 @@
 ---
 title: "Replika Review 2026: Is It Worth It?"
 app_name: "Replika"
-slug: "replika"
 type: "ai_girlfriend"
 category: "AI Companion"
 has_nsfw: false

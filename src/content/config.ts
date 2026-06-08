@@ -5,7 +5,6 @@ const enCollection = defineCollection({
   schema: z.object({
     title: z.string(),
     app_name: z.string(),
-    slug: z.string(),
     type: z.string(),
     category: z.string(),
     has_nsfw: z.boolean(),

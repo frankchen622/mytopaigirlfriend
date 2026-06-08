@@ -1,7 +1,6 @@
 ---
 title: "Crushon.AI Review 2026: Is It Worth It?"
 app_name: "Crushon.AI"
-slug: "crushon-ai"
 type: "ai_girlfriend"
 category: "AI Companion"
 has_nsfw: true

@@ -1,7 +1,6 @@
 ---
 title: "Tinder Review 2026: Is It Still Worth It?"
 app_name: "Tinder"
-slug: "tinder"
 type: "dating"
 category: "Dating App"
 has_nsfw: false

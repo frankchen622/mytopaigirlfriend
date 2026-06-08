@@ -1,7 +1,6 @@
 ---
 title: "Replika vs Character.AI: Which AI Companion Is Right for You?"
 app_name: "Replika vs Character.AI"
-slug: "replika-vs-character-ai"
 type: "comparison"
 category: "AI Companion Comparison"
 has_nsfw: false

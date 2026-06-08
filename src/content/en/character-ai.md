@@ -1,7 +1,6 @@
 ---
 title: "Character.AI Review 2026: Is It Worth It?"
 app_name: "Character.AI"
-slug: "character-ai"
 type: "ai_girlfriend"
 category: "AI Chat"
 has_nsfw: false

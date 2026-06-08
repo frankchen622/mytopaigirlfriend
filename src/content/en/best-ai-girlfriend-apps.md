@@ -1,7 +1,6 @@
 ---
 title: "Best AI Girlfriend Apps 2026: Top 10 Ranked & Reviewed"
 app_name: "Best AI Girlfriends"
-slug: "best-ai-girlfriend-apps"
 type: "listicle"
 category: "Rankings"
 has_nsfw: true

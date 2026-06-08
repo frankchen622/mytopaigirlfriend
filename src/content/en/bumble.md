@@ -1,7 +1,6 @@
 ---
 title: "Bumble Review 2026: Does Ladies First Still Work?"
 app_name: "Bumble"
-slug: "bumble"
 type: "dating"
 category: "Dating App"  
 has_nsfw: false

@@ -1,7 +1,6 @@
 ---
 title: "DreamGF Review 2026: Is It Worth It?"
 app_name: "DreamGF"
-slug: "dreamgf"
 type: "ai_girlfriend"
 category: "AI Companion"
 has_nsfw: true

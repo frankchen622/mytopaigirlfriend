@@ -1,7 +1,6 @@
 ---
 title: "Hinge Review 2026: The App Designed to Be Deleted?"
 app_name: "Hinge"
-slug: "hinge"
 type: "dating"
 category: "Dating App"
 has_nsfw: false
