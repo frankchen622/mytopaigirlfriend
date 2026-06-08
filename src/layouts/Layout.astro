@@ -1,0 +1,57 @@
+---
+// src/layouts/Layout.astro
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'Your guide to AI girlfriends and dating apps' } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{title} | My Top AI Girlfriend</title>
+  <meta name="description" content={description}>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+</head>
+<body class="bg-gray-50">
+  <nav class="bg-white shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16">
+        <div class="flex items-center">
+          <a href="/" class="text-2xl font-bold text-primary-600">
+            💕 My Top AI Girlfriend
+          </a>
+        </div>
+        <div class="flex items-center space-x-8">
+          <a href="/ai-girlfriends" class="text-gray-700 hover:text-primary-600">
+            AI Girlfriends
+          </a>
+          <a href="/dating-apps" class="text-gray-700 hover:text-primary-600">
+            Dating Apps
+          </a>
+          <a href="/blog" class="text-gray-700 hover:text-primary-600">
+            Blog
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="min-h-screen">
+    <slot />
+  </main>
+
+  <footer class="bg-gray-900 text-white mt-20">
+    <div class="max-w-7xl mx-auto px-4 py-12">
+      <div class="text-center">
+        <p class="text-gray-400">© 2026 My Top AI Girlfriend. All rights reserved.</p>
+        <p class="text-gray-500 text-sm mt-2">18+ Content Warning</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
