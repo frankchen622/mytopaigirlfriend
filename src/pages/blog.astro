@@ -1,0 +1,106 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const allReviews = await getCollection('en');
+const comparisons = allReviews.filter(r => r.data.type === 'comparison' || r.data.type === 'listicle');
+const aiGirlfriends = allReviews.filter(r => r.data.type === 'ai_girlfriend');
+const datingApps = allReviews.filter(r => r.data.type === 'dating');
+---
+
+<Layout title="Blog - Reviews, Comparisons & Guides">
+  <div class="bg-gradient-to-r from-indigo-500 to-blue-600 text-white py-16">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <h1 class="text-5xl font-bold mb-4">Blog & Reviews</h1>
+      <p class="text-xl opacity-90">
+        In-depth reviews, comparisons, and guides to help you navigate AI companions and dating apps
+      </p>
+    </div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 py-12">
+    
+    <!-- Featured Comparisons & Guides -->
+    {comparisons.length > 0 && (
+      <section class="mb-16">
+        <h2 class="text-3xl font-bold mb-8 text-gray-900">Featured Guides & Comparisons</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {comparisons.map((review) => (
+            <a 
+              href={`/${review.slug}`}
+              class="bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-lg hover:shadow-lg transition group"
+            >
+              <h3 class="text-2xl font-bold mb-3 group-hover:text-primary-600 transition">
+                {review.data.title}
+              </h3>
+              <p class="text-gray-600 mb-4">
+                {review.data.category}
+              </p>
+              <span class="text-primary-600 font-semibold group-hover:translate-x-1 inline-block transition">
+                Read More →
+              </span>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- AI Girlfriend Reviews -->
+    {aiGirlfriends.length > 0 && (
+      <section class="mb-16">
+        <div class="flex items-center justify-between mb-8">
+          <h2 class="text-3xl font-bold text-gray-900">AI Girlfriend App Reviews</h2>
+          <a href="/ai-girlfriends" class="text-primary-600 hover:text-primary-700 font-semibold">
+            View All →
+          </a>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {aiGirlfriends.slice(0, 6).map((review) => (
+            <a 
+              href={`/${review.slug}`}
+              class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition group"
+            >
+              <div class="flex items-start justify-between mb-3">
+                <h3 class="text-xl font-bold group-hover:text-primary-600 transition">
+                  {review.data.app_name}
+                </h3>
+                {review.data.has_nsfw && (
+                  <span class="text-xs bg-red-100 text-red-700 px-2 py-1 rounded">18+</span>
+                )}
+              </div>
+              <p class="text-gray-600 text-sm mb-3">{review.data.category}</p>
+              <span class="text-sm text-gray-500">{review.data.pricing}</span>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- Dating App Reviews -->
+    {datingApps.length > 0 && (
+      <section>
+        <div class="flex items-center justify-between mb-8">
+          <h2 class="text-3xl font-bold text-gray-900">Dating App Reviews</h2>
+          <a href="/dating-apps" class="text-primary-600 hover:text-primary-700 font-semibold">
+            View All →
+          </a>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {datingApps.map((review) => (
+            <a 
+              href={`/${review.slug}`}
+              class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition group"
+            >
+              <h3 class="text-xl font-bold group-hover:text-primary-600 transition mb-3">
+                {review.data.app_name}
+              </h3>
+              <p class="text-gray-600 text-sm mb-3">{review.data.category}</p>
+              <span class="text-sm text-gray-500">{review.data.pricing}</span>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
+
+  </div>
+</Layout>
