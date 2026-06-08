@@ -1,6 +1,12 @@
 ---
 // src/pages/index.astro
 import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const reviews = await getCollection('en');
+const aiGirlfriends = reviews.filter(r => r.data.type === 'ai_girlfriend');
+const datingApps = reviews.filter(r => r.data.type === 'dating');
+const comparisons = reviews.filter(r => r.data.type === 'comparison' || r.data.type === 'listicle');
 ---
 
 <Layout title="Find Your Perfect AI Girlfriend or Dating App">
@@ -28,24 +34,31 @@ import Layout from '../layouts/Layout.astro';
   <div class="max-w-7xl mx-auto px-4 py-16">
     <h2 class="text-3xl font-bold text-center mb-12">Popular AI Girlfriends</h2>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <a href="/replika" class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition">
-        <h3 class="text-xl font-bold mb-2">Replika</h3>
-        <p class="text-gray-600">AI companion for emotional support and friendship</p>
-        <span class="text-primary-600 font-semibold mt-4 inline-block">Read Review →</span>
-      </a>
-      
-      <a href="/character-ai" class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition">
-        <h3 class="text-xl font-bold mb-2">Character.AI</h3>
-        <p class="text-gray-600">Chat with AI characters and create your own</p>
-        <span class="text-primary-600 font-semibold mt-4 inline-block">Read Review →</span>
-      </a>
-      
-      <a href="/crushon-ai" class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition">
-        <h3 class="text-xl font-bold mb-2">Crushon.AI</h3>
-        <p class="text-gray-600">NSFW AI chat companion with no filters</p>
-        <span class="text-primary-600 font-semibold mt-4 inline-block">Read Review →</span>
-      </a>
+      {aiGirlfriends.slice(0, 6).map((review) => (
+        <a href={`/${review.slug}`} class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition">
+          <h3 class="text-xl font-bold mb-2">{review.data.app_name}</h3>
+          <p class="text-gray-600 mb-4">{review.data.category}</p>
+          <div class="flex items-center justify-between">
+            <span class="text-sm text-gray-500">{review.data.pricing}</span>
+            <span class="text-primary-600 font-semibold">Read Review →</span>
+          </div>
+        </a>
+      ))}
     </div>
+    
+    {comparisons.length > 0 && (
+      <div class="mt-12">
+        <h3 class="text-2xl font-bold mb-6">Compare & Choose</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {comparisons.map((review) => (
+            <a href={`/${review.slug}`} class="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-lg hover:shadow-lg transition">
+              <h4 class="text-lg font-bold mb-2">{review.data.title}</h4>
+              <span class="text-primary-600 font-semibold">Read More →</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    )}
   </div>
 
   <div class="bg-gray-100 py-16">
