@@ -1,69 +1,122 @@
 ---
-import Layout from '../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 
 const allReviews = await getCollection('en');
-const aiGirlfriends = allReviews.filter(r => r.data.type === 'ai_girlfriend');
+const aiGirlfriends = allReviews.filter(r => r.data.type === 'ai_girlfriend').sort((a, b) => {
+  // 按某种顺序排序，这里简单按名字
+  return a.data.app_name.localeCompare(b.data.app_name);
+});
 ---
 
-<Layout title="Best AI Girlfriend Apps 2026">
-  <div class="bg-gradient-to-r from-pink-500 to-purple-600 text-white py-16">
-    <div class="max-w-7xl mx-auto px-4 text-center">
-      <h1 class="text-5xl font-bold mb-4">AI Girlfriend Apps</h1>
-      <p class="text-xl opacity-90">
-        Explore the best AI companions for emotional support, entertainment, and companionship
-      </p>
-    </div>
-  </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Best AI Girlfriend Apps 2026 - Complete Guide</title>
+<meta name="description" content="Compare all AI girlfriend apps: Replika, Character.AI, Chai, and more. Honest reviews, pricing, and features.">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#0D0D1A;color:#fff;line-height:1.6}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
 
-  <div class="max-w-7xl mx-auto px-4 py-12">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {aiGirlfriends.map((review) => (
-        <a 
-          href={`/${review.slug}`} 
-          class="bg-white rounded-lg shadow-md hover:shadow-xl transition-all overflow-hidden group"
-        >
-          <div class="p-6">
-            <div class="flex items-start justify-between mb-4">
-              <h3 class="text-2xl font-bold text-gray-900 group-hover:text-primary-600 transition">
-                {review.data.app_name}
-              </h3>
-              {review.data.has_nsfw && (
-                <span class="text-xs bg-red-100 text-red-700 px-2 py-1 rounded">
-                  18+
-                </span>
-              )}
-            </div>
-            
-            <p class="text-gray-600 mb-4">{review.data.category}</p>
-            
-            <div class="flex items-center justify-between mt-4 pt-4 border-t">
-              <span class="text-sm text-gray-500">{review.data.pricing}</span>
-              <span class="text-primary-600 font-semibold group-hover:translate-x-1 transition">
-                Read Review →
-              </span>
-            </div>
+header{padding:20px 0;border-bottom:1px solid rgba(255,255,255,0.06);background:rgba(13,13,26,0.95);backdrop-filter:blur(12px)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto;padding:0 24px}
+.logo{font-size:20px;font-weight:800;letter-spacing:-0.5px;color:#fff;text-decoration:none}
+.logo span{background:linear-gradient(135deg,#E91E8C,#9B51E0);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+nav{display:flex;gap:28px;align-items:center}
+nav a{font-size:14px;font-weight:500;color:#A0A0B8;transition:color .2s;text-decoration:none}
+nav a:hover{color:#fff}
+
+.hero{padding:80px 0 60px;background:linear-gradient(160deg,#1A1A2E 0%,#2D1B4E 100%)}
+.hero-inner{max-width:1200px;margin:0 auto;padding:0 24px;text-align:center}
+.hero h1{font-size:48px;font-weight:800;margin-bottom:16px;letter-spacing:-1px}
+.hero p{font-size:18px;color:#A0A0B8;max-width:600px;margin:0 auto}
+
+.apps-grid{padding:80px 0;max-width:1200px;margin:0 auto;padding:80px 24px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:24px}
+.app-card{background:#1A1A2E;border-radius:20px;padding:32px;border:1px solid rgba(255,255,255,0.06);transition:transform .2s,border-color .2s;text-decoration:none;display:block}
+.app-card:hover{transform:translateY(-4px);border-color:rgba(155,81,224,0.3)}
+.app-card.featured{border-color:rgba(233,30,140,0.3);box-shadow:0 0 40px rgba(233,30,140,0.1)}
+.app-header{display:flex;justify-content:space-between;align-items:start;margin-bottom:16px}
+.app-name{font-size:24px;font-weight:700;color:#fff;margin-bottom:8px}
+.nsfw-badge{font-size:11px;padding:4px 8px;background:rgba(239,68,68,0.2);color:#EF4444;border-radius:12px;font-weight:600}
+.app-category{font-size:14px;color:#A0A0B8;margin-bottom:16px}
+.app-pricing{font-size:18px;font-weight:600;color:#fff;margin-bottom:16px}
+.app-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
+.tag{font-size:11px;padding:4px 10px;background:rgba(255,255,255,0.06);border-radius:20px;color:#A0A0B8}
+.app-cta{display:inline-block;padding:12px 24px;background:linear-gradient(135deg,#E91E8C,#9B51E0);border-radius:12px;font-size:14px;font-weight:600;color:#fff;text-align:center;transition:opacity .2s}
+.app-cta:hover{opacity:0.85}
+
+footer{padding:60px 0 40px;border-top:1px solid rgba(255,255,255,0.06);text-align:center}
+footer p{color:#A0A0B8;font-size:14px}
+footer .warning{color:#EF4444;margin-top:12px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="/" class="logo">
+      💕 My<span>Top</span>AIGirlfriend
+    </a>
+    <nav>
+      <a href="/ai-girlfriends">AI Girlfriends</a>
+      <a href="/dating-apps">Dating Apps</a>
+      <a href="/blog">Blog</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <h1>All AI Girlfriend Apps</h1>
+    <p>
+      Complete guide to every AI companion app we've reviewed. 
+      Compare features, pricing, and find your perfect match.
+    </p>
+  </div>
+</section>
+
+<section class="apps-grid">
+  <div class="grid">
+    {aiGirlfriends.map((review, index) => (
+      <a href={`/${review.slug}`} class={`app-card ${index < 3 ? 'featured' : ''}`}>
+        <div class="app-header">
+          <div>
+            <h3 class="app-name">{review.data.app_name}</h3>
           </div>
-        </a>
-      ))}
-    </div>
-
-    {aiGirlfriends.length === 0 && (
-      <div class="text-center py-12">
-        <p class="text-gray-600">No AI girlfriend apps found yet. Check back soon!</p>
-      </div>
-    )}
+          {review.data.has_nsfw && (
+            <span class="nsfw-badge">18+</span>
+          )}
+        </div>
+        
+        <p class="app-category">{review.data.category}</p>
+        
+        <div class="app-pricing">{review.data.pricing}</div>
+        
+        <div class="app-tags">
+          {review.data.has_free && <span class="tag">Free Trial</span>}
+          {review.data.has_nsfw && <span class="tag">NSFW</span>}
+          <span class="tag">AI Companion</span>
+        </div>
+        
+        <div class="app-cta">
+          Read Full Review →
+        </div>
+      </a>
+    ))}
   </div>
+</section>
 
-  <div class="bg-gray-100 py-12 mt-12">
-    <div class="max-w-4xl mx-auto px-4 text-center">
-      <h2 class="text-3xl font-bold mb-4">What Are AI Girlfriends?</h2>
-      <p class="text-gray-700 text-lg leading-relaxed">
-        AI girlfriend apps use advanced language models to simulate companionship, conversation, 
-        and emotional support. They range from wholesome emotional support bots to more mature 
-        NSFW companions. Whether you're seeking genuine connection or just entertainment, 
-        our reviews help you find the right AI companion.
-      </p>
-    </div>
+<footer>
+  <div class="container">
+    <p>© 2026 MyTopAIGirlfriend. All rights reserved.</p>
+    <p class="warning">⚠️ 18+ Content Warning: Some apps contain mature content</p>
   </div>
-</Layout>
+</footer>
+
+</body>
+</html>
