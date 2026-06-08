@@ -181,7 +181,7 @@ footer p{color:#6B7280;font-size:14px}
       <div class="hero-rating">4.5/5</div>
       <div class="hero-stars">⭐⭐⭐⭐⭐</div>
       <p>{review.data.category}</p>
-      <a href="#" class="cta-primary">Visit {review.data.app_name} →</a>
+      <a href={review.data.app_url || "#"} target="_blank" rel="noopener noreferrer" class="cta-primary">Visit {review.data.app_name} →</a>
       <p class="affiliate-note">Affiliate Disclosure: We may earn a commission from purchases.</p>
     </div>
   </section>
@@ -303,7 +303,7 @@ footer p{color:#6B7280;font-size:14px}
       <h2>Try {review.data.app_name} Free</h2>
       <div class="hero-stars">⭐⭐⭐⭐⭐</div>
       <p>Rated 4.5/5 - Best {review.data.category} in 2026</p>
-      <a href="#" class="cta-primary">Get Started Now →</a>
+      <a href={review.data.app_url || "#"} target="_blank" rel="noopener noreferrer" class="cta-primary">Get Started Now →</a>
     </div>
   </div>
 )}
