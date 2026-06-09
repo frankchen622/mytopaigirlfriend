@@ -4,6 +4,7 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev",
+    "prebuild": "npm config set registry https://registry.npmjs.org/",
     "build": "astro build",
     "preview": "astro preview"
   },
