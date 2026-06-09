@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import ComparisonGuide from '../components/ComparisonGuide.astro';
 
 const allReviews = await getCollection('en');
 const aiGirlfriends = allReviews.filter(r => r.data.type === 'ai_girlfriend');
@@ -157,6 +158,10 @@ footer .warning{color:#EF4444;margin-top:12px}
       </div>
     ))}
   </div>
+</section>
+
+<section class="comparison-guide">
+  <ComparisonGuide />
 </section>
 
 <footer>
