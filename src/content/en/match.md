@@ -7,6 +7,7 @@ has_nsfw: false
 has_free: true
 pricing: "$20.99-44.99/month"
 app_url: "https://www.match.com"
+rating: 3.9
 generated_at: "2026-06-09T07:26:00.000Z"
 ---
 

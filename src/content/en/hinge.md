@@ -7,6 +7,7 @@ has_nsfw: false
 has_free: true
 pricing: "$19.99-34.99/month"
 app_url: "https://hinge.co"
+rating: 4.4
 generated_at: "2026-06-08T05:52:00.000Z"
 ---
 

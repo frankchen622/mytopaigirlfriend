@@ -7,6 +7,7 @@ has_nsfw: false
 has_free: true
 pricing: "Free / $12.99-38.99/month"
 app_url: "https://www.pof.com"
+rating: 3.7
 generated_at: "2026-06-09T07:26:00.000Z"
 ---
 

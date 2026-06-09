@@ -1,65 +1,157 @@
 ---
-import Layout from '../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 
 const allReviews = await getCollection('en');
 const datingApps = allReviews.filter(r => r.data.type === 'dating');
 ---
 
-<Layout title="Best Dating Apps 2026">
-  <div class="bg-gradient-to-r from-rose-500 to-red-600 text-white py-16">
-    <div class="max-w-7xl mx-auto px-4 text-center">
-      <h1 class="text-5xl font-bold mb-4">Dating Apps</h1>
-      <p class="text-xl opacity-90">
-        Find the best dating apps for real human connections and relationships
-      </p>
-    </div>
-  </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Best Dating Apps 2026 - Complete Guide</title>
+<meta name="description" content="Compare top dating apps: Tinder, Bumble, Hinge, and more. Honest reviews, pricing, and features.">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style is:global>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#0D0D1A;color:#fff;line-height:1.6}
 
-  <div class="max-w-7xl mx-auto px-4 py-12">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {datingApps.map((review) => (
-        <a 
-          href={`/blog/${review.slug}`} 
-          class="bg-white rounded-lg shadow-md hover:shadow-xl transition-all overflow-hidden group"
-        >
-          <div class="p-6">
-            <h3 class="text-2xl font-bold text-gray-900 group-hover:text-primary-600 transition mb-4">
-              {review.data.app_name}
-            </h3>
-            
-            <p class="text-gray-600 mb-4">{review.data.category}</p>
-            
-            <div class="flex items-center justify-between mt-4 pt-4 border-t">
-              <span class="text-sm text-gray-500">{review.data.pricing}</span>
-              <span class="text-primary-600 font-semibold group-hover:translate-x-1 transition">
-                Read Review →
-              </span>
-            </div>
+header{padding:20px 0;border-bottom:1px solid rgba(255,255,255,0.06);background:rgba(13,13,26,0.95)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto;padding:0 24px}
+.logo{font-size:20px;font-weight:800;color:#fff;text-decoration:none}
+.logo span{background:linear-gradient(135deg,#E91E8C,#9B51E0);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+nav{display:flex;gap:28px}
+nav a{font-size:14px;font-weight:500;color:#A0A0B8;transition:color .2s;text-decoration:none}
+nav a:hover{color:#fff}
+
+.hero{padding:60px 0 40px;background:linear-gradient(160deg,#C72C6C 0%,#E91E8C 100%)}
+.hero-inner{max-width:1200px;margin:0 auto;padding:0 24px;text-align:center}
+.hero h1{font-size:42px;font-weight:800;margin-bottom:12px}
+.hero p{font-size:16px;color:rgba(255,255,255,0.9);max-width:600px;margin:0 auto}
+
+.rankings{max-width:1200px;margin:0 auto;padding:60px 24px}
+.rank-list{display:flex;flex-direction:column;gap:16px}
+.rank-card{display:flex;align-items:center;gap:20px;background:#1A1A2E;border-radius:16px;padding:24px;border:1px solid rgba(255,255,255,0.06);transition:border-color .2s}
+.rank-card:hover{border-color:rgba(231,30,140,0.25)}
+.rank-num{font-size:28px;font-weight:800;width:40px;text-align:center;background:linear-gradient(135deg,#E91E8C,#C72C6C);-webkit-background-clip:text;-webkit-text-fill-color:transparent;flex-shrink:0}
+.rank-avatar{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#E91E8C,#C72C6C);flex-shrink:0;opacity:0.75}
+.rank-card:nth-child(2) .rank-avatar{background:linear-gradient(135deg,#F59E0B,#EF4444)}
+.rank-card:nth-child(3) .rank-avatar{background:linear-gradient(135deg,#EC4899,#F43F5E)}
+.rank-card:nth-child(4) .rank-avatar{background:linear-gradient(135deg,#6366F1,#8B5CF6)}
+.rank-card:nth-child(5) .rank-avatar{background:linear-gradient(135deg,#10B981,#3B82F6)}
+.rank-info{flex:1}
+.rank-info h4{font-size:18px;font-weight:700;color:#fff;margin-bottom:4px}
+.rank-rating{color:#FBBF24;font-size:14px;margin-bottom:6px}
+.rank-rating span{color:#A0A0B8;margin-left:6px;font-weight:500}
+.rank-desc{font-size:13px;color:#A0A0B8;margin-bottom:8px}
+.rank-tags{display:flex;gap:6px;flex-wrap:wrap}
+.rank-tags span{font-size:11px;padding:3px 8px;background:rgba(255,255,255,0.05);border-radius:12px;color:#A0A0B8}
+.rank-right{text-align:right;flex-shrink:0;display:flex;flex-direction:column;align-items:flex-end;gap:12px}
+.rank-price{font-size:22px;font-weight:700;color:#fff}
+.rank-price small{font-size:12px;color:#A0A0B8;font-weight:400;display:block;margin-top:2px}
+.rank-actions{display:flex;gap:8px}
+.rank-btn{display:inline-block;padding:10px 18px;border-radius:10px;font-size:13px;font-weight:600;text-decoration:none;transition:all .2s;white-space:nowrap}
+.rank-btn-primary{background:linear-gradient(135deg,#E91E8C,#C72C6C);color:#fff}
+.rank-btn-primary:hover{opacity:0.85;transform:translateY(-1px)}
+.rank-btn-secondary{background:rgba(255,255,255,0.08);color:#fff;border:1px solid rgba(255,255,255,0.1)}
+.rank-btn-secondary:hover{background:rgba(255,255,255,0.12);border-color:rgba(231,30,140,0.3)}
+
+@media (max-width: 768px) {
+  .rank-card{flex-direction:column;align-items:flex-start;gap:16px}
+  .rank-num{width:auto;margin-bottom:8px}
+  .rank-right{width:100%;align-items:flex-start}
+  .rank-actions{width:100%;flex-direction:column}
+  .rank-btn{width:100%;text-align:center}
+}
+
+footer{padding:60px 0 40px;border-top:1px solid rgba(255,255,255,0.06);text-align:center;margin-top:80px}
+footer p{color:#A0A0B8;font-size:14px}
+footer .warning{color:#EF4444;margin-top:12px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="/" class="logo">
+      💕 My<span>Top</span>AIGirlfriend
+    </a>
+    <nav>
+      <a href="/ai-girlfriends">AI Girlfriends</a>
+      <a href="/dating-apps">Dating Apps</a>
+      <a href="/blog">Blog</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <h1>Top 10 Dating Apps</h1>
+    <p>
+      Find the best dating apps for real human connections and relationships
+    </p>
+  </div>
+</section>
+
+<section class="rankings">
+  <div class="rank-list">
+    {datingApps.map((review, index) => (
+      <div class="rank-card">
+        <div class="rank-num">{index + 1}</div>
+        <div class="rank-avatar"></div>
+        <div class="rank-info">
+          <h4>{review.data.app_name}</h4>
+          <div class="rank-rating">
+            {review.data.rating ? (
+              <>
+                {'⭐'.repeat(Math.floor(review.data.rating))}
+                {review.data.rating % 1 >= 0.5 ? '⭐' : review.data.rating % 1 > 0 ? '☆' : ''}
+                <span>{review.data.rating}/5</span>
+              </>
+            ) : (
+              <span style="color:#6B7280">No rating yet</span>
+            )}
           </div>
-        </a>
-      ))}
-    </div>
-
-    {datingApps.length === 0 && (
-      <div class="text-center py-12">
-        <p class="text-gray-600">No dating apps found yet. Check back soon!</p>
+          <p class="rank-desc">{review.data.category}</p>
+          <div class="rank-tags">
+            {review.data.has_free && <span>Free</span>}
+            <span>Dating App</span>
+          </div>
+        </div>
+        <div class="rank-right">
+          <div class="rank-price">
+            {review.data.pricing.split('/')[0]}
+            <small>{review.data.pricing.includes('/') ? '/' + review.data.pricing.split('/')[1] : ''}</small>
+          </div>
+          <div class="rank-actions">
+            {review.data.app_url && (
+              <a href={review.data.app_url} target="_blank" rel="noopener noreferrer" class="rank-btn rank-btn-primary">
+                Visit Website
+              </a>
+            )}
+            <a href={`/blog/${review.slug}`} class="rank-btn rank-btn-secondary">
+              Read Review
+            </a>
+          </div>
+        </div>
       </div>
-    )}
+    ))}
   </div>
+</section>
 
-  <div class="bg-gray-100 py-12 mt-12">
-    <div class="max-w-4xl mx-auto px-4 text-center">
-      <h2 class="text-3xl font-bold mb-4">Dating Apps vs AI Companions</h2>
-      <p class="text-gray-700 text-lg leading-relaxed mb-6">
-        Traditional dating apps connect you with real people for authentic relationships. 
-        They require effort, vulnerability, and patience but offer genuine human connection. 
-        AI companions provide low-stakes practice, emotional support, or entertainment without 
-        the complexities of real relationships.
-      </p>
-      <a href="/blog/replika-vs-character-ai" class="text-primary-600 hover:text-primary-700 font-semibold">
-        Compare AI vs Real Dating →
-      </a>
+<footer>
+  <div style="max-width:1200px;margin:0 auto;padding:0 24px">
+    <p>© 2026 MyTopAIGirlfriend. All rights reserved.</p>
+    <div style="display:flex;gap:12px;justify-content:center;align-items:center;margin:12px 0;font-size:13px">
+      <a href="/privacy" style="color:#A0A0B8;text-decoration:underline">Privacy Policy</a>
+      <span style="color:#6B7280">•</span>
+      <a href="/terms" style="color:#A0A0B8;text-decoration:underline">Terms of Service</a>
     </div>
+    <p class="warning">18+ Only. Use responsibly.</p>
   </div>
-</Layout>
+</footer>
+
+</body>
+</html>

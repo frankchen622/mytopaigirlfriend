@@ -7,6 +7,7 @@ has_nsfw: false
 has_free: true
 pricing: "$35.90-65.90/month"
 app_url: "https://www.eharmony.com"
+rating: 4.1
 generated_at: "2026-06-09T07:26:00.000Z"
 ---
 

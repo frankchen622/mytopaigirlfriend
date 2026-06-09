@@ -7,6 +7,7 @@ has_nsfw: false
 has_free: true
 pricing: "Free (waitlist) / $99-999/month"
 app_url: "https://www.theleague.com"
+rating: 3.6
 generated_at: "2026-06-09T07:26:00.000Z"
 ---
 

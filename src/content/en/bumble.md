@@ -7,6 +7,7 @@ has_nsfw: false
 has_free: true
 pricing: "$17.99-49.99/month"
 app_url: "https://bumble.com"
+rating: 4.3
 generated_at: "2026-06-08T05:51:00.000Z"
 ---
 

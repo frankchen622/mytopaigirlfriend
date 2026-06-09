@@ -7,6 +7,7 @@ has_nsfw: false
 has_free: true
 pricing: "Free / $14.99-39.99/month"
 app_url: "https://www.okcupid.com"
+rating: 4.0
 generated_at: "2026-06-09T07:26:00.000Z"
 ---
 

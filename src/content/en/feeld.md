@@ -7,6 +7,7 @@ has_nsfw: true
 has_free: true
 pricing: "Free / $11.99-19.99/month"
 app_url: "https://feeld.co"
+rating: 3.5
 generated_at: "2026-06-09T07:26:00.000Z"
 ---
 

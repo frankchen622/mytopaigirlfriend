@@ -7,6 +7,7 @@ has_nsfw: false
 has_free: true
 pricing: "Free / $25-35/month"
 app_url: "https://coffeemeetsbagel.com"
+rating: 3.8
 generated_at: "2026-06-09T07:26:00.000Z"
 ---
 

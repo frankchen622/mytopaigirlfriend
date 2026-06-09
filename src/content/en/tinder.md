@@ -7,6 +7,7 @@ has_nsfw: false
 has_free: true
 pricing: "$14.99-54.99/month"
 app_url: "https://tinder.com"
+rating: 4.2
 generated_at: "2026-06-08T05:50:00.000Z"
 ---
 
