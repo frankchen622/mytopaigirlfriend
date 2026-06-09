@@ -41,9 +41,9 @@ nav a:hover{color:#fff}
 
 .rankings{padding:60px 0;max-width:1200px;margin:0 auto;padding:60px 24px}
 .rank-list{display:flex;flex-direction:column;gap:16px}
-.rank-card{display:flex;align-items:center;gap:20px;background:#1A1A2E;border-radius:16px;padding:24px;border:1px solid rgba(255,255,255,0.06);transition:border-color .2s;text-decoration:none}
+.rank-card{display:flex;align-items:center;gap:20px;background:#1A1A2E;border-radius:16px;padding:24px;border:1px solid rgba(255,255,255,0.06);transition:border-color .2s}
 .rank-card:hover{border-color:rgba(155,81,224,0.25)}
-.rank-num{font-size:28px;font-weight:800;width:40px;text-align:center;background:linear-gradient(135deg,#E91E8C,#9B51E0);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.rank-num{font-size:28px;font-weight:800;width:40px;text-align:center;background:linear-gradient(135deg,#E91E8C,#9B51E0);-webkit-background-clip:text;-webkit-text-fill-color:transparent;flex-shrink:0}
 .rank-avatar{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#E91E8C,#9B51E0);flex-shrink:0;opacity:0.75}
 .rank-card:nth-child(2) .rank-avatar{background:linear-gradient(135deg,#6366F1,#8B5CF6)}
 .rank-card:nth-child(3) .rank-avatar{background:linear-gradient(135deg,#F59E0B,#EF4444)}
@@ -56,11 +56,23 @@ nav a:hover{color:#fff}
 .rank-desc{font-size:13px;color:#A0A0B8;margin-bottom:8px}
 .rank-tags{display:flex;gap:6px;flex-wrap:wrap}
 .rank-tags span{font-size:11px;padding:3px 8px;background:rgba(255,255,255,0.05);border-radius:12px;color:#A0A0B8}
-.rank-right{text-align:right;flex-shrink:0}
-.rank-price{font-size:22px;font-weight:700;color:#fff;margin-bottom:8px}
-.rank-price small{font-size:12px;color:#A0A0B8;font-weight:400;display:block}
-.rank-cta{display:inline-block;padding:10px 20px;background:linear-gradient(135deg,#E91E8C,#9B51E0);border-radius:10px;font-size:13px;font-weight:600;color:#fff;transition:opacity .2s}
-.rank-cta:hover{opacity:0.85}
+.rank-right{text-align:right;flex-shrink:0;display:flex;flex-direction:column;align-items:flex-end;gap:12px}
+.rank-price{font-size:22px;font-weight:700;color:#fff}
+.rank-price small{font-size:12px;color:#A0A0B8;font-weight:400;display:block;margin-top:2px}
+.rank-actions{display:flex;gap:8px}
+.rank-btn{display:inline-block;padding:10px 18px;border-radius:10px;font-size:13px;font-weight:600;text-decoration:none;transition:all .2s;white-space:nowrap}
+.rank-btn-primary{background:linear-gradient(135deg,#E91E8C,#9B51E0);color:#fff}
+.rank-btn-primary:hover{opacity:0.85;transform:translateY(-1px)}
+.rank-btn-secondary{background:rgba(255,255,255,0.08);color:#fff;border:1px solid rgba(255,255,255,0.1)}
+.rank-btn-secondary:hover{background:rgba(255,255,255,0.12);border-color:rgba(155,81,224,0.3)}
+
+@media (max-width: 768px) {
+  .rank-card{flex-direction:column;align-items:flex-start;gap:16px}
+  .rank-num{width:auto;margin-bottom:8px}
+  .rank-right{width:100%;align-items:flex-start}
+  .rank-actions{width:100%;flex-direction:column}
+  .rank-btn{width:100%;text-align:center}
+}
 
 .comparison-guide{max-width:1200px;margin:80px auto 0;padding:0 24px}
 .comparison-guide h1{font-size:36px;font-weight:800;margin-bottom:20px;line-height:1.2}
@@ -111,7 +123,7 @@ footer .warning{color:#EF4444;margin-top:12px}
 <section class="rankings">
   <div class="rank-list">
     {aiGirlfriends.map((review, index) => (
-      <a href={`/blog/${review.slug}`} class="rank-card">
+      <div class="rank-card">
         <div class="rank-num">{index + 1}</div>
         <div class="rank-avatar"></div>
         <div class="rank-info">
@@ -139,11 +151,18 @@ footer .warning{color:#EF4444;margin-top:12px}
             {review.data.pricing.split('/')[0]}
             <small>{review.data.pricing.includes('/') ? '/' + review.data.pricing.split('/')[1] : ''}</small>
           </div>
-          <span class="rank-cta">
-            View Details
-          </span>
+          <div class="rank-actions">
+            {review.data.app_url && (
+              <a href={review.data.app_url} target="_blank" rel="noopener noreferrer" class="rank-btn rank-btn-primary">
+                Visit Website
+              </a>
+            )}
+            <a href={`/blog/${review.slug}`} class="rank-btn rank-btn-secondary">
+              Read Review
+            </a>
+          </div>
         </div>
-      </a>
+      </div>
     ))}
   </div>
 </section>
