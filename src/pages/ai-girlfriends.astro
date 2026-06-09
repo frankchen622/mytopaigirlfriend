@@ -1,16 +1,8 @@
 ---
 import { getCollection } from 'astro:content';
-import { marked } from 'marked';
-import fs from 'fs';
-import path from 'path';
 
 const allReviews = await getCollection('en');
 const aiGirlfriends = allReviews.filter(r => r.data.type === 'ai_girlfriend');
-
-// Load comparison guide
-const comparisonPath = path.join(process.cwd(), 'comparison-guide.md');
-const comparisonContent = fs.readFileSync(comparisonPath, 'utf-8');
-const comparisonHTML = marked(comparisonContent);
 ---
 
 <!DOCTYPE html>
@@ -166,10 +158,6 @@ footer .warning{color:#EF4444;margin-top:12px}
     ))}
   </div>
 </section>
-
-<article class="comparison-guide">
-  <Fragment set:html={comparisonHTML} />
-</article>
 
 <footer>
   <div style="max-width:1200px;margin:0 auto;padding:0 24px">
