@@ -6,6 +6,7 @@ category: "Mobile AI Chat"
 has_nsfw: true
 has_free: true
 pricing: "$13.99-34.99/month"
+rating: 4.3
 app_url: "https://chai.ml"
 generated_at: "2026-06-08T07:25:00.000Z"
 ---

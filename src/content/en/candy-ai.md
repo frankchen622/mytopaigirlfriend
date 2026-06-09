@@ -6,6 +6,7 @@ category: "AI Companion"
 has_nsfw: true
 has_free: false
 pricing: "$19.99/month"
+rating: 4.4
 app_url: "https://candy.ai"
 generated_at: "2026-06-08T05:47:00.000Z"
 ---

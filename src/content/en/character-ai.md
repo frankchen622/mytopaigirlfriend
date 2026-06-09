@@ -6,6 +6,7 @@ category: "AI Chat"
 has_nsfw: false
 has_free: true
 pricing: "$9.99/month"
+rating: 4.2
 app_url: "https://character.ai"
 generated_at: "2026-06-08T03:41:00.000Z"
 ---

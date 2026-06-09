@@ -6,6 +6,7 @@ category: "Romantic AI Companion"
 has_nsfw: true
 has_free: true
 pricing: "$8.99-39.99/month"
+rating: 4.5
 app_url: "https://animaapp.ai"
 generated_at: "2026-06-08T07:26:00.000Z"
 ---

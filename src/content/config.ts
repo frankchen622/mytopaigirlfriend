@@ -10,6 +10,7 @@ const enCollection = defineCollection({
     has_nsfw: z.boolean(),
     has_free: z.boolean(),
     pricing: z.string(),
+    rating: z.number().optional(),
     app_url: z.string().optional(),
     generated_at: z.string(),
   }),

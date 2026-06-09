@@ -6,6 +6,7 @@ category: "Romantic Companion"
 has_nsfw: true
 has_free: true
 pricing: "$9.99-49.99/month"
+rating: 3.7
 app_url: "https://romanticai.com"
 generated_at: "2026-06-08T07:27:00.000Z"
 ---

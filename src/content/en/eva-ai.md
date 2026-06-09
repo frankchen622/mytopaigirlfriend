@@ -6,6 +6,7 @@ category: "Voice AI Companion"
 has_nsfw: false
 has_free: true
 pricing: "$6.99-19.99/month"
+rating: 3.9
 app_url: "https://eva-ai.com"
 generated_at: "2026-06-08T07:28:00.000Z"
 ---

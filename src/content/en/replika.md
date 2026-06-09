@@ -6,6 +6,7 @@ category: "AI Companion"
 has_nsfw: false
 has_free: true
 pricing: "$19.99/month"
+rating: 4.1
 app_url: "https://apps.apple.com/us/app/replika-my-ai-friend/id1158555867"
 generated_at: "2026-06-08T03:40:00.000Z"
 ---

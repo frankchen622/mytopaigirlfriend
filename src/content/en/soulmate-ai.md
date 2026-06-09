@@ -6,6 +6,7 @@ category: "Personalized AI Companion"
 has_nsfw: true
 has_free: true
 pricing: "$14.99-29.99/month"
+rating: 3.6
 app_url: "https://soulmateai.app"
 generated_at: "2026-06-08T07:29:00.000Z"
 ---

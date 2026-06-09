@@ -6,6 +6,7 @@ category: "AI Companion"
 has_nsfw: true
 has_free: false
 pricing: "$24.99/month"
+rating: 3.8
 app_url: "https://dreamgf.ai"
 generated_at: "2026-06-08T05:48:00.000Z"
 ---

@@ -6,6 +6,7 @@ category: "AI Companion"
 has_nsfw: true
 has_free: true
 pricing: "$14.99/month"
+rating: 4.0
 app_url: "https://crushon.ai"
 generated_at: "2026-06-08T03:42:00.000Z"
 ---
