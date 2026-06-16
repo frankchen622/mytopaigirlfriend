@@ -79,6 +79,17 @@ const AI_GIRLFRIEND_APPS = [
     pricing: '$18.99-34.99/month'
   },
   {
+    name: 'Kupid.AI',
+    slug: 'kupid-ai',
+    category: 'AI Companion',
+    type: 'ai_girlfriend',
+    app_store_url: 'https://clickandconnectltd.com/?a=296630&c=405181&co=361152&mt=5',
+    description: 'AI-powered matchmaking for virtual girlfriends',
+    has_nsfw: true,
+    has_free: true,
+    pricing: '$15.99-27.99/month'
+  },
+  {
     name: 'SwipeyAI',
     slug: 'swipeyai',
     category: 'AI Companion',
