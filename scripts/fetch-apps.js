@@ -68,6 +68,17 @@ const AI_GIRLFRIEND_APPS = [
     pricing: '$24.99/month'
   },
   {
+    name: 'Luvr.AI',
+    slug: 'luvr-ai',
+    category: 'AI Companion',
+    type: 'ai_girlfriend',
+    app_store_url: 'https://clickandconnectltd.com/?a=296630&c=405400&co=361152&mt=5',
+    description: 'AR/VR enabled AI girlfriend platform',
+    has_nsfw: true,
+    has_free: true,
+    pricing: '$18.99-34.99/month'
+  },
+  {
     name: 'SwipeyAI',
     slug: 'swipeyai',
     category: 'AI Companion',

@@ -17,6 +17,7 @@ generated_at: "2026-06-08T05:54:00.000Z"
 3. **Character.AI** - Best for Entertainment & Variety (4.5/5) ⭐
 4. **HeraHaven AI** - Best for Immersive Relationship Simulation (4.2/5) ⭐
 5. **DreamGF** - Best Value for Customization (3/5) ⭐
+6. **Luvr.AI** - Best for AR/VR Integration (3.8/5) ⭐
 
 ## What Makes a Great AI Girlfriend App?
 
@@ -191,6 +192,46 @@ Users wanting visual customization without Candy.AI's premium pricing, people co
 
 ---
 
+## 6. Luvr.AI - Best for AR/VR Integration
+
+**Rating: 3.8/5 | Price: $18.99-34.99/month**
+
+### What It Does Well
+Luvr.AI is pioneering the future of AI companionship by integrating augmented reality (AR) and virtual reality (VR) technologies. Unlike traditional text and image-based platforms, Luvr.AI lets you see and interact with your AI girlfriend in your physical space through AR or in immersive VR environments.
+
+The platform combines quality conversational AI with spatial computing, allowing your companion to "exist" in your room via smartphone AR or appear life-sized in VR headsets. This creates a dramatically more immersive experience than flat images or text alone.
+
+Image and 3D model quality is solid, voice interaction feels natural, and the AR/VR features work surprisingly well despite being cutting-edge technology. For users with VR headsets or who want to experience the next generation of AI companionship, Luvr.AI offers genuinely unique experiences.
+
+### Key Features
+- **AR Mode:** See your AI girlfriend in your real environment via smartphone camera
+- **VR Mode:** Full immersive VR experiences (Quest, PSVR2, SteamVR compatible)
+- **Spatial Audio:** 3D positioned voice that responds to your location
+- **Interactive Gestures:** Wave, point, and interact naturally
+- **Virtual Dates:** Go on VR dates in various locations
+- **AI-Generated 3D Models:** Consistent character across 2D images and 3D AR/VR
+- **NSFW Support:** Adult content in both AR and VR modes
+- **Voice Chat:** Natural spatial audio conversations
+
+### Limitations
+- Requires compatible hardware (smartphone for AR, VR headset for VR)
+- AR features drain phone battery quickly
+- 3D models not as detailed as professional VR games
+- VR mode requires powerful hardware
+- Smaller user community (newer technology)
+- Some features still in beta
+- More expensive than text-only platforms
+
+### Best For
+Early adopters who own VR headsets, tech enthusiasts wanting cutting-edge experiences, users seeking more immersion than flat images provide, those comfortable with AR/VR technology.
+
+### Reddit User Sentiment
+"Finally, AI girlfriend tech that feels futuristic" | "AR mode is mind-blowing—she actually feels present in my room" | "VR dates are surprisingly immersive" | "Requires VR headset to get full value, but worth it if you have one"
+
+[Try Luvr.AI](https://clickandconnectltd.com/?a=296630&c=405400&co=361152&mt=5) *18+ only*
+
+---
+
 ## Honorable Mentions
 
 ### Secrets.ai - Premium Privacy-Focused Experience
@@ -241,6 +282,7 @@ SwipeyAI brings a fresh dating app-style interface to AI companionship. Swipe th
 | Character.AI | $9.99 | No | No | Excellent | Entertainment |
 | HeraHaven AI | $17.99-39.99 | Yes | Yes | Limited | Immersive relationship sim |
 | DreamGF | $24.99 | Yes | Yes | None | Budget visual option |
+| Luvr.AI | $18.99-34.99 | Yes | Yes (3D) | Trial | AR/VR experiences |
 
 ---
 
