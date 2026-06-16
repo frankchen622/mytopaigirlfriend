@@ -90,6 +90,17 @@ const AI_GIRLFRIEND_APPS = [
     pricing: '$15.99-27.99/month'
   },
   {
+    name: 'Infatuated.ai',
+    slug: 'infatuated-ai',
+    category: 'AI Companion',
+    type: 'ai_girlfriend',
+    app_store_url: 'https://clickandconnectltd.com/?a=296630&c=419964&co=361152&mt=5',
+    description: 'Anime-style 2D AI girlfriend platform',
+    has_nsfw: true,
+    has_free: true,
+    pricing: '$14.99-24.99/month'
+  },
+  {
     name: 'SwipeyAI',
     slug: 'swipeyai',
     category: 'AI Companion',

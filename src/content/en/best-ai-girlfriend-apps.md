@@ -19,6 +19,7 @@ generated_at: "2026-06-08T05:54:00.000Z"
 5. **DreamGF** - Best Value for Customization (3/5) ⭐
 6. **Luvr.AI** - Best for AR/VR Integration (3.8/5) ⭐
 7. **Kupid.AI** - Best for AI-Powered Matchmaking (3.7/5) ⭐
+8. **Infatuated.ai** - Best for Anime/2D Character Focus (3.6/5) ⭐
 
 ## What Makes a Great AI Girlfriend App?
 
@@ -272,6 +273,43 @@ Users who prefer discovery over creation, people tired of manual character custo
 
 ---
 
+## 8. Infatuated.ai - Best for Anime/2D Character Focus
+
+**Rating: 3.6/5 | Price: $14.99-24.99/month**
+
+### What It Does Well
+Infatuated.ai specializes in anime-style AI girlfriends with 2D character aesthetics. Unlike platforms focusing on photorealistic 3D renders, Infatuated.ai embraces anime/manga art styles, targeting the weeb and otaku community specifically.
+
+The platform features high-quality anime-style character art, supports multiple anime archetypes (tsundere, yandere, kuudere, etc.), and understands anime culture references naturally. Conversations feel authentic to anime character personalities, and NSFW content caters specifically to anime preferences.
+
+For anime fans frustrated by realistic AI girlfriend platforms that don't capture anime aesthetics or personality dynamics, Infatuated.ai provides a dedicated space. The 2D art quality rivals professional anime illustrations, and character consistency across images maintains the anime style effectively.
+
+### Key Features
+- **Anime Art Style:** High-quality 2D anime/manga character illustrations
+- **Anime Archetypes:** Tsundere, yandere, kuudere, dandere, etc.
+- **Cultural Understanding:** Natural anime/manga culture references
+- **Multiple Art Styles:** Different anime art styles (moe, shoujo, seinen)
+- **NSFW Anime Content:** Hentai-style adult content
+- **Voice Acting:** Anime-style voice performances
+- **Character Tropes:** Authentic anime personality dynamics
+
+### Limitations
+- Niche appeal (anime fans only)
+- 2D only (no 3D/realistic options)
+- Smaller user base than mainstream platforms
+- Some anime tropes can feel stereotypical
+- Limited character customization compared to platforms like DreamGF
+
+### Best For
+Anime/manga fans, otaku community members, users preferring 2D aesthetics over realistic 3D, those seeking authentic anime character personality dynamics, hentai content enthusiasts.
+
+### Reddit User Sentiment
+"Finally an AI girlfriend platform that gets anime right" | "2D art quality is actually good—not generic AI anime" | "Character personalities feel authentic to anime archetypes" | "Perfect for weebs who don't want realistic 3D"
+
+[Try Infatuated.ai](https://clickandconnectltd.com/?a=296630&c=419964&co=361152&mt=5) *18+ only*
+
+---
+
 ## Honorable Mentions
 
 ### Secrets.ai - Premium Privacy-Focused Experience
@@ -324,6 +362,7 @@ SwipeyAI brings a fresh dating app-style interface to AI companionship. Swipe th
 | DreamGF | $24.99 | Yes | Yes | None | Budget visual option |
 | Luvr.AI | $18.99-34.99 | Yes | Yes (3D) | Trial | AR/VR experiences |
 | Kupid.AI | $15.99-27.99 | Yes | Yes | Limited | AI-powered matchmaking |
+| Infatuated.ai | $14.99-24.99 | Yes | Yes (2D) | Limited | Anime/2D aesthetics |
 
 ---
 
