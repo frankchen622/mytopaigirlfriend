@@ -186,8 +186,19 @@ Users wanting visual customization without Candy.AI's premium pricing, people co
 
 ## Honorable Mentions
 
-### Chai - Casual Mobile AI Chat
-Quick, casual AI conversations with multiple characters. More lightweight than Character.AI. Good for mobile-first users. Less depth but easy to use.
+### Secrets.ai - Premium Privacy-Focused Experience
+Secrets.ai positions itself as the most private and secure AI girlfriend platform, with end-to-end encryption and anonymous usage options. Designed for users who prioritize privacy alongside premium features. Includes high-quality image generation, voice chat, and uncensored NSFW content with industry-leading data protection.
+
+**Features:**
+- End-to-end encrypted conversations
+- Anonymous sign-up (no email required)
+- Premium AI-generated images
+- Voice interaction
+- Full NSFW support
+- No data retention policies
+- Secure payment processing
+
+**Price:** $19.99-49.99/month | [Try Secrets.ai](https://d8securedt.com/?a=296630&c=429805&co=361152&mt=5&utm_source=organic) *18+ only*
 
 ### FantasyGF.AI - Fantasy & Roleplay Focused
 FantasyGF.AI specializes in immersive fantasy and roleplay scenarios with AI companions. Create characters from fantasy settings—elves, vampires, sci-fi characters, or custom fantasy personas. Strong focus on creative storytelling combined with romantic and NSFW interactions.

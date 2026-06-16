@@ -88,6 +88,17 @@ const AI_GIRLFRIEND_APPS = [
     has_nsfw: true,
     has_free: true,
     pricing: '$16.99-34.99/month'
+  },
+  {
+    name: 'Secrets.ai',
+    slug: 'secrets-ai',
+    category: 'AI Companion',
+    type: 'ai_girlfriend',
+    app_store_url: 'https://d8securedt.com/?a=296630&c=429805&co=361152&mt=5&utm_source=organic',
+    description: 'Privacy-focused premium AI girlfriend',
+    has_nsfw: true,
+    has_free: false,
+    pricing: '$19.99-49.99/month'
   }
 ]
 
