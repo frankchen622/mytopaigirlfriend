@@ -299,7 +299,7 @@ Unlike mainstream platforms like Replika (which removed NSFW features) or Charac
 ## Alternatives to Sugarlab AI
 
 ### If you want better image quality:
-👉 **[Candy.AI](/blog/candy-ai)** - Industry-leading AI girlfriend images ($19.99/mo)
+👉 **[Candy.AI](/blog/candy-ai)** - #1 Ranked AI Girlfriend Platform - Industry-leading images + conversations ([visit site](https://clickandconnectltd.com/CvCXFyCnzC)) - $19.99-99.99/mo
 
 ### If you want 100% free unlimited chat:
 👉 **[Character.AI](/blog/character-ai)** - Free forever but no NSFW ($0)
