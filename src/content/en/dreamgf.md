@@ -7,7 +7,7 @@ has_nsfw: true
 has_free: false
 pricing: "$24.99/month"
 rating: 3.8
-app_url: "https://dreamgf.ai"
+app_url: "https://clickandconnectltd.com/CL50GCuI8C"
 generated_at: "2026-06-08T05:48:00.000Z"
 ---
 
@@ -173,4 +173,4 @@ Privacy and ethical considerations loom larger here than with general AI assista
 
 **Recommendation:** Only subscribe if you're specifically interested in the visual customization aspect and comfortable with the premise. Don't expect groundbreaking AI conversations. Start with Silver tier ($14.99) to see if the service meets your needs before committing to Gold. And seriously consider the privacy implications given the nature of the content.
 
-[Visit DreamGF](https://dreamgf.ai) (18+ only)
+[Visit DreamGF](https://clickandconnectltd.com/CL50GCuI8C) (18+ only)

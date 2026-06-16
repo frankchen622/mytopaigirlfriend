@@ -61,7 +61,7 @@ const AI_GIRLFRIEND_APPS = [
     slug: 'dreamgf',
     category: 'AI Companion',
     type: 'ai_girlfriend',
-    app_store_url: 'https://dreamgf.ai',
+    app_store_url: 'https://clickandconnectltd.com/CL50GCuI8C',
     description: 'Create your dream AI girlfriend',
     has_nsfw: true,
     has_free: false,

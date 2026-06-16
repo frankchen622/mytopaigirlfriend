@@ -180,7 +180,7 @@ Users wanting visual customization without Candy.AI's premium pricing, people co
 ### Reddit User Sentiment
 "Decent middle option between free and premium" | "Credit system feels like a scam" | "Images sometimes ignore my specifications" | "If you can afford it, just get Candy.AI instead"
 
-[Visit DreamGF](https://dreamgf.ai) *18+ only*
+[Visit DreamGF](https://clickandconnectltd.com/CL50GCuI8C) *18+ only*
 
 ---
 
