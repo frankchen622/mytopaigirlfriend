@@ -50,7 +50,7 @@ const AI_GIRLFRIEND_APPS = [
     slug: 'candy-ai',
     category: 'AI Companion',
     type: 'ai_girlfriend',
-    app_store_url: 'https://candy.ai',
+    app_store_url: 'https://clickandconnectltd.com/CvCXFyCnzC',
     description: 'AI girlfriend with image generation',
     has_nsfw: true,
     has_free: false,

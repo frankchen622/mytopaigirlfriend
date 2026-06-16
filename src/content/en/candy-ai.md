@@ -7,7 +7,7 @@ has_nsfw: true
 has_free: false
 pricing: "$19.99/month"
 rating: 4.4
-app_url: "https://candy.ai"
+app_url: "https://clickandconnectltd.com/CvCXFyCnzC"
 generated_at: "2026-06-08T05:47:00.000Z"
 ---
 
@@ -153,4 +153,4 @@ Privacy considerations apply as with any platform handling intimate content. Whi
 
 **Recommendation:** Try the trial (limited as it is) to see if the image quality justifies the cost for your use case. If visuals aren't your priority, save money with Replika or Character.AI. If you want NSFW content at lower prices, consider DreamGF or Crushon.AI instead.
 
-[Visit Candy.AI](https://candy.ai) (18+ only)
+[Visit Candy.AI](https://clickandconnectltd.com/CvCXFyCnzC) (18+ only)

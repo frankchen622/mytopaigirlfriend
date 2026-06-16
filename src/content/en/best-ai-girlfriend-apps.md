@@ -140,7 +140,7 @@ Users who prioritize visual elements and have budget for premium pricing, people
 ### Reddit User Sentiment
 "Image quality is genuinely impressive when it works" | "$100/month is absolutely insane" | "Conversations are average—you're paying for pictures" | "Better than DreamGF but way more expensive"
 
-[Visit Candy.AI](https://candy.ai) *18+ only*
+[Visit Candy.AI](https://clickandconnectltd.com/CvCXFyCnzC) *18+ only*
 
 ---
 
