@@ -77,6 +77,17 @@ const AI_GIRLFRIEND_APPS = [
     has_nsfw: true,
     has_free: true,
     pricing: '$14.99-29.99/month'
+  },
+  {
+    name: 'FantasyGF.AI',
+    slug: 'fantasygf-ai',
+    category: 'AI Companion',
+    type: 'ai_girlfriend',
+    app_store_url: 'https://clickandconnectltd.com/?a=296630&c=405407&co=361152&mt=5',
+    description: 'Fantasy & roleplay focused AI girlfriend',
+    has_nsfw: true,
+    has_free: true,
+    pricing: '$16.99-34.99/month'
   }
 ]
 

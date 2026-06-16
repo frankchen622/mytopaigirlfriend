@@ -189,8 +189,17 @@ Users wanting visual customization without Candy.AI's premium pricing, people co
 ### Chai - Casual Mobile AI Chat
 Quick, casual AI conversations with multiple characters. More lightweight than Character.AI. Good for mobile-first users. Less depth but easy to use.
 
-### Pi - Conversational AI Assistant
-Not explicitly an AI girlfriend app but provides supportive, friendly conversation. Created by Inflection AI. High-quality dialogue but less romantic/roleplay focus.
+### FantasyGF.AI - Fantasy & Roleplay Focused
+FantasyGF.AI specializes in immersive fantasy and roleplay scenarios with AI companions. Create characters from fantasy settings—elves, vampires, sci-fi characters, or custom fantasy personas. Strong focus on creative storytelling combined with romantic and NSFW interactions.
+
+**Features:**
+- Fantasy character creation (elves, demons, aliens, etc.)
+- Deep roleplay scenarios and world-building
+- AI-generated fantasy artwork
+- Story-driven progression
+- NSFW fantasy content
+
+**Price:** $16.99-34.99/month | [Try FantasyGF.AI](https://clickandconnectltd.com/?a=296630&c=405407&co=361152&mt=5) *18+ only*
 
 ### SwipeyAI - Modern Dating Sim Experience
 SwipeyAI brings a fresh dating app-style interface to AI companionship. Swipe through AI-generated characters, match with your favorites, and build relationships through chat and image generation. Perfect for users who prefer a more casual, Tinder-like approach to AI girlfriends.
