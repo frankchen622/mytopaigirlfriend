@@ -192,8 +192,16 @@ Quick, casual AI conversations with multiple characters. More lightweight than C
 ### Pi - Conversational AI Assistant
 Not explicitly an AI girlfriend app but provides supportive, friendly conversation. Created by Inflection AI. High-quality dialogue but less romantic/roleplay focus.
 
-### Kuki (formerly Mitsuku) - Award-Winning Chatbot
-One of the oldest AI chatbots. Conversational and fun but not designed specifically as an AI companion. More novelty than serious relationship simulation.
+### SwipeyAI - Modern Dating Sim Experience
+SwipeyAI brings a fresh dating app-style interface to AI companionship. Swipe through AI-generated characters, match with your favorites, and build relationships through chat and image generation. Perfect for users who prefer a more casual, Tinder-like approach to AI girlfriends.
+
+**Features:**
+- Swipe-based character discovery
+- AI-generated profile pictures
+- Progressive relationship unlocking
+- NSFW content available
+
+**Price:** $14.99-29.99/month | [Try SwipeyAI](https://clickandconnectltd.com/C0AOPSdxlC) *18+ only*
 
 ---
 

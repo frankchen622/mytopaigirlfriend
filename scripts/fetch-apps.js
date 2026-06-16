@@ -66,6 +66,17 @@ const AI_GIRLFRIEND_APPS = [
     has_nsfw: true,
     has_free: false,
     pricing: '$24.99/month'
+  },
+  {
+    name: 'SwipeyAI',
+    slug: 'swipeyai',
+    category: 'AI Companion',
+    type: 'ai_girlfriend',
+    app_store_url: 'https://clickandconnectltd.com/C0AOPSdxlC',
+    description: 'Tinder-style AI girlfriend with swipe discovery',
+    has_nsfw: true,
+    has_free: true,
+    pricing: '$14.99-29.99/month'
   }
 ]
 
