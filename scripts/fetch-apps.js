@@ -35,15 +35,15 @@ const AI_GIRLFRIEND_APPS = [
     pricing: '$9.99/month'
   },
   {
-    name: 'Crushon.AI',
-    slug: 'crushon-ai',
+    name: 'HeraHaven AI',
+    slug: 'herahaven-ai',
     category: 'AI Companion',
     type: 'ai_girlfriend',
-    app_store_url: 'https://crushon.ai',
-    description: 'NSFW AI chat companion',
+    app_store_url: 'https://clickandconnectltd.com/?a=296630&c=405161&co=361152&mt=5',
+    description: 'Immersive life simulation AI girlfriend',
     has_nsfw: true,
     has_free: true,
-    pricing: '$14.99/month'
+    pricing: '$17.99-39.99/month'
   },
   {
     name: 'Candy.AI',
