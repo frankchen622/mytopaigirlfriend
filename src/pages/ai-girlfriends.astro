@@ -4,6 +4,26 @@ import ComparisonGuide from '../components/ComparisonGuide.astro';
 
 const allReviews = await getCollection('en');
 const aiGirlfriends = allReviews.filter(r => r.data.type === 'ai_girlfriend');
+
+// Define Top 10 in specific order based on our rankings
+const top10Order = [
+  'candy-ai',
+  'replika',
+  'character-ai',
+  'herahaven-ai',
+  'dreamgf',
+  'luvr-ai',
+  'kupid-ai',
+  'infatuated-ai',
+  'swipeyai',
+  'fantasygf-ai'
+];
+
+// Sort aiGirlfriends according to top10Order and limit to 10
+const top10 = top10Order
+  .map(slug => aiGirlfriends.find(app => app.slug === slug))
+  .filter(Boolean)
+  .slice(0, 10);
 ---
 
 <!DOCTYPE html>
@@ -115,7 +135,7 @@ footer .warning{color:#EF4444;margin-top:12px}
 
 <section class="rankings">
   <div class="rank-list">
-    {aiGirlfriends.map((review, index) => (
+    {top10.map((review, index) => (
       <div class="rank-card">
         <div class="rank-num">{index + 1}</div>
         <div class="rank-avatar"></div>
