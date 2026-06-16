@@ -4,7 +4,6 @@ import { getCollection } from 'astro:content';
 const allReviews = await getCollection('en');
 const comparisons = allReviews.filter(r => r.data.type === 'comparison' || r.data.type === 'listicle');
 const aiGirlfriends = allReviews.filter(r => r.data.type === 'ai_girlfriend');
-const datingApps = allReviews.filter(r => r.data.type === 'dating');
 ---
 
 <!DOCTYPE html>
@@ -84,7 +83,7 @@ footer .warning{color:#EF4444;margin-top:12px}
   <div class="hero-inner">
     <h1>Blog & Reviews</h1>
     <p>
-      In-depth reviews, comparisons, and guides to help you navigate AI companions and dating apps
+      In-depth reviews, comparisons, and guides for AI girlfriend apps
     </p>
   </div>
 </section>
@@ -109,33 +108,15 @@ footer .warning{color:#EF4444;margin-top:12px}
   {aiGirlfriends.length > 0 && (
     <section class="section">
       <div class="section-header">
-        <h2 class="section-title">AI Girlfriend App Reviews</h2>
-        <a href="/ai-girlfriends" class="section-link">View All →</a>
+        <h2 class="section-title">All AI Girlfriend App Reviews</h2>
       </div>
       <div class="grid grid-3">
-        {aiGirlfriends.slice(0, 6).map((review) => (
+        {aiGirlfriends.map((review) => (
           <a href={`/blog/${review.slug}`} class="card">
             <h3 class="card-title">
               {review.data.app_name}
               {review.data.has_nsfw && <span class="card-badge">18+</span>}
             </h3>
-            <p class="card-desc">{review.data.category}</p>
-            <span class="card-meta">{review.data.pricing}</span>
-          </a>
-        ))}
-      </div>
-    </section>
-  )}
-
-  {datingApps.length > 0 && (
-    <section class="section">
-      <div class="section-header">
-        <h2 class="section-title">Dating App Reviews</h2>
-      </div>
-      <div class="grid grid-3">
-        {datingApps.map((review) => (
-          <a href={`/blog/${review.slug}`} class="card">
-            <h3 class="card-title">{review.data.app_name}</h3>
             <p class="card-desc">{review.data.category}</p>
             <span class="card-meta">{review.data.pricing}</span>
           </a>
