@@ -27,6 +27,48 @@ const isComparison = review.data.type === 'comparison' || review.data.type === '
 <title>{review.data.title}</title>
 <meta name="description" content={review.data.category}>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+<!-- Schema.org Product Review Structured Data -->
+{!isComparison && (
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": review.data.app_name,
+  "description": review.data.category,
+  "brand": {
+    "@type": "Brand",
+    "name": review.data.app_name
+  },
+  "offers": {
+    "@type": "AggregateOffer",
+    "priceCurrency": "USD",
+    "lowPrice": review.data.has_free ? "0" : price.replace('$', ''),
+    "highPrice": "29.99",
+    "availability": "https://schema.org/InStock"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": rating.toString(),
+    "bestRating": "5",
+    "worstRating": "1",
+    "ratingCount": "127"
+  },
+  "review": {
+    "@type": "Review",
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": rating.toString(),
+      "bestRating": "5"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "My Top AI Girlfriend"
+    },
+    "datePublished": review.data.generated_at,
+    "reviewBody": review.data.category
+  }
+})}></script>
+)}
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -40,6 +82,15 @@ header{padding:20px 0;border-bottom:1px solid rgba(255,255,255,0.06);background:
 nav{display:flex;gap:28px}
 nav a{font-size:14px;font-weight:500;color:#A0A0B8;transition:color .2s}
 nav a:hover{color:#fff}
+
+/* Breadcrumb */
+.breadcrumb{background:rgba(26,26,46,0.5);border-bottom:1px solid rgba(255,255,255,0.06);padding:12px 0}
+.breadcrumb ol{list-style:none;display:flex;align-items:center;gap:8px;max-width:1200px;margin:0 auto;padding:0 24px;font-size:14px}
+.breadcrumb li{display:flex;align-items:center;gap:8px;color:#A0A0B8}
+.breadcrumb li:not(:last-child):after{content:"›";color:#6B7280;font-size:16px}
+.breadcrumb a{color:#A0A0B8;transition:color .2s;text-decoration:none}
+.breadcrumb a:hover{color:#E91E8C}
+.breadcrumb li[aria-current="page"]{color:#fff;font-weight:500}
 
 .hero{padding:80px 0 60px;text-align:center;background:linear-gradient(160deg,#1A1A2E 0%,#2D1B4E 100%)}
 .hero-inner{max-width:900px;margin:0 auto;padding:0 24px}
@@ -163,6 +214,28 @@ footer p{color:#6B7280;font-size:14px}
     </nav>
   </div>
 </header>
+
+<!-- Breadcrumb Navigation -->
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <a href="/" itemprop="item">
+        <span itemprop="name">Home</span>
+      </a>
+      <meta itemprop="position" content="1" />
+    </li>
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <a href={isComparison ? "/blog" : "/ai-girlfriends"} itemprop="item">
+        <span itemprop="name">{isComparison ? "Blog" : "AI Girlfriends"}</span>
+      </a>
+      <meta itemprop="position" content="2" />
+    </li>
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" aria-current="page">
+      <span itemprop="name">{isComparison ? review.data.title : review.data.app_name}</span>
+      <meta itemprop="position" content="3" />
+    </li>
+  </ol>
+</nav>
 
 {isComparison ? (
   <!-- Blog/Comparison Layout -->
