@@ -1,0 +1,569 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Submit App for Review - MyTopAIGirlfriend" description="Submit your AI girlfriend app for review. Get featured on our Top 10 rankings.">
+  <style>
+    .submit-hero {
+      background: linear-gradient(160deg, #1A1A2E 0%, #2D1B4E 100%);
+      padding: 80px 24px 60px;
+      text-align: center;
+    }
+    .submit-hero h1 {
+      font-size: 48px;
+      font-weight: 800;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+    .submit-hero .gradient {
+      background: linear-gradient(135deg, #E91E8C, #9B51E0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .submit-hero p {
+      font-size: 18px;
+      color: #A0A0B8;
+      max-width: 700px;
+      margin: 0 auto 32px;
+    }
+    .submit-hero .stats {
+      display: flex;
+      gap: 40px;
+      justify-content: center;
+      flex-wrap: wrap;
+      font-size: 14px;
+      color: #A0A0B8;
+    }
+    .submit-hero .stats span {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .submit-hero .stats span::before {
+      content: "✓";
+      color: #10B981;
+      font-weight: 700;
+      font-size: 18px;
+    }
+    .submit-content {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 60px 24px;
+    }
+    .submit-form-card {
+      background: #1A1A2E;
+      border-radius: 24px;
+      padding: 48px;
+      margin-bottom: 48px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .submit-form-card h2 {
+      font-size: 32px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+    .submit-form-card > p {
+      font-size: 16px;
+      color: #A0A0B8;
+      margin-bottom: 32px;
+      line-height: 1.7;
+    }
+    .form-section {
+      margin-bottom: 32px;
+    }
+    .form-section h3 {
+      font-size: 20px;
+      font-weight: 600;
+      color: #E91E8C;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .form-section h3 .number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #E91E8C, #9B51E0);
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+    }
+    .form-field {
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .form-field label {
+      font-size: 14px;
+      font-weight: 600;
+      color: #D1D5DB;
+      display: block;
+      margin-bottom: 8px;
+    }
+    .form-field .required {
+      color: #EF4444;
+      margin-left: 4px;
+    }
+    .form-field .example {
+      font-size: 13px;
+      color: #6B7280;
+      font-style: italic;
+      display: block;
+      margin-top: 6px;
+    }
+    .form-field ul {
+      list-style: none;
+      padding: 0;
+      margin: 8px 0 0 0;
+    }
+    .form-field li {
+      font-size: 14px;
+      color: #A0A0B8;
+      padding: 6px 0;
+      padding-left: 24px;
+      position: relative;
+    }
+    .form-field li::before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: #9B51E0;
+      font-weight: 700;
+    }
+    .email-template {
+      background: #0D0D1A;
+      border-radius: 12px;
+      padding: 24px;
+      border: 1px solid rgba(155, 81, 224, 0.3);
+      font-family: monospace;
+      font-size: 14px;
+      line-height: 1.8;
+      color: #D1D5DB;
+      margin-top: 16px;
+      overflow-x: auto;
+    }
+    .email-template .label {
+      color: #E91E8C;
+      font-weight: 700;
+    }
+    .email-template .value {
+      color: #A0A0B8;
+    }
+    .cta-section {
+      background: linear-gradient(135deg, rgba(233, 30, 140, 0.1), rgba(155, 81, 224, 0.1));
+      border-radius: 24px;
+      padding: 48px;
+      text-align: center;
+      border: 2px solid rgba(155, 81, 224, 0.3);
+      margin-bottom: 48px;
+    }
+    .cta-section h2 {
+      font-size: 32px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+    .cta-section p {
+      font-size: 16px;
+      color: #A0A0B8;
+      margin-bottom: 32px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .email-button {
+      display: inline-block;
+      padding: 18px 48px;
+      background: linear-gradient(135deg, #E91E8C, #9B51E0);
+      border-radius: 50px;
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 24px rgba(233, 30, 140, 0.4);
+    }
+    .email-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(233, 30, 140, 0.6);
+    }
+    .process-section {
+      background: #1A1A2E;
+      border-radius: 24px;
+      padding: 48px;
+      margin-bottom: 48px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .process-section h2 {
+      font-size: 32px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 32px;
+      text-align: center;
+    }
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
+    }
+    .process-step {
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 16px;
+      padding: 28px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      text-align: center;
+      transition: border-color 0.2s;
+    }
+    .process-step:hover {
+      border-color: rgba(155, 81, 224, 0.3);
+    }
+    .process-step .icon {
+      font-size: 48px;
+      margin-bottom: 16px;
+    }
+    .process-step h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+    .process-step p {
+      font-size: 14px;
+      color: #A0A0B8;
+      line-height: 1.6;
+    }
+    .process-step .time {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 6px 12px;
+      background: rgba(233, 30, 140, 0.1);
+      border-radius: 20px;
+      font-size: 12px;
+      color: #E91E8C;
+      font-weight: 600;
+    }
+    .faq-section {
+      background: #1A1A2E;
+      border-radius: 24px;
+      padding: 48px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .faq-section h2 {
+      font-size: 32px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 32px;
+      text-align: center;
+    }
+    .faq-item {
+      padding: 24px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+    .faq-item h4 {
+      font-size: 18px;
+      font-weight: 600;
+      color: #E91E8C;
+      margin-bottom: 12px;
+    }
+    .faq-item p {
+      font-size: 15px;
+      color: #D1D5DB;
+      line-height: 1.7;
+    }
+    .faq-item strong {
+      color: #fff;
+    }
+  </style>
+
+  <!-- Breadcrumb Navigation -->
+  <nav class="breadcrumb" aria-label="Breadcrumb" style="background:rgba(26,26,46,0.5);border-bottom:1px solid rgba(255,255,255,0.06);padding:12px 0">
+    <ol itemscope itemtype="https://schema.org/BreadcrumbList" style="list-style:none;display:flex;align-items:center;gap:8px;max-width:1200px;margin:0 auto;padding:0 24px;font-size:14px">
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" style="display:flex;align-items:center;gap:8px;color:#A0A0B8">
+        <a href="/" itemprop="item" style="color:#A0A0B8;transition:color .2s;text-decoration:none">
+          <span itemprop="name">Home</span>
+        </a>
+        <meta itemprop="position" content="1" />
+        <span style="color:#6B7280;font-size:16px">›</span>
+      </li>
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" aria-current="page" style="display:flex;align-items:center;gap:8px;color:#fff;font-weight:500">
+        <span itemprop="name">Submit for Review</span>
+        <meta itemprop="position" content="2" />
+      </li>
+    </ol>
+  </nav>
+
+  <div class="submit-hero">
+    <h1>Submit Your App <span class="gradient">for Review</span></h1>
+    <p>
+      Get your AI girlfriend app featured on our Top 10 rankings. Reach thousands of potential users with an honest, in-depth review.
+    </p>
+    <div class="stats">
+      <span>Free submission</span>
+      <span>10K+ monthly visitors</span>
+      <span>Honest & unbiased</span>
+      <span>2-4 week turnaround</span>
+    </div>
+  </div>
+
+  <div class="submit-content">
+    <div class="submit-form-card">
+      <h2>📝 Submission Guidelines</h2>
+      <p>
+        To ensure we can provide the best review possible, please include the following information when you email us. The more details you provide, the faster we can get started.
+      </p>
+
+      <div class="form-section">
+        <h3><span class="number">1</span> Basic Information</h3>
+        <div class="form-field">
+          <label>App Name <span class="required">*</span></label>
+          <span class="example">Example: Replika, Character.AI, Candy.AI</span>
+        </div>
+        <div class="form-field">
+          <label>Website URL <span class="required">*</span></label>
+          <span class="example">Example: https://yourapp.com</span>
+        </div>
+        <div class="form-field">
+          <label>Platform(s) <span class="required">*</span></label>
+          <ul>
+            <li>iOS App Store</li>
+            <li>Google Play Store</li>
+            <li>Web App</li>
+            <li>Desktop (Windows/Mac)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <h3><span class="number">2</span> App Details</h3>
+        <div class="form-field">
+          <label>Category</label>
+          <ul>
+            <li>AI Companion / Virtual Girlfriend</li>
+            <li>Chatbot / AI Assistant</li>
+            <li>Dating Simulation</li>
+            <li>Roleplay / NSFW</li>
+          </ul>
+        </div>
+        <div class="form-field">
+          <label>Key Features</label>
+          <span class="example">What makes your app unique? Voice chat? Image generation? Advanced memory? Custom personalities?</span>
+        </div>
+        <div class="form-field">
+          <label>Target Audience</label>
+          <span class="example">Who is this app for? Emotional support? Entertainment? NSFW content? All audiences?</span>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <h3><span class="number">3</span> Pricing Information</h3>
+        <div class="form-field">
+          <label>Free Tier <span class="required">*</span></label>
+          <span class="example">Is there a free version? What features are included?</span>
+        </div>
+        <div class="form-field">
+          <label>Premium Pricing</label>
+          <span class="example">Monthly/annual pricing, what's included in premium tiers?</span>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <h3><span class="number">4</span> Review Access</h3>
+        <div class="form-field">
+          <label>Demo/Trial Access <span class="required">*</span></label>
+          <ul>
+            <li>Promo code for premium features</li>
+            <li>Extended trial period</li>
+            <li>Test account credentials</li>
+          </ul>
+          <span class="example">To review all features, we need full access. Please provide demo credentials or a promo code.</span>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <h3><span class="number">5</span> Contact Information</h3>
+        <div class="form-field">
+          <label>Your Name/Company <span class="required">*</span></label>
+        </div>
+        <div class="form-field">
+          <label>Email Address <span class="required">*</span></label>
+          <span class="example">We'll use this to follow up with questions or share the review before publishing.</span>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <h3><span class="number">6</span> Additional Information (Optional)</h3>
+        <div class="form-field">
+          <label>Press Kit / Media Assets</label>
+          <span class="example">Logo, screenshots, promotional images (link to Google Drive, Dropbox, etc.)</span>
+        </div>
+        <div class="form-field">
+          <label>User Testimonials / Reviews</label>
+          <span class="example">Links to Reddit threads, app store reviews, or user feedback</span>
+        </div>
+        <div class="form-field">
+          <label>Affiliate Program</label>
+          <span class="example">Do you have an affiliate/referral program? (We may include affiliate links in the review)</span>
+        </div>
+      </div>
+
+      <div class="email-template">
+        <p><span class="label">Subject:</span> <span class="value">App Review Submission: [Your App Name]</span></p>
+        <br>
+        <p><span class="label">To:</span> <span class="value">support@mytopaigirlfriend.com</span></p>
+        <br>
+        <p><span class="label">Body:</span></p>
+        <p><span class="value">
+Hi,<br><br>
+I'd like to submit [App Name] for review on MyTopAIGirlfriend.com.<br><br>
+<strong>Basic Information:</strong><br>
+• App Name: [Your App]<br>
+• Website: [URL]<br>
+• Platform: iOS / Android / Web<br><br>
+<strong>Key Features:</strong><br>
+• [Feature 1]<br>
+• [Feature 2]<br>
+• [Feature 3]<br><br>
+<strong>Pricing:</strong><br>
+• Free Tier: [Yes/No + details]<br>
+• Premium: [Price + features]<br><br>
+<strong>Review Access:</strong><br>
+• Promo Code: [CODE] or Trial Access: [Details]<br><br>
+<strong>Contact:</strong><br>
+• Name: [Your Name]<br>
+• Email: [Your Email]<br><br>
+[Optional: Links to press kit, testimonials, etc.]<br><br>
+Thank you!
+        </span></p>
+      </div>
+    </div>
+
+    <div class="cta-section">
+      <h2>Ready to Submit?</h2>
+      <p>
+        Copy the template above and email us with your app details. We'll respond within 24-48 hours to confirm receipt and discuss next steps.
+      </p>
+      <a href="mailto:support@mytopaigirlfriend.com?subject=App%20Review%20Submission%3A%20%5BYour%20App%20Name%5D&body=Hi%2C%0A%0AI'd%20like%20to%20submit%20%5BApp%20Name%5D%20for%20review%20on%20MyTopAIGirlfriend.com.%0A%0ABasic%20Information%3A%0A%E2%80%A2%20App%20Name%3A%20%5BYour%20App%5D%0A%E2%80%A2%20Website%3A%20%5BURL%5D%0A%E2%80%A2%20Platform%3A%20iOS%20%2F%20Android%20%2F%20Web%0A%0AKey%20Features%3A%0A%E2%80%A2%20%5BFeature%201%5D%0A%E2%80%A2%20%5BFeature%202%5D%0A%E2%80%A2%20%5BFeature%203%5D%0A%0APricing%3A%0A%E2%80%A2%20Free%20Tier%3A%20%5BYes%2FNo%20%2B%20details%5D%0A%E2%80%A2%20Premium%3A%20%5BPrice%20%2B%20features%5D%0A%0AReview%20Access%3A%0A%E2%80%A2%20Promo%20Code%3A%20%5BCODE%5D%20or%20Trial%20Access%3A%20%5BDetails%5D%0A%0AContact%3A%0A%E2%80%A2%20Name%3A%20%5BYour%20Name%5D%0A%E2%80%A2%20Email%3A%20%5BYour%20Email%5D%0A%0AThank%20you!" class="email-button">
+        📧 Submit Your App →
+      </a>
+    </div>
+
+    <div class="process-section">
+      <h2>Review Process</h2>
+      <div class="process-grid">
+        <div class="process-step">
+          <div class="icon">📬</div>
+          <h3>1. Submission</h3>
+          <p>Email us with your app details using the template above</p>
+          <span class="time">Day 1</span>
+        </div>
+        <div class="process-step">
+          <div class="icon">✅</div>
+          <h3>2. Review</h3>
+          <p>We confirm receipt and verify access to premium features</p>
+          <span class="time">1-2 days</span>
+        </div>
+        <div class="process-step">
+          <div class="icon">🧪</div>
+          <h3>3. Testing</h3>
+          <p>20+ hours of testing: conversations, features, pricing, privacy</p>
+          <span class="time">1-2 weeks</span>
+        </div>
+        <div class="process-step">
+          <div class="icon">✍️</div>
+          <h3>4. Writing</h3>
+          <p>We write an honest, in-depth review with pros, cons, and ratings</p>
+          <span class="time">3-5 days</span>
+        </div>
+        <div class="process-step">
+          <div class="icon">👀</div>
+          <h3>5. Preview</h3>
+          <p>We share a draft for factual accuracy (no editorial changes)</p>
+          <span class="time">1-2 days</span>
+        </div>
+        <div class="process-step">
+          <div class="icon">🚀</div>
+          <h3>6. Publish</h3>
+          <p>Review goes live and may be featured in Top 10 rankings</p>
+          <span class="time">Same day</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-section">
+      <h2>Submission FAQ</h2>
+      
+      <div class="faq-item">
+        <h4>Q: Is there a fee to get reviewed?</h4>
+        <p>
+          <strong>A:</strong> No. We do not charge for reviews. However, we do include affiliate links when available (disclosed clearly in the review). This is how we fund our testing and keep the site free.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h4>Q: Can I pay for a positive review or higher ranking?</h4>
+        <p>
+          <strong>A:</strong> <strong>Absolutely not.</strong> We never accept payment to alter reviews, rankings, or recommendations. Our reviews are based solely on our honest testing and evaluation. If your app has issues, we'll say so.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h4>Q: How long does the review process take?</h4>
+        <p>
+          <strong>A:</strong> Typically 2-4 weeks from submission to publication. This includes testing (1-2 weeks), writing (3-5 days), and preview/approval (1-2 days). Rush reviews are not available — thorough testing takes time.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h4>Q: Will my app be ranked in the Top 10?</h4>
+        <p>
+          <strong>A:</strong> Not automatically. Rankings are based on our testing scores across 10+ criteria: conversation quality, features, pricing, privacy, user feedback, etc. New apps start lower and can move up based on merit and user popularity.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h4>Q: Can I edit the review before it's published?</h4>
+        <p>
+          <strong>A:</strong> We share a preview draft for <strong>factual accuracy only</strong> — correcting errors, pricing mistakes, or outdated info. We do not allow editorial changes to opinions, ratings, or recommendations. Our reviews reflect our honest assessment.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h4>Q: What if I disagree with the review?</h4>
+        <p>
+          <strong>A:</strong> You can submit a response or clarification, which we'll consider adding as a note. However, we do not remove or rewrite reviews based on disagreement. If you believe the review contains factual errors, provide evidence and we'll correct them.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h4>Q: Do you review NSFW / adult AI apps?</h4>
+        <p>
+          <strong>A:</strong> Yes. We review AI girlfriend apps across all content types, including NSFW. We evaluate these apps on conversation quality, features, safety, and value — just like SFW apps. All NSFW reviews are clearly labeled.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h4>Q: What if my app isn't finished yet?</h4>
+        <p>
+          <strong>A:</strong> We only review apps available to the public (released or in open beta). If your app is still in development, wait until you have a functional version users can access. You can submit early for a "preview" mention, but full reviews require a complete product.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h4>Q: Can I update my review after launch?</h4>
+        <p>
+          <strong>A:</strong> Yes. If you make major updates (new features, pricing changes, etc.), email us and we'll re-test and update the review. Minor updates may be noted without a full re-review. We aim to keep reviews current.
+        </p>
+      </div>
+    </div>
+  </div>
+</Layout>
