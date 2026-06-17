@@ -31,65 +31,108 @@ import Layout from '../layouts/Layout.astro';
       margin: 0 auto;
       padding: 60px 24px;
     }
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 32px;
+    .contact-main {
+      background: linear-gradient(135deg, rgba(233, 30, 140, 0.1), rgba(155, 81, 224, 0.1));
+      border-radius: 24px;
+      padding: 60px;
+      text-align: center;
+      border: 2px solid rgba(155, 81, 224, 0.3);
       margin-bottom: 48px;
     }
-    @media (max-width: 768px) {
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
+    .contact-main .icon {
+      font-size: 80px;
+      margin-bottom: 24px;
     }
-    .contact-card {
+    .contact-main h2 {
+      font-size: 32px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+    .contact-main p {
+      font-size: 16px;
+      color: #A0A0B8;
+      margin-bottom: 32px;
+      line-height: 1.7;
+    }
+    .email-display {
+      background: #1A1A2E;
+      border-radius: 16px;
+      padding: 24px 40px;
+      display: inline-block;
+      margin-bottom: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .email-display a {
+      font-size: 28px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #E91E8C, #9B51E0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .email-display a:hover {
+      opacity: 0.8;
+    }
+    .help-text {
+      font-size: 14px;
+      color: #6B7280;
+      margin-top: 16px;
+    }
+    .topics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-top: 32px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .topic-item {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      padding: 16px;
+      font-size: 14px;
+      color: #D1D5DB;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .topic-item strong {
+      color: #fff;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .response-time {
       background: #1A1A2E;
       border-radius: 20px;
-      padding: 40px;
+      padding: 32px;
+      text-align: center;
+      margin-bottom: 48px;
       border: 1px solid rgba(255, 255, 255, 0.06);
-      transition: border-color 0.2s;
     }
-    .contact-card:hover {
-      border-color: rgba(155, 81, 224, 0.3);
-    }
-    .contact-card .icon {
-      font-size: 48px;
-      margin-bottom: 20px;
-    }
-    .contact-card h3 {
+    .response-time h3 {
       font-size: 24px;
       font-weight: 700;
       color: #fff;
       margin-bottom: 12px;
     }
-    .contact-card p {
-      font-size: 15px;
+    .response-time .time {
+      font-size: 48px;
+      font-weight: 800;
+      background: linear-gradient(135deg, #E91E8C, #9B51E0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin: 16px 0;
+    }
+    .response-time p {
+      font-size: 16px;
       color: #A0A0B8;
-      line-height: 1.7;
-      margin-bottom: 20px;
-    }
-    .contact-card a {
-      display: inline-block;
-      padding: 12px 28px;
-      background: rgba(233, 30, 140, 0.1);
-      border: 1px solid rgba(233, 30, 140, 0.3);
-      border-radius: 12px;
-      color: #E91E8C;
-      font-size: 14px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.2s;
-    }
-    .contact-card a:hover {
-      background: rgba(233, 30, 140, 0.2);
-      border-color: rgba(233, 30, 140, 0.5);
-      transform: translateY(-2px);
     }
     .faq-section {
       background: #1A1A2E;
       border-radius: 20px;
       padding: 48px;
-      margin-top: 48px;
+      margin-bottom: 48px;
       border: 1px solid rgba(255, 255, 255, 0.06);
     }
     .faq-section h2 {
@@ -125,31 +168,26 @@ import Layout from '../layouts/Layout.astro';
     .faq-item a:hover {
       color: #9B51E0;
     }
-    .response-time {
-      background: linear-gradient(135deg, rgba(233, 30, 140, 0.1), rgba(155, 81, 224, 0.1));
-      border-radius: 16px;
-      padding: 32px;
+    .alternative-contact {
+      background: #1A1A2E;
+      border-radius: 20px;
+      padding: 48px;
       text-align: center;
-      margin-top: 48px;
-      border: 1px solid rgba(155, 81, 224, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.06);
     }
-    .response-time h3 {
-      font-size: 24px;
+    .alternative-contact h2 {
+      font-size: 28px;
       font-weight: 700;
       color: #fff;
-      margin-bottom: 12px;
+      margin-bottom: 20px;
     }
-    .response-time p {
+    .alternative-contact p {
       font-size: 16px;
       color: #A0A0B8;
-    }
-    .response-time .time {
-      font-size: 48px;
-      font-weight: 800;
-      background: linear-gradient(135deg, #E91E8C, #9B51E0);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin: 16px 0;
+      margin-bottom: 28px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
     }
   </style>
 
@@ -178,49 +216,46 @@ import Layout from '../layouts/Layout.astro';
   </div>
 
   <div class="contact-content">
-    <div class="contact-grid">
-      <div class="contact-card">
-        <div class="icon">📧</div>
-        <h3>General Inquiries</h3>
-        <p>
-          Questions about our reviews, rankings, or website? Suggestions for apps to review? General feedback?
-        </p>
+    <div class="contact-main">
+      <div class="icon">📧</div>
+      <h2>Email Us</h2>
+      <p>
+        For all inquiries — app reviews, partnerships, support, privacy questions, or feedback — reach out to:
+      </p>
+      <div class="email-display">
         <a href="mailto:support@mytopaigirlfriend.com">
           support@mytopaigirlfriend.com
         </a>
       </div>
+      <p class="help-text">
+        We handle all types of inquiries through this email. Please include relevant details in your message.
+      </p>
 
-      <div class="contact-card">
-        <div class="icon">🤝</div>
-        <h3>Partnerships & PR</h3>
-        <p>
-          App developer or brand interested in working together? Media inquiries? Partnership opportunities?
-        </p>
-        <a href="mailto:support@mytopaigirlfriend.com">
-          support@mytopaigirlfriend.com
-        </a>
-      </div>
-
-      <div class="contact-card">
-        <div class="icon">🛡️</div>
-        <h3>Privacy & Data</h3>
-        <p>
-          Privacy concerns? GDPR/CCPA requests? Questions about how we handle data?
-        </p>
-        <a href="mailto:support@mytopaigirlfriend.com">
-          support@mytopaigirlfriend.com
-        </a>
-      </div>
-
-      <div class="contact-card">
-        <div class="icon">🐛</div>
-        <h3>Report Issues</h3>
-        <p>
-          Found a bug? Broken link? Outdated information? Security vulnerability? Let us know.
-        </p>
-        <a href="mailto:support@mytopaigirlfriend.com">
-          support@mytopaigirlfriend.com
-        </a>
+      <div class="topics-grid">
+        <div class="topic-item">
+          <strong>🔍 App Reviews</strong>
+          Suggest apps to review
+        </div>
+        <div class="topic-item">
+          <strong>🤝 Partnerships</strong>
+          Collaboration opportunities
+        </div>
+        <div class="topic-item">
+          <strong>🛡️ Privacy</strong>
+          GDPR/CCPA requests
+        </div>
+        <div class="topic-item">
+          <strong>🐛 Bug Reports</strong>
+          Technical issues
+        </div>
+        <div class="topic-item">
+          <strong>✍️ Writing</strong>
+          Freelance opportunities
+        </div>
+        <div class="topic-item">
+          <strong>💬 General</strong>
+          Questions & feedback
+        </div>
       </div>
     </div>
 
@@ -306,11 +341,9 @@ import Layout from '../layouts/Layout.astro';
       </div>
     </div>
 
-    <div style="background:#1A1A2E;border-radius:20px;padding:48px;margin-top:48px;text-align:center;border:1px solid rgba(255,255,255,0.06)">
-      <h2 style="font-size:28px;font-weight:700;color:#fff;margin-bottom:20px">
-        Prefer Self-Service?
-      </h2>
-      <p style="font-size:16px;color:#A0A0B8;margin-bottom:28px;max-width:600px;margin-left:auto;margin-right:auto">
+    <div class="alternative-contact">
+      <h2>Prefer Self-Service?</h2>
+      <p>
         Check out our FAQ page for instant answers to common questions about AI girlfriend apps, pricing, privacy, and more.
       </p>
       <a href="/faq" style="display:inline-block;padding:16px 40px;background:linear-gradient(135deg,#E91E8C,#9B51E0);border-radius:50px;font-size:16px;font-weight:600;color:#fff;text-decoration:none;transition:transform .2s;box-shadow:0 4px 24px rgba(233,30,140,0.3)">
