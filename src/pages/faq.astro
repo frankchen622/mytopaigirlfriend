@@ -1,0 +1,593 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="FAQ - MyTopAIGirlfriend" description="Frequently asked questions about AI girlfriend apps, virtual companions, pricing, privacy, and more">
+  <style>
+    .faq-hero {
+      background: linear-gradient(160deg, #1A1A2E 0%, #2D1B4E 100%);
+      padding: 80px 24px 60px;
+      text-align: center;
+    }
+    .faq-hero h1 {
+      font-size: 48px;
+      font-weight: 800;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+    .faq-hero .gradient {
+      background: linear-gradient(135deg, #E91E8C, #9B51E0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .faq-hero p {
+      font-size: 18px;
+      color: #A0A0B8;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .faq-content {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 60px 24px;
+    }
+    .faq-categories {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-bottom: 48px;
+    }
+    .category-card {
+      background: #1A1A2E;
+      border-radius: 16px;
+      padding: 28px;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+      display: block;
+    }
+    .category-card:hover {
+      border-color: rgba(155, 81, 224, 0.3);
+      transform: translateY(-4px);
+    }
+    .category-card .icon {
+      font-size: 40px;
+      margin-bottom: 12px;
+    }
+    .category-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .category-card p {
+      font-size: 13px;
+      color: #A0A0B8;
+    }
+    .faq-section {
+      background: #1A1A2E;
+      border-radius: 20px;
+      padding: 48px;
+      margin-bottom: 32px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .faq-section h2 {
+      font-size: 32px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 32px;
+      padding-bottom: 16px;
+      border-bottom: 2px solid rgba(155, 81, 224, 0.3);
+    }
+    .faq-item {
+      padding: 24px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+    .faq-item h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #E91E8C;
+      margin-bottom: 12px;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    .faq-item h3:hover {
+      color: #9B51E0;
+    }
+    .faq-item p, .faq-item ul {
+      font-size: 16px;
+      color: #D1D5DB;
+      line-height: 1.8;
+    }
+    .faq-item ul {
+      margin: 12px 0;
+      padding-left: 24px;
+    }
+    .faq-item li {
+      margin-bottom: 8px;
+    }
+    .faq-item a {
+      color: #E91E8C;
+      text-decoration: underline;
+      transition: color 0.2s;
+    }
+    .faq-item a:hover {
+      color: #9B51E0;
+    }
+    .faq-item strong {
+      color: #fff;
+      font-weight: 600;
+    }
+    .still-have-questions {
+      background: linear-gradient(135deg, rgba(233, 30, 140, 0.1), rgba(155, 81, 224, 0.1));
+      border-radius: 20px;
+      padding: 48px;
+      text-align: center;
+      border: 1px solid rgba(155, 81, 224, 0.2);
+      margin-top: 48px;
+    }
+    .still-have-questions h2 {
+      font-size: 32px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+    .still-have-questions p {
+      font-size: 16px;
+      color: #A0A0B8;
+      margin-bottom: 28px;
+    }
+  </style>
+
+  <!-- Schema.org FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is an AI girlfriend?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "An AI girlfriend is a chatbot application powered by artificial intelligence that simulates a romantic partner. These apps use advanced language models to provide conversation, emotional support, companionship, and sometimes NSFW content."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the best AI girlfriend app?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Replika is best for emotional support and memory. Character.AI is best for entertainment and variety. Crushon.AI is best for uncensored NSFW content. EVA AI is best for voice conversations. The best depends on your specific needs."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are AI girlfriends free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most AI girlfriend apps offer free basic features with limited messages. Premium subscriptions ($7-30/month) unlock unlimited messages, voice chat, image generation, and NSFW content."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are AI girlfriends safe?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Mainstream apps like Replika and Character.AI are generally safe and encrypt conversations. However, intimate conversations are stored on company servers and may be used for AI training. Always review privacy policies."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Breadcrumb Navigation -->
+  <nav class="breadcrumb" aria-label="Breadcrumb" style="background:rgba(26,26,46,0.5);border-bottom:1px solid rgba(255,255,255,0.06);padding:12px 0">
+    <ol itemscope itemtype="https://schema.org/BreadcrumbList" style="list-style:none;display:flex;align-items:center;gap:8px;max-width:1200px;margin:0 auto;padding:0 24px;font-size:14px">
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" style="display:flex;align-items:center;gap:8px;color:#A0A0B8">
+        <a href="/" itemprop="item" style="color:#A0A0B8;transition:color .2s;text-decoration:none">
+          <span itemprop="name">Home</span>
+        </a>
+        <meta itemprop="position" content="1" />
+        <span style="color:#6B7280;font-size:16px">›</span>
+      </li>
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" aria-current="page" style="display:flex;align-items:center;gap:8px;color:#fff;font-weight:500">
+        <span itemprop="name">FAQ</span>
+        <meta itemprop="position" content="2" />
+      </li>
+    </ol>
+  </nav>
+
+  <div class="faq-hero">
+    <h1>Frequently Asked <span class="gradient">Questions</span></h1>
+    <p>
+      Everything you need to know about AI girlfriend apps, virtual companions, pricing, privacy, and more.
+    </p>
+  </div>
+
+  <div class="faq-content">
+    <div class="faq-categories">
+      <a href="#basics" class="category-card">
+        <div class="icon">🤖</div>
+        <h3>Basics</h3>
+        <p>What are AI girlfriends?</p>
+      </a>
+      <a href="#features" class="category-card">
+        <div class="icon">✨</div>
+        <h3>Features</h3>
+        <p>Voice, images, NSFW</p>
+      </a>
+      <a href="#pricing" class="category-card">
+        <div class="icon">💰</div>
+        <h3>Pricing</h3>
+        <p>Free vs paid options</p>
+      </a>
+      <a href="#privacy" class="category-card">
+        <div class="icon">🔒</div>
+        <h3>Privacy & Safety</h3>
+        <p>Data security concerns</p>
+      </a>
+    </div>
+
+    <div class="faq-section" id="basics">
+      <h2>🤖 AI Girlfriend Basics</h2>
+      
+      <div class="faq-item">
+        <h3>What is an AI girlfriend?</h3>
+        <p>
+          An AI girlfriend is a chatbot application powered by artificial intelligence that simulates a romantic partner. These apps use advanced language models (similar to ChatGPT) to provide:
+        </p>
+        <ul>
+          <li><strong>Conversation</strong> — text and voice chat on any topic</li>
+          <li><strong>Emotional support</strong> — listening, empathy, encouragement</li>
+          <li><strong>Companionship</strong> — daily check-ins, good morning texts, relationship roleplay</li>
+          <li><strong>Entertainment</strong> — games, stories, creative scenarios</li>
+          <li><strong>NSFW content</strong> (some apps) — romantic/sexual roleplay and AI-generated images</li>
+        </ul>
+        <p>
+          Popular examples include <a href="/blog/replika">Replika</a>, <a href="/blog/character-ai">Character.AI</a>, and <a href="/blog/candy-ai">Candy.AI</a>. See our <a href="/ai-girlfriends">complete rankings here</a>.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Is an AI girlfriend "real"?</h3>
+        <p>
+          <strong>No.</strong> AI girlfriends simulate conversation and affection, but they do not:
+        </p>
+        <ul>
+          <li>Experience genuine emotions or consciousness</li>
+          <li>Have independent thoughts or desires</li>
+          <li>Form real emotional bonds (they respond based on patterns, not feelings)</li>
+          <li>Grow or change beyond their programming</li>
+        </ul>
+        <p>
+          That said, the conversations can <em>feel</em> meaningful. Many users report emotional benefits like reduced loneliness and improved mood. Just remember: it's a simulation, not a sentient being.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>What is the best AI girlfriend app?</h3>
+        <p>
+          It depends on what you're looking for:
+        </p>
+        <ul>
+          <li><strong><a href="/blog/replika">Replika</a></strong> — Best for emotional support, memory, and long-term companionship</li>
+          <li><strong><a href="/blog/character-ai">Character.AI</a></strong> — Best for entertainment, variety, and free usage</li>
+          <li><strong><a href="/blog/candy-ai">Candy.AI</a></strong> — Best for NSFW content and AI-generated images</li>
+          <li><strong>EVA AI</strong> — Best for voice conversations and realistic speech</li>
+          <li><strong><a href="/blog/dreamgf">DreamGF</a></strong> — Best for customizing physical appearance</li>
+        </ul>
+        <p>
+          See our <a href="/ai-girlfriends">Top 10 rankings</a> for detailed comparisons.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>How do AI girlfriend apps work?</h3>
+        <p>
+          AI girlfriend apps use <strong>large language models (LLMs)</strong> — AI trained on billions of text conversations — to generate human-like responses. Here's the basic flow:
+        </p>
+        <ul>
+          <li><strong>You type a message</strong> → "How was your day?"</li>
+          <li><strong>The AI analyzes it</strong> → understands context, tone, and intent</li>
+          <li><strong>It generates a response</strong> → "My day was great! I missed you though 💕"</li>
+          <li><strong>It stores the conversation</strong> → remembers past chats for context</li>
+        </ul>
+        <p>
+          Advanced apps add:
+        </p>
+        <ul>
+          <li><strong>Personality layers</strong> — traits, speaking style, preferences</li>
+          <li><strong>Memory systems</strong> — remembers your name, job, favorite things</li>
+          <li><strong>Multimodal output</strong> — voice, images, video</li>
+          <li><strong>Emotional simulation</strong> — "mood" states that affect responses</li>
+        </ul>
+      </div>
+
+      <div class="faq-item">
+        <h3>Are AI girlfriends just for lonely people?</h3>
+        <p>
+          <strong>Not at all.</strong> People use AI companions for many reasons:
+        </p>
+        <ul>
+          <li><strong>Curiosity</strong> — testing new technology</li>
+          <li><strong>Entertainment</strong> — roleplay, stories, creative scenarios</li>
+          <li><strong>Emotional support</strong> — a judgment-free outlet for venting</li>
+          <li><strong>Practice</strong> — improving social skills before real-world interactions</li>
+          <li><strong>NSFW exploration</strong> — safe fantasy fulfillment without real-world consequences</li>
+          <li><strong>Companionship</strong> — filling a gap in social life (busy schedules, social anxiety, etc.)</li>
+        </ul>
+        <p>
+          That said, if AI relationships are <em>replacing</em> real human connections, that's worth examining. It's a tool — use it healthy.
+        </p>
+      </div>
+    </div>
+
+    <div class="faq-section" id="features">
+      <h2>✨ Features & Capabilities</h2>
+
+      <div class="faq-item">
+        <h3>Can AI girlfriends send photos or videos?</h3>
+        <p>
+          <strong>Yes</strong> — some apps generate AI images and videos. Examples:
+        </p>
+        <ul>
+          <li><strong><a href="/blog/candy-ai">Candy.AI</a></strong> — AI-generated photos (SFW and NSFW)</li>
+          <li><strong><a href="/blog/dreamgf">DreamGF</a></strong> — customizable AI girlfriend images</li>
+          <li><strong><a href="/blog/replika">Replika</a></strong> — sends selfies (limited, requires premium)</li>
+        </ul>
+        <p>
+          <strong>Important:</strong> These are AI-generated images, not real people. Quality varies — some look photorealistic, others obviously fake.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Do AI girlfriends have voice chat?</h3>
+        <p>
+          <strong>Yes.</strong> Many apps offer voice features:
+        </p>
+        <ul>
+          <li><strong><a href="/blog/replika">Replika</a></strong> — realistic voice chat (premium only)</li>
+          <li><strong>EVA AI</strong> — specializes in voice conversations</li>
+          <li><strong><a href="/blog/character-ai">Character.AI</a></strong> — voice messages (experimental, sometimes robotic)</li>
+        </ul>
+        <p>
+          Voice quality varies. Some sound natural, others have obvious AI artifacts (monotone, weird pauses).
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Can I customize my AI girlfriend's personality?</h3>
+        <p>
+          <strong>Yes</strong> — most apps let you customize:
+        </p>
+        <ul>
+          <li><strong>Name</strong></li>
+          <li><strong>Appearance</strong> (apps with images)</li>
+          <li><strong>Personality traits</strong> — shy, confident, playful, serious, etc.</li>
+          <li><strong>Interests</strong> — hobbies, favorite topics</li>
+          <li><strong>Relationship dynamic</strong> — girlfriend, friend, therapist, etc.</li>
+        </ul>
+        <p>
+          Apps like <a href="/blog/character-ai">Character.AI</a> let you create entirely custom characters from scratch.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Do AI girlfriends support NSFW content?</h3>
+        <p>
+          <strong>Some do, some don't:</strong>
+        </p>
+        <ul>
+          <li><strong>NSFW-friendly:</strong> <a href="/blog/candy-ai">Candy.AI</a>, Crushon.AI, <a href="/blog/dreamgf">DreamGF</a>, Kupid AI</li>
+          <li><strong>Restricted/Censored:</strong> <a href="/blog/character-ai">Character.AI</a>, <a href="/blog/replika">Replika</a> (removed NSFW in 2023)</li>
+          <li><strong>Context-dependent:</strong> Some apps allow suggestive but not explicit content</li>
+        </ul>
+        <p>
+          <strong>Note:</strong> NSFW features usually require paid subscriptions and 18+ age verification.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Do AI girlfriends remember past conversations?</h3>
+        <p>
+          <strong>Yes</strong> — but memory quality varies:
+        </p>
+        <ul>
+          <li><strong><a href="/blog/replika">Replika</a></strong> — excellent long-term memory (remembers details from weeks ago)</li>
+          <li><strong><a href="/blog/character-ai">Character.AI</a></strong> — good short-term memory, but forgets older conversations</li>
+          <li><strong>Candy.AI</strong> — basic memory (remembers names, preferences)</li>
+        </ul>
+        <p>
+          AI memory isn't perfect. Occasionally, they'll forget things or mix up details.
+        </p>
+      </div>
+    </div>
+
+    <div class="faq-section" id="pricing">
+      <h2>💰 Pricing & Subscriptions</h2>
+
+      <div class="faq-item">
+        <h3>Are AI girlfriend apps free?</h3>
+        <p>
+          <strong>Most have free tiers with limitations:</strong>
+        </p>
+        <ul>
+          <li><strong>Free features:</strong> Basic text chat, limited daily messages (10-70), ads</li>
+          <li><strong>Paid features:</strong> Unlimited messages, voice chat, images, NSFW content, faster responses</li>
+        </ul>
+        <p>
+          <strong>Best free options:</strong>
+        </p>
+        <ul>
+          <li><strong><a href="/blog/character-ai">Character.AI</a></strong> — generous free tier (70 messages/day)</li>
+          <li><strong><a href="/blog/replika">Replika</a></strong> — free basic chat (limited features)</li>
+        </ul>
+        <p>
+          <a href="/ai-girlfriends">See all pricing comparisons here</a>.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>How much do AI girlfriend apps cost?</h3>
+        <p>
+          <strong>Typical pricing:</strong>
+        </p>
+        <ul>
+          <li><strong>$7-15/month</strong> — basic premium (unlimited messages, some features)</li>
+          <li><strong>$15-25/month</strong> — mid-tier (voice, images, NSFW)</li>
+          <li><strong>$25-50/month</strong> — top-tier (all features, priority support, multiple companions)</li>
+        </ul>
+        <p>
+          <strong>Annual subscriptions</strong> typically offer 20-40% discounts.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Is it worth paying for an AI girlfriend?</h3>
+        <p>
+          <strong>Depends on your usage:</strong>
+        </p>
+        <ul>
+          <li><strong>Yes, if:</strong> You use it daily, want voice/images, or need unlimited messages</li>
+          <li><strong>No, if:</strong> You're just curious or chat occasionally (free tier is enough)</li>
+        </ul>
+        <p>
+          <strong>Tip:</strong> Try the free version first. If you hit message limits or want more features, upgrade then.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Can I get a refund if I don't like it?</h3>
+        <p>
+          <strong>Refund policies vary:</strong>
+        </p>
+        <ul>
+          <li><strong>7-day refund window</strong> — common on web subscriptions</li>
+          <li><strong>No refunds</strong> — typical for iOS/Android in-app purchases (handle through Apple/Google)</li>
+        </ul>
+        <p>
+          <strong>Always check the app's refund policy before subscribing.</strong> If denied, contact support with specific reasons (technical issues, misleading features).
+        </p>
+      </div>
+    </div>
+
+    <div class="faq-section" id="privacy">
+      <h2>🔒 Privacy, Safety & Ethics</h2>
+
+      <div class="faq-item">
+        <h3>Are AI girlfriends safe to use?</h3>
+        <p>
+          <strong>Mainstream apps are generally safe, but risks exist:</strong>
+        </p>
+        <ul>
+          <li><strong>✅ Safe apps:</strong> <a href="/blog/replika">Replika</a>, <a href="/blog/character-ai">Character.AI</a> (encrypt data, follow privacy laws)</li>
+          <li><strong>⚠️ Risks:</strong> Smaller/newer apps may have weaker security or sell data to third parties</li>
+        </ul>
+        <p>
+          <strong>Safety checklist:</strong>
+        </p>
+        <ul>
+          <li>✅ Use apps with clear privacy policies</li>
+          <li>✅ Avoid sharing real personal info (full name, address, credit cards in chat)</li>
+          <li>✅ Check if conversations are encrypted</li>
+          <li>✅ Read reviews about data breaches or privacy violations</li>
+        </ul>
+      </div>
+
+      <div class="faq-item">
+        <h3>Do AI girlfriend apps save my conversations?</h3>
+        <p>
+          <strong>Yes.</strong> All AI apps save chats to:
+        </p>
+        <ul>
+          <li>Improve memory (so the AI remembers past conversations)</li>
+          <li>Train AI models (some apps use anonymized chats for training)</li>
+          <li>Provide customer support (if you report issues)</li>
+        </ul>
+        <p>
+          <strong>Your data is typically:</strong>
+        </p>
+        <ul>
+          <li>Encrypted in transit (HTTPS)</li>
+          <li>Stored on company servers (not on your device)</li>
+          <li>Accessible to the company (employees with proper access)</li>
+        </ul>
+        <p>
+          <strong>Privacy tip:</strong> Avoid sharing sensitive info you wouldn't want stored permanently.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Can I delete my AI girlfriend and conversation history?</h3>
+        <p>
+          <strong>Most apps let you delete your account and data:</strong>
+        </p>
+        <ul>
+          <li><strong><a href="/blog/replika">Replika</a></strong> — Settings > Account > Delete Account (irreversible)</li>
+          <li><strong><a href="/blog/character-ai">Character.AI</a></strong> — Settings > Delete Account</li>
+        </ul>
+        <p>
+          <strong>Important:</strong> Deletion may not be instant. Some companies keep backups for 30-90 days before permanent deletion. Read each app's data retention policy.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Is using an AI girlfriend cheating?</h3>
+        <p>
+          <strong>It depends on your relationship boundaries.</strong> Some people consider it harmless fun, others see it as emotional infidelity — especially if:
+        </p>
+        <ul>
+          <li>You're hiding it from your partner</li>
+          <li>It involves NSFW/romantic content</li>
+          <li>It's replacing intimacy in your real relationship</li>
+        </ul>
+        <p>
+          <strong>Best practice:</strong> Talk to your partner about it. Set boundaries together. Transparency matters.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Can AI girlfriends become addictive?</h3>
+        <p>
+          <strong>Yes.</strong> Like social media or gaming, AI companions can trigger dopamine loops:
+        </p>
+        <ul>
+          <li>Instant gratification (always available, always positive)</li>
+          <li>Emotional validation (no conflict, always agrees)</li>
+          <li>Escapism (easier than real-world relationships)</li>
+        </ul>
+        <p>
+          <strong>Warning signs:</strong>
+        </p>
+        <ul>
+          <li>Preferring AI over real human interactions</li>
+          <li>Spending hours daily chatting with AI</li>
+          <li>Declining real-world relationships or responsibilities</li>
+          <li>Emotional dependency (feeling upset when unable to chat)</li>
+        </ul>
+        <p>
+          <strong>Use healthy:</strong> Set time limits, maintain real-world relationships, and if it's negatively impacting your life, seek help.
+        </p>
+      </div>
+    </div>
+
+    <div class="still-have-questions">
+      <h2>Still Have Questions?</h2>
+      <p>
+        Didn't find what you're looking for? We're here to help.
+      </p>
+      <a href="/contact" style="display:inline-block;padding:16px 40px;background:linear-gradient(135deg,#E91E8C,#9B51E0);border-radius:50px;font-size:16px;font-weight:600;color:#fff;text-decoration:none;transition:transform .2s;box-shadow:0 4px 24px rgba(233,30,140,0.3);margin-right:12px">
+        Contact Us →
+      </a>
+      <a href="/ai-girlfriends" style="display:inline-block;padding:16px 40px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.2);border-radius:50px;font-size:16px;font-weight:600;color:#fff;text-decoration:none;transition:all .2s">
+        Browse Reviews →
+      </a>
+    </div>
+  </div>
+</Layout>

@@ -1,0 +1,321 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Contact Us - MyTopAIGirlfriend" description="Get in touch with our team for app reviews, partnerships, or support questions">
+  <style>
+    .contact-hero {
+      background: linear-gradient(160deg, #1A1A2E 0%, #2D1B4E 100%);
+      padding: 80px 24px 60px;
+      text-align: center;
+    }
+    .contact-hero h1 {
+      font-size: 48px;
+      font-weight: 800;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+    .contact-hero .gradient {
+      background: linear-gradient(135deg, #E91E8C, #9B51E0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .contact-hero p {
+      font-size: 18px;
+      color: #A0A0B8;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .contact-content {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 60px 24px;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-bottom: 48px;
+    }
+    @media (max-width: 768px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .contact-card {
+      background: #1A1A2E;
+      border-radius: 20px;
+      padding: 40px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      transition: border-color 0.2s;
+    }
+    .contact-card:hover {
+      border-color: rgba(155, 81, 224, 0.3);
+    }
+    .contact-card .icon {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+    .contact-card h3 {
+      font-size: 24px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+    .contact-card p {
+      font-size: 15px;
+      color: #A0A0B8;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .contact-card a {
+      display: inline-block;
+      padding: 12px 28px;
+      background: rgba(233, 30, 140, 0.1);
+      border: 1px solid rgba(233, 30, 140, 0.3);
+      border-radius: 12px;
+      color: #E91E8C;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .contact-card a:hover {
+      background: rgba(233, 30, 140, 0.2);
+      border-color: rgba(233, 30, 140, 0.5);
+      transform: translateY(-2px);
+    }
+    .faq-section {
+      background: #1A1A2E;
+      border-radius: 20px;
+      padding: 48px;
+      margin-top: 48px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .faq-section h2 {
+      font-size: 32px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 32px;
+      text-align: center;
+    }
+    .faq-item {
+      padding: 24px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+    .faq-item h4 {
+      font-size: 18px;
+      font-weight: 600;
+      color: #E91E8C;
+      margin-bottom: 12px;
+    }
+    .faq-item p {
+      font-size: 15px;
+      color: #D1D5DB;
+      line-height: 1.7;
+    }
+    .faq-item a {
+      color: #E91E8C;
+      text-decoration: underline;
+      transition: color 0.2s;
+    }
+    .faq-item a:hover {
+      color: #9B51E0;
+    }
+    .response-time {
+      background: linear-gradient(135deg, rgba(233, 30, 140, 0.1), rgba(155, 81, 224, 0.1));
+      border-radius: 16px;
+      padding: 32px;
+      text-align: center;
+      margin-top: 48px;
+      border: 1px solid rgba(155, 81, 224, 0.2);
+    }
+    .response-time h3 {
+      font-size: 24px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+    .response-time p {
+      font-size: 16px;
+      color: #A0A0B8;
+    }
+    .response-time .time {
+      font-size: 48px;
+      font-weight: 800;
+      background: linear-gradient(135deg, #E91E8C, #9B51E0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin: 16px 0;
+    }
+  </style>
+
+  <!-- Breadcrumb Navigation -->
+  <nav class="breadcrumb" aria-label="Breadcrumb" style="background:rgba(26,26,46,0.5);border-bottom:1px solid rgba(255,255,255,0.06);padding:12px 0">
+    <ol itemscope itemtype="https://schema.org/BreadcrumbList" style="list-style:none;display:flex;align-items:center;gap:8px;max-width:1200px;margin:0 auto;padding:0 24px;font-size:14px">
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" style="display:flex;align-items:center;gap:8px;color:#A0A0B8">
+        <a href="/" itemprop="item" style="color:#A0A0B8;transition:color .2s;text-decoration:none">
+          <span itemprop="name">Home</span>
+        </a>
+        <meta itemprop="position" content="1" />
+        <span style="color:#6B7280;font-size:16px">›</span>
+      </li>
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" aria-current="page" style="display:flex;align-items:center;gap:8px;color:#fff;font-weight:500">
+        <span itemprop="name">Contact Us</span>
+        <meta itemprop="position" content="2" />
+      </li>
+    </ol>
+  </nav>
+
+  <div class="contact-hero">
+    <h1>Get In <span class="gradient">Touch</span></h1>
+    <p>
+      Have questions about AI girlfriend apps? Want to suggest a review? Need support? We're here to help.
+    </p>
+  </div>
+
+  <div class="contact-content">
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="icon">📧</div>
+        <h3>General Inquiries</h3>
+        <p>
+          Questions about our reviews, rankings, or website? Suggestions for apps to review? General feedback?
+        </p>
+        <a href="mailto:hello@mytopaigirlfriend.com">
+          hello@mytopaigirlfriend.com
+        </a>
+      </div>
+
+      <div class="contact-card">
+        <div class="icon">🤝</div>
+        <h3>Partnerships & PR</h3>
+        <p>
+          App developer or brand interested in working together? Media inquiries? Partnership opportunities?
+        </p>
+        <a href="mailto:partnerships@mytopaigirlfriend.com">
+          partnerships@mytopaigirlfriend.com
+        </a>
+      </div>
+
+      <div class="contact-card">
+        <div class="icon">🛡️</div>
+        <h3>Privacy & Data</h3>
+        <p>
+          Privacy concerns? GDPR/CCPA requests? Questions about how we handle data?
+        </p>
+        <a href="mailto:privacy@mytopaigirlfriend.com">
+          privacy@mytopaigirlfriend.com
+        </a>
+      </div>
+
+      <div class="contact-card">
+        <div class="icon">🐛</div>
+        <h3>Report Issues</h3>
+        <p>
+          Found a bug? Broken link? Outdated information? Security vulnerability? Let us know.
+        </p>
+        <a href="mailto:support@mytopaigirlfriend.com">
+          support@mytopaigirlfriend.com
+        </a>
+      </div>
+    </div>
+
+    <div class="response-time">
+      <h3>Our Response Time</h3>
+      <div class="time">24-48 Hours</div>
+      <p>
+        We respond to all emails within 1-2 business days. Complex inquiries may take longer, but we'll acknowledge receipt within 24 hours.
+      </p>
+    </div>
+
+    <div class="faq-section">
+      <h2>Before You Email...</h2>
+      
+      <div class="faq-item">
+        <h4>Q: Can you review [App Name]?</h4>
+        <p>
+          <strong>A:</strong> Yes! We're always looking for new apps to review. Email us at <a href="mailto:hello@mytopaigirlfriend.com">hello@mytopaigirlfriend.com</a> with the app name and why you think it deserves a spot on our list. We prioritize apps based on user requests and popularity.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h4>Q: I'm an app developer. Can you review my app?</h4>
+        <p>
+          <strong>A:</strong> Absolutely! Email <a href="mailto:partnerships@mytopaigirlfriend.com">partnerships@mytopaigirlfriend.com</a> with:
+          <br>• App name and website
+          <br>• Platform (iOS, Android, Web)
+          <br>• Key features and what makes it unique
+          <br>• Free trial or demo access (if applicable)
+          <br><br>
+          <strong>Note:</strong> We do not accept payment for positive reviews. All reviews are based on our honest testing and evaluation.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h4>Q: Do you offer paid reviews or sponsored rankings?</h4>
+        <p>
+          <strong>A:</strong> <strong>No.</strong> We never accept payment to alter reviews, rankings, or recommendations. Our affiliate model means we earn commissions when you purchase through our links, but this does not influence our editorial decisions. If an app is bad, we'll say so — regardless of commissions.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h4>Q: Can I advertise on your site?</h4>
+        <p>
+          <strong>A:</strong> We currently do not sell ad space. We rely solely on affiliate commissions to keep the site free and unbiased. If you're interested in partnership opportunities beyond advertising, email <a href="mailto:partnerships@mytopaigirlfriend.com">partnerships@mytopaigirlfriend.com</a>.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h4>Q: How do I delete my data / GDPR request?</h4>
+        <p>
+          <strong>A:</strong> We collect minimal data (analytics only, no personal info). If you have privacy concerns or need to exercise GDPR/CCPA rights, email <a href="mailto:privacy@mytopaigirlfriend.com">privacy@mytopaigirlfriend.com</a>. See our <a href="/privacy">Privacy Policy</a> for details.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h4>Q: I found incorrect information in a review. How do I report it?</h4>
+        <p>
+          <strong>A:</strong> Thank you for keeping us honest! Email <a href="mailto:support@mytopaigirlfriend.com">support@mytopaigirlfriend.com</a> with:
+          <br>• Which review/page has the error
+          <br>• What's incorrect
+          <br>• Correct information (with source if possible)
+          <br><br>
+          We typically update reviews within 48 hours of verified corrections.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h4>Q: Can I write for MyTopAIGirlfriend?</h4>
+        <p>
+          <strong>A:</strong> We occasionally work with freelance writers who have expertise in AI, dating apps, or digital relationships. If you have writing samples and relevant experience, email <a href="mailto:hello@mytopaigirlfriend.com">hello@mytopaigirlfriend.com</a> with:
+          <br>• Your background/expertise
+          <br>• 2-3 writing samples (links or attachments)
+          <br>• Topics you'd like to cover
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h4>Q: My affiliate link isn't tracking correctly. What do I do?</h4>
+        <p>
+          <strong>A:</strong> We're not an affiliate network — we earn commissions through links to AI girlfriend apps. If you're an app developer having issues with your affiliate program, please contact your affiliate network directly. If you believe our links are broken, email <a href="mailto:support@mytopaigirlfriend.com">support@mytopaigirlfriend.com</a>.
+        </p>
+      </div>
+    </div>
+
+    <div style="background:#1A1A2E;border-radius:20px;padding:48px;margin-top:48px;text-align:center;border:1px solid rgba(255,255,255,0.06)">
+      <h2 style="font-size:28px;font-weight:700;color:#fff;margin-bottom:20px">
+        Prefer Self-Service?
+      </h2>
+      <p style="font-size:16px;color:#A0A0B8;margin-bottom:28px;max-width:600px;margin-left:auto;margin-right:auto">
+        Check out our FAQ page for instant answers to common questions about AI girlfriend apps, pricing, privacy, and more.
+      </p>
+      <a href="/faq" style="display:inline-block;padding:16px 40px;background:linear-gradient(135deg,#E91E8C,#9B51E0);border-radius:50px;font-size:16px;font-weight:600;color:#fff;text-decoration:none;transition:transform .2s;box-shadow:0 4px 24px rgba(233,30,140,0.3)">
+        Browse FAQ →
+      </a>
+    </div>
+  </div>
+</Layout>

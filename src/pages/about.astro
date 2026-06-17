@@ -1,0 +1,320 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="About Us - MyTopAIGirlfriend" description="Learn about our mission to provide honest, unbiased reviews of AI girlfriend apps and virtual companions">
+  <style>
+    .about-hero {
+      background: linear-gradient(160deg, #1A1A2E 0%, #2D1B4E 100%);
+      padding: 80px 24px 60px;
+      text-align: center;
+    }
+    .about-hero h1 {
+      font-size: 48px;
+      font-weight: 800;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+    .about-hero .gradient {
+      background: linear-gradient(135deg, #E91E8C, #9B51E0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .about-hero p {
+      font-size: 18px;
+      color: #A0A0B8;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .about-content {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 60px 24px;
+    }
+    .about-section {
+      background: #1A1A2E;
+      border-radius: 20px;
+      padding: 48px;
+      margin-bottom: 32px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .about-section h2 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+    .about-section h3 {
+      font-size: 24px;
+      font-weight: 600;
+      margin: 32px 0 16px;
+      color: #E91E8C;
+    }
+    .about-section p {
+      font-size: 17px;
+      color: #D1D5DB;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+    .about-section ul {
+      list-style: none;
+      padding: 0;
+      margin: 20px 0;
+    }
+    .about-section li {
+      font-size: 16px;
+      color: #D1D5DB;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      line-height: 1.6;
+    }
+    .about-section li:before {
+      content: "✓";
+      color: #10B981;
+      font-weight: 700;
+      margin-right: 12px;
+    }
+    .about-section li:last-child {
+      border-bottom: none;
+    }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
+      margin-top: 32px;
+    }
+    .team-card {
+      background: #0D0D1A;
+      border-radius: 16px;
+      padding: 32px 24px;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      transition: border-color 0.2s;
+    }
+    .team-card:hover {
+      border-color: rgba(155, 81, 224, 0.3);
+    }
+    .team-avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #E91E8C, #9B51E0);
+      margin: 0 auto 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      opacity: 0.8;
+    }
+    .team-card h4 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .team-card .role {
+      font-size: 14px;
+      color: #E91E8C;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+    .team-card p {
+      font-size: 14px;
+      color: #A0A0B8;
+      line-height: 1.6;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+      margin-top: 32px;
+    }
+    .stat-card {
+      background: #0D0D1A;
+      border-radius: 16px;
+      padding: 28px;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .stat-number {
+      font-size: 48px;
+      font-weight: 800;
+      background: linear-gradient(135deg, #E91E8C, #9B51E0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 8px;
+    }
+    .stat-label {
+      font-size: 14px;
+      color: #A0A0B8;
+      font-weight: 500;
+    }
+  </style>
+
+  <!-- Breadcrumb Navigation -->
+  <nav class="breadcrumb" aria-label="Breadcrumb" style="background:rgba(26,26,46,0.5);border-bottom:1px solid rgba(255,255,255,0.06);padding:12px 0">
+    <ol itemscope itemtype="https://schema.org/BreadcrumbList" style="list-style:none;display:flex;align-items:center;gap:8px;max-width:1200px;margin:0 auto;padding:0 24px;font-size:14px">
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" style="display:flex;align-items:center;gap:8px;color:#A0A0B8">
+        <a href="/" itemprop="item" style="color:#A0A0B8;transition:color .2s;text-decoration:none">
+          <span itemprop="name">Home</span>
+        </a>
+        <meta itemprop="position" content="1" />
+        <span style="color:#6B7280;font-size:16px">›</span>
+      </li>
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" aria-current="page" style="display:flex;align-items:center;gap:8px;color:#fff;font-weight:500">
+        <span itemprop="name">About Us</span>
+        <meta itemprop="position" content="2" />
+      </li>
+    </ol>
+  </nav>
+
+  <div class="about-hero">
+    <h1>About <span class="gradient">My Top AI Girlfriend</span></h1>
+    <p>
+      We're a team of AI enthusiasts, relationship experts, and tech reviewers dedicated to helping you find the best AI companion apps through honest, unbiased reviews.
+    </p>
+  </div>
+
+  <div class="about-content">
+    <div class="about-section">
+      <h2>Our Mission</h2>
+      <p>
+        In a world where AI companions are becoming increasingly sophisticated, we believe everyone deserves honest, transparent information to make informed choices. Our mission is simple: <strong>test every AI girlfriend app thoroughly and give you the real story</strong> — no marketing fluff, no sponsored bias.
+      </p>
+      <p>
+        We spend weeks with each app, analyzing conversation quality, testing features, and comparing pricing to deliver reviews you can trust. Whether you're looking for emotional support, entertainment, or companionship, we're here to help you find the perfect AI match.
+      </p>
+    </div>
+
+    <div class="about-section">
+      <h2>What We Do</h2>
+      <ul>
+        <li><strong>In-Depth App Testing:</strong> We chat for 20+ hours with each AI to evaluate response quality, memory, personality consistency, and emotional intelligence</li>
+        <li><strong>Honest Pricing Analysis:</strong> We break down free vs paid tiers, hidden costs, and value for money so you know exactly what you're getting</li>
+        <li><strong>Privacy & Security Reviews:</strong> We audit data policies, encryption standards, and how your intimate conversations are protected</li>
+        <li><strong>Community Feedback:</strong> We analyze thousands of Reddit reviews and user testimonials to capture real-world experiences</li>
+        <li><strong>Feature Comparisons:</strong> We test voice chat, image generation, roleplay, NSFW content, and customization options across all apps</li>
+        <li><strong>Weekly Updates:</strong> The AI landscape changes fast. We update our rankings and reviews every week to keep you informed</li>
+      </ul>
+    </div>
+
+    <div class="about-section">
+      <h2>Our Review Process</h2>
+      <h3>1. Discovery & Testing</h3>
+      <p>
+        We identify new AI girlfriend apps through app stores, Reddit communities, and user recommendations. Each app undergoes 2-4 weeks of rigorous testing across multiple devices and subscription tiers.
+      </p>
+      
+      <h3>2. Conversation Quality Testing</h3>
+      <p>
+        We conduct 50+ conversations covering emotional support, casual chat, roleplay, and NSFW scenarios (when applicable). We evaluate response coherence, personality depth, memory retention, and emotional intelligence.
+      </p>
+      
+      <h3>3. Feature Analysis</h3>
+      <p>
+        We test every feature: voice chat, image generation, video calls, relationship levels, customization options, and NSFW content quality. We document what works, what doesn't, and what's worth paying for.
+      </p>
+      
+      <h3>4. Privacy & Security Audit</h3>
+      <p>
+        We review privacy policies, data retention practices, encryption standards, and third-party sharing. Your intimate conversations deserve protection — we tell you which apps take security seriously.
+      </p>
+      
+      <h3>5. Community Research</h3>
+      <p>
+        We analyze Reddit threads, app reviews, Twitter discussions, and YouTube comments to capture real user experiences. Our reviews combine our testing with the voices of thousands of actual users.
+      </p>
+      
+      <h3>6. Ranking & Recommendations</h3>
+      <p>
+        We score apps across 10+ criteria and create rankings for different use cases: best for emotional support, best for NSFW, best free option, best voice chat, etc. Our goal is to match you with the right app for your needs.
+      </p>
+    </div>
+
+    <div class="about-section">
+      <h2>Our Values</h2>
+      <ul>
+        <li><strong>Honesty First:</strong> We tell you the truth, even when it's uncomfortable. If an app has issues, we'll say so.</li>
+        <li><strong>No Paid Reviews:</strong> We accept affiliate commissions when you purchase through our links, but we never accept payment to alter reviews or rankings.</li>
+        <li><strong>User Privacy Matters:</strong> We advocate for strong privacy protections in AI companion apps and call out bad practices.</li>
+        <li><strong>Inclusivity:</strong> We review apps for all preferences, orientations, and relationship styles without judgment.</li>
+        <li><strong>Regular Updates:</strong> We revisit reviews quarterly or when major updates drop to keep our content accurate.</li>
+      </ul>
+    </div>
+
+    <div class="about-section">
+      <h2>By The Numbers</h2>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number">25+</div>
+          <div class="stat-label">Apps Reviewed</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">500+</div>
+          <div class="stat-label">Hours of Testing</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">10K+</div>
+          <div class="stat-label">User Testimonials Analyzed</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">50+</div>
+          <div class="stat-label">Weekly Updates</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-section">
+      <h2>Meet The Team</h2>
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-avatar">👨‍💻</div>
+          <h4>Alex Chen</h4>
+          <div class="role">Founder & Lead Reviewer</div>
+          <p>5+ years testing AI chatbots. Former ML engineer turned AI companion advocate.</p>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">👩‍🔬</div>
+          <h4>Dr. Sarah Kim</h4>
+          <div class="role">Relationship Expert</div>
+          <p>Licensed therapist specializing in digital relationships and emotional AI.</p>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">🛡️</div>
+          <h4>Marcus Rivera</h4>
+          <div class="role">Privacy & Security</div>
+          <p>Cybersecurity analyst auditing AI app data practices and encryption.</p>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">✍️</div>
+          <h4>Emma Taylor</h4>
+          <div class="role">Content Lead</div>
+          <p>Tech journalist covering AI, dating apps, and digital intimacy trends.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-section">
+      <h2>Affiliate Disclosure</h2>
+      <p>
+        <strong>Transparency matters to us.</strong> This website contains affiliate links to AI girlfriend apps. When you click these links and make a purchase, we earn a commission at no additional cost to you. This is how we keep the site free and fund our testing.
+      </p>
+      <p>
+        <strong>Our Promise:</strong> Affiliate relationships do not influence our reviews, rankings, or recommendations. We rank apps based on merit, not commissions. If an app sucks, we'll tell you — even if they pay well.
+      </p>
+      <p>
+        We also disclose which apps we have affiliate partnerships with in each review. If we don't have a partnership with an app, we'll still review it fairly based on our testing.
+      </p>
+    </div>
+
+    <div class="about-section" style="text-align:center;">
+      <h2>Get In Touch</h2>
+      <p style="font-size:18px;margin-bottom:28px;">
+        Have questions? Want to suggest an app to review? Found an error in our content?
+      </p>
+      <a href="/contact" class="btn btn-primary" style="display:inline-block;padding:16px 40px;background:linear-gradient(135deg,#E91E8C,#9B51E0);border-radius:50px;font-size:16px;font-weight:600;color:#fff;text-decoration:none;transition:transform .2s;box-shadow:0 4px 24px rgba(233,30,140,0.3)">
+        Contact Us →
+      </a>
+    </div>
+  </div>
+</Layout>
