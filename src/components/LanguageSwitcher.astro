@@ -1,0 +1,141 @@
+---
+import { languages, getLangFromUrl } from '../i18n/ui';
+
+const currentLang = getLangFromUrl(Astro.url);
+const currentPath = Astro.url.pathname;
+
+// Remove language prefix from current path
+const pathWithoutLang = currentPath.replace(/^\/(es|pt|ja|de|fr|ko)/, '') || '/';
+---
+
+<div class="language-switcher">
+  <button class="lang-current" aria-label="Select language">
+    <span class="lang-flag">{currentLang === 'en' ? '🇺🇸' : currentLang === 'es' ? '🇪🇸' : currentLang === 'pt' ? '🇧🇷' : currentLang === 'ja' ? '🇯🇵' : currentLang === 'de' ? '🇩🇪' : currentLang === 'fr' ? '🇫🇷' : '🇰🇷'}</span>
+    <span class="lang-name">{languages[currentLang]}</span>
+    <svg class="lang-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none">
+      <path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+  </button>
+  
+  <div class="lang-dropdown">
+    {Object.entries(languages).map(([lang, name]) => {
+      const href = lang === 'en' ? pathWithoutLang : `/${lang}${pathWithoutLang}`;
+      const flag = lang === 'en' ? '🇺🇸' : lang === 'es' ? '🇪🇸' : lang === 'pt' ? '🇧🇷' : lang === 'ja' ? '🇯🇵' : lang === 'de' ? '🇩🇪' : lang === 'fr' ? '🇫🇷' : '🇰🇷';
+      
+      return (
+        <a 
+          href={href} 
+          class={`lang-option ${lang === currentLang ? 'active' : ''}`}
+          hreflang={lang}
+        >
+          <span class="lang-flag">{flag}</span>
+          <span class="lang-name">{name}</span>
+        </a>
+      );
+    })}
+  </div>
+</div>
+
+<style>
+  .language-switcher {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .lang-current {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .lang-current:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+  
+  .lang-flag {
+    font-size: 1.2rem;
+    line-height: 1;
+  }
+  
+  .lang-name {
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+  
+  .lang-arrow {
+    transition: transform 0.3s ease;
+  }
+  
+  .language-switcher:hover .lang-arrow {
+    transform: rotate(180deg);
+  }
+  
+  .lang-dropdown {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    right: 0;
+    background: #1a1a1a;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    padding: 0.5rem;
+    min-width: 180px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  }
+  
+  .language-switcher:hover .lang-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  
+  .lang-option {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  
+  .lang-option:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+  }
+  
+  .lang-option.active {
+    background: rgba(99, 102, 241, 0.2);
+    color: #818cf8;
+    font-weight: 600;
+  }
+  
+  .lang-option .lang-name {
+    font-size: 0.9rem;
+  }
+  
+  /* Mobile adjustments */
+  @media (max-width: 768px) {
+    .lang-current .lang-name {
+      display: none;
+    }
+    
+    .lang-dropdown {
+      right: auto;
+      left: 0;
+    }
+  }
+</style>
