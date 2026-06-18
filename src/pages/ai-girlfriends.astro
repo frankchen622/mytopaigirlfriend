@@ -70,7 +70,7 @@ const top10 = top10Order
       "@type": "Product",
       "name": review.data.app_name,
       "description": review.data.category,
-      "url": `https://mytopaigirlfriend.com/blog/${review.slug}`,
+      "url": `https://mytopaigirlfriend.com/${review.slug}`,
       "aggregateRating": review.data.rating ? {
         "@type": "AggregateRating",
         "ratingValue": review.data.rating.toString(),
@@ -265,7 +265,7 @@ footer .warning{color:#EF4444;margin-top:12px}
                 Visit Website
               </a>
             )}
-            <a href={`/blog/${review.slug}`} class="rank-btn rank-btn-secondary">
+            <a href={`/${review.slug}`} class="rank-btn rank-btn-secondary">
               Read Review
             </a>
           </div>

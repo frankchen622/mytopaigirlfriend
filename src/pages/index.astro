@@ -334,7 +334,7 @@ footer{padding:60px 0 40px;border-top:1px solid rgba(255,255,255,0.06)}
           {review.data.pricing.split('/')[0]}
           <small>{review.data.pricing.includes('/') ? '/' + review.data.pricing.split('/')[1] : ''}</small>
         </div>
-        <a href={`/blog/${review.slug}`} class="pick-cta">
+        <a href={`/${review.slug}`} class="pick-cta">
           Read {review.data.app_name} Review →
         </a>
       </div>
@@ -367,7 +367,7 @@ footer{padding:60px 0 40px;border-top:1px solid rgba(255,255,255,0.06)}
               {review.data.pricing.split('/')[0]}
               <small>{review.data.pricing.includes('/') ? '/' + review.data.pricing.split('/')[1] : ''}</small>
             </div>
-            <a href={`/blog/${review.slug}`} class="rank-cta">
+            <a href={`/${review.slug}`} class="rank-cta">
               View {review.data.app_name} Details
             </a>
           </div>

@@ -1,0 +1,22 @@
+# 301 Redirects - Old Blog URLs to New Clean URLs
+# 将 /blog/xxx 重定向到 /xxx
+
+/blog/candy-ai              /candy-ai              301
+/blog/replika               /replika               301
+/blog/character-ai          /character-ai          301
+/blog/herahaven-ai          /herahaven-ai          301
+/blog/dreamgf               /dreamgf               301
+/blog/luvr-ai               /luvr-ai               301
+/blog/kupid-ai              /kupid-ai              301
+/blog/infatuated-ai         /infatuated-ai         301
+/blog/swipeyai              /swipeyai              301
+/blog/fantasygf-ai          /fantasygf-ai          301
+/blog/secrets-ai            /secrets-ai            301
+/blog/sugarlab-ai           /sugarlab-ai           301
+/blog/ai-allure             /ai-allure             301
+/blog/eva-ai                /eva-ai                301
+/blog/anima-ai              /anima-ai              301
+/blog/chai                  /chai                  301
+/blog/crushon-ai            /crushon-ai            301
+/blog/replika-vs-character-ai  /replika-vs-character-ai  301
+/blog/best-ai-girlfriend-apps  /best-ai-girlfriend-apps  301
