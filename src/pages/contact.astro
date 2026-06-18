@@ -2,7 +2,14 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Contact Us - MyTopAIGirlfriend" description="Get in touch with our team for app reviews, partnerships, or support questions">
+<Layout 
+  title="Contact Us - MyTopAIGirlfriend" 
+  description="Get in touch with our team for app reviews, partnerships, or support questions"
+  breadcrumbs={[
+    { name: 'Home', url: '/' },
+    { name: 'Contact' }
+  ]}
+>
   <style>
     .contact-hero {
       background: linear-gradient(160deg, #1A1A2E 0%, #2D1B4E 100%);

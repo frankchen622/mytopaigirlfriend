@@ -1,13 +1,18 @@
 ---
 // src/layouts/Layout.astro
 import '../styles/global.css';
+import Breadcrumb from '../components/Breadcrumb.astro';
 
 interface Props {
   title: string;
   description?: string;
+  breadcrumbs?: Array<{
+    name: string;
+    url?: string;
+  }>;
 }
 
-const { title, description = 'Your guide to AI girlfriends and dating apps' } = Astro.props;
+const { title, description = 'Your guide to AI girlfriends and dating apps', breadcrumbs } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -59,6 +64,11 @@ const { title, description = 'Your guide to AI girlfriends and dating apps' } = 
   </nav>
 
   <main class="min-h-screen">
+    {breadcrumbs && (
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Breadcrumb items={breadcrumbs} />
+      </div>
+    )}
     <slot />
   </main>
 

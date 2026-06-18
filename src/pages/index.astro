@@ -303,7 +303,13 @@ footer{padding:60px 0 40px;border-top:1px solid rgba(255,255,255,0.06)}
       </div>
     </div>
     <div class="hero-right">
-      <img src="/hero-ai-girlfriend.png" alt="Best AI Girlfriend Apps 2026 - Top-rated virtual AI companions and dating simulation apps" />
+      <img 
+        src="/hero-ai-girlfriend.png" 
+        alt="Best AI Girlfriend Apps 2026 - Top-rated virtual AI companions and dating simulation apps"
+        width="400"
+        height="480"
+        loading="eager"
+      />
     </div>
   </div>
 </section>
@@ -329,7 +335,7 @@ footer{padding:60px 0 40px;border-top:1px solid rgba(255,255,255,0.06)}
           <small>{review.data.pricing.includes('/') ? '/' + review.data.pricing.split('/')[1] : ''}</small>
         </div>
         <a href={`/blog/${review.slug}`} class="pick-cta">
-          Read Full Review →
+          Read {review.data.app_name} Review →
         </a>
       </div>
     ))}
@@ -362,7 +368,7 @@ footer{padding:60px 0 40px;border-top:1px solid rgba(255,255,255,0.06)}
               <small>{review.data.pricing.includes('/') ? '/' + review.data.pricing.split('/')[1] : ''}</small>
             </div>
             <a href={`/blog/${review.slug}`} class="rank-cta">
-              View Details
+              View {review.data.app_name} Details
             </a>
           </div>
         </div>

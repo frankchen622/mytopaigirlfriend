@@ -2,7 +2,14 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="About Us - MyTopAIGirlfriend" description="Learn about our mission to provide honest, unbiased reviews of AI girlfriend apps and virtual companions">
+<Layout 
+  title="About Us - MyTopAIGirlfriend" 
+  description="Learn about our mission to provide honest, unbiased reviews of AI girlfriend apps and virtual companions"
+  breadcrumbs={[
+    { name: 'Home', url: '/' },
+    { name: 'About Us' }
+  ]}
+>
   <style>
     .about-hero {
       background: linear-gradient(160deg, #1A1A2E 0%, #2D1B4E 100%);

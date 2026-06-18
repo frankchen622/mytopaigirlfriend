@@ -1,0 +1,86 @@
+---
+// src/components/Breadcrumb.astro
+interface Props {
+  items: Array<{
+    name: string;
+    url?: string;
+  }>;
+}
+
+const { items } = Astro.props;
+
+// Generate Schema.org BreadcrumbList JSON-LD
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": items.map((item, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "name": item.name,
+    ...(item.url && { "item": `https://mytopaigirlfriend.com${item.url}` })
+  }))
+};
+---
+
+<nav aria-label="Breadcrumb" class="breadcrumb">
+  <ol class="breadcrumb-list">
+    {items.map((item, index) => (
+      <li class="breadcrumb-item">
+        {item.url && index < items.length - 1 ? (
+          <a href={item.url}>{item.name}</a>
+        ) : (
+          <span aria-current="page">{item.name}</span>
+        )}
+        {index < items.length - 1 && <span class="breadcrumb-separator">/</span>}
+      </li>
+    ))}
+  </ol>
+</nav>
+
+<!-- Breadcrumb Schema -->
+<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+<style>
+  .breadcrumb {
+    padding: 16px 0;
+    margin-bottom: 24px;
+  }
+  
+  .breadcrumb-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 8px;
+  }
+  
+  .breadcrumb-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+  }
+  
+  .breadcrumb-item a {
+    color: #A0A0B8;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  
+  .breadcrumb-item a:hover {
+    color: #E91E8C;
+    text-decoration: underline;
+  }
+  
+  .breadcrumb-item span[aria-current] {
+    color: #fff;
+    font-weight: 500;
+  }
+  
+  .breadcrumb-separator {
+    color: #6B7280;
+    user-select: none;
+  }
+</style>

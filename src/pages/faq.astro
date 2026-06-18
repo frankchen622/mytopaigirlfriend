@@ -2,7 +2,14 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="FAQ - MyTopAIGirlfriend" description="Frequently asked questions about AI girlfriend apps, virtual companions, pricing, privacy, and more">
+<Layout 
+  title="FAQ - MyTopAIGirlfriend" 
+  description="Frequently asked questions about AI girlfriend apps, virtual companions, pricing, privacy, and more"
+  breadcrumbs={[
+    { name: 'Home', url: '/' },
+    { name: 'FAQ' }
+  ]}
+>
   <style>
     .faq-hero {
       background: linear-gradient(160deg, #1A1A2E 0%, #2D1B4E 100%);
