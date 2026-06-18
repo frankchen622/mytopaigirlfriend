@@ -1,0 +1,279 @@
+---
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const reviews = await getCollection('es');
+  return reviews.map((review) => ({
+    params: { slug: review.slug },
+    props: { review },
+  }));
+}
+
+const { review } = Astro.props;
+const { Content } = await review.render();
+const price = review.data.pricing?.split('/')[0] || '$0';
+const rating = review.data.rating || 4.5;
+const fullStars = Math.floor(rating);
+const hasHalfStar = rating % 1 >= 0.5;
+const starsDisplay = '⭐'.repeat(fullStars) + (hasHalfStar ? '⭐' : '');
+---
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{review.data.title}</title>
+<meta name="description" content={review.data.category}>
+<link rel="canonical" href={`https://mytopaigirlfriend.com/es/${review.slug}/`}>
+
+<!-- Hreflang -->
+<link rel="alternate" hreflang="en" href={`https://mytopaigirlfriend.com/${review.slug}/`} />
+<link rel="alternate" hreflang="es" href={`https://mytopaigirlfriend.com/es/${review.slug}/`} />
+<link rel="alternate" hreflang="x-default" href={`https://mytopaigirlfriend.com/${review.slug}/`} />
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #333;
+    line-height: 1.8;
+  }
+  
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  header {
+    padding: 20px 0;
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+  }
+  
+  .logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 25px;
+  }
+  
+  .nav-links a {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+  }
+  
+  .breadcrumb {
+    padding: 20px 0;
+    color: rgba(255, 255, 255, 0.9);
+  }
+  
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+  }
+  
+  .breadcrumb a:hover {
+    color: #fff;
+  }
+  
+  article {
+    background: #fff;
+    border-radius: 20px;
+    padding: 60px;
+    margin: 30px 0;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  }
+  
+  .review-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 40px;
+    border-bottom: 2px solid #eee;
+  }
+  
+  .review-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: #333;
+  }
+  
+  .review-meta {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+  
+  .review-meta-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .review-meta-label {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 5px;
+  }
+  
+  .review-meta-value {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #667eea;
+  }
+  
+  .content {
+    font-size: 1.1rem;
+    color: #333;
+  }
+  
+  .content h2 {
+    font-size: 2rem;
+    margin: 40px 0 20px;
+    color: #333;
+  }
+  
+  .content h3 {
+    font-size: 1.5rem;
+    margin: 30px 0 15px;
+    color: #444;
+  }
+  
+  .content p {
+    margin: 15px 0;
+  }
+  
+  .content ul, .content ol {
+    margin: 15px 0;
+    padding-left: 30px;
+  }
+  
+  .content li {
+    margin: 8px 0;
+  }
+  
+  .content a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  
+  .content a:hover {
+    text-decoration: underline;
+  }
+  
+  .content strong {
+    color: #333;
+  }
+  
+  footer {
+    background: rgba(0, 0, 0, 0.3);
+    color: #fff;
+    padding: 40px 0 20px;
+    margin-top: 60px;
+    text-align: center;
+  }
+  
+  footer a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    margin: 0 15px;
+  }
+  
+  @media (max-width: 768px) {
+    article {
+      padding: 30px 20px;
+    }
+    
+    .review-header h1 {
+      font-size: 1.8rem;
+    }
+    
+    .content h2 {
+      font-size: 1.5rem;
+    }
+  }
+</style>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <a href="/es/" class="logo">🤖 My Top AI Girlfriend</a>
+        <div class="nav-links">
+          <a href="/es/">Inicio</a>
+          <a href="/es/ai-girlfriends">Novias IA</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="/es/">Inicio</a> / <a href="/es/ai-girlfriends">Novias IA</a> / {review.data.app_name}
+    </div>
+  </div>
+
+  <div class="container">
+    <article>
+      <div class="review-header">
+        <h1>{review.data.title}</h1>
+        <div class="review-meta">
+          <div class="review-meta-item">
+            <span class="review-meta-label">Calificación</span>
+            <span class="review-meta-value">{starsDisplay} {rating}/5</span>
+          </div>
+          <div class="review-meta-item">
+            <span class="review-meta-label">Precio</span>
+            <span class="review-meta-value">{review.data.pricing}</span>
+          </div>
+          {review.data.has_nsfw && (
+          <div class="review-meta-item">
+            <span class="review-meta-label">Contenido</span>
+            <span class="review-meta-value">🔥 NSFW</span>
+          </div>
+          )}
+        </div>
+      </div>
+
+      <div class="content">
+        <Content />
+      </div>
+    </article>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>
+        <a href="/es/">Inicio</a>
+        <a href="/es/about">Acerca de</a>
+        <a href="/es/contact">Contacto</a>
+        <a href="/es/privacy">Privacidad</a>
+      </p>
+      <p style="margin-top: 20px; opacity: 0.8;">© 2026 My Top AI Girlfriend. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+</body>
+</html>

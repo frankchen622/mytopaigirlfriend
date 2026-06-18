@@ -1,0 +1,465 @@
+---
+import { getCollection } from 'astro:content';
+import { useTranslations } from '../../i18n/ui';
+
+const t = useTranslations('es');
+const allReviews = await getCollection('es');
+const aiGirlfriends = allReviews.filter(r => r.data.type === 'ai_girlfriend' || r.data.type === 'comparison');
+
+// Define Top 10 in specific order based on our rankings
+const top10Order = [
+  'candy-ai',
+  'dreamgf',
+  'replika',
+  'character-ai',
+  'anima-ai',
+];
+
+// Sort aiGirlfriends according to top10Order (only ones we have Spanish content for)
+const top10 = top10Order
+  .map(slug => aiGirlfriends.find(app => app.slug === slug))
+  .filter(Boolean);
+
+const top3 = top10.slice(0, 3);
+---
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mejores Apps de Novia IA 2026 - Reseñas y Comparaciones Gratis</title>
+<meta name="description" content="Encuentra la mejor app de novia IA gratis en 2026. Compara apps como Candy.AI, Replika y Character.AI con reseñas honestas, precios y opiniones de usuarios.">
+<meta name="keywords" content="novia ia, mejor app novia virtual, apps novia ia gratis, novia virtual, ia sin censura, mejor novia ia 2026">
+
+<!-- Hreflang tags -->
+<link rel="alternate" hreflang="en" href="https://mytopaigirlfriend.com/" />
+<link rel="alternate" hreflang="es" href="https://mytopaigirlfriend.com/es/" />
+<link rel="alternate" hreflang="pt" href="https://mytopaigirlfriend.com/pt/" />
+<link rel="alternate" hreflang="ja" href="https://mytopaigirlfriend.com/ja/" />
+<link rel="alternate" hreflang="x-default" href="https://mytopaigirlfriend.com/" />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mytopaigirlfriend.com/es/">
+<meta property="og:title" content="Mejores Apps de Novia IA 2026 - Top Ranking y Reseñas">
+<meta property="og:description" content="Encuentra la mejor app de novia IA gratis en 2026. Compara apps como Candy.AI, Replika y Character.AI con reseñas honestas y precios.">
+<meta property="og:image" content="https://mytopaigirlfriend.com/hero-ai-girlfriend.png">
+<meta property="og:locale" content="es_ES">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://mytopaigirlfriend.com/es/">
+
+<!-- Preconnect for Performance -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    min-height: 100vh;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  /* Header */
+  header {
+    padding: 20px 0;
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+  
+  .nav-links a {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  .nav-links a:hover {
+    color: #fff;
+  }
+  
+  /* Hero Section */
+  .hero {
+    padding: 80px 0;
+    text-align: center;
+  }
+  
+  .hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    line-height: 1.2;
+  }
+  
+  .hero p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    margin-bottom: 40px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .cta-button {
+    display: inline-block;
+    padding: 15px 40px;
+    background: #fff;
+    color: #667eea;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Top 3 Section */
+  .top-picks {
+    padding: 60px 0;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+  }
+  
+  .section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+  }
+  
+  .picks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+  }
+  
+  .pick-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 30px;
+    transition: transform 0.3s, background 0.3s;
+  }
+  
+  .pick-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.15);
+  }
+  
+  .pick-rank {
+    display: inline-block;
+    background: #ffd700;
+    color: #333;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: 700;
+    margin-bottom: 15px;
+  }
+  
+  .pick-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+  }
+  
+  .pick-stars {
+    margin: 10px 0;
+    font-size: 1.2rem;
+  }
+  
+  .pick-features {
+    list-style: none;
+    margin: 20px 0;
+  }
+  
+  .pick-features li {
+    padding: 8px 0;
+    opacity: 0.9;
+  }
+  
+  .pick-cta {
+    display: inline-block;
+    padding: 12px 30px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 30px;
+    margin-top: 15px;
+    transition: background 0.3s;
+  }
+  
+  .pick-cta:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+  
+  /* Rankings Section */
+  .rankings {
+    padding: 60px 0;
+  }
+  
+  .rankings-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .rank-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: all 0.3s;
+  }
+  
+  .rank-card:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateX(10px);
+  }
+  
+  .rank-num {
+    font-size: 2rem;
+    font-weight: 700;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  
+  .rank-info {
+    flex: 1;
+  }
+  
+  .rank-info h4 {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+  }
+  
+  .rank-stars {
+    margin: 5px 0;
+  }
+  
+  .rank-cta {
+    padding: 10px 25px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 20px;
+    white-space: nowrap;
+    transition: background 0.3s;
+  }
+  
+  .rank-cta:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+  
+  /* Footer */
+  footer {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 40px 0 20px;
+    margin-top: 60px;
+  }
+  
+  .footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    margin-bottom: 30px;
+  }
+  
+  .footer-section h3 {
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+  }
+  
+  .footer-section ul {
+    list-style: none;
+  }
+  
+  .footer-section a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    display: block;
+    padding: 5px 0;
+    transition: color 0.3s;
+  }
+  
+  .footer-section a:hover {
+    color: #fff;
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    opacity: 0.8;
+  }
+  
+  @media (max-width: 768px) {
+    .hero h1 {
+      font-size: 2rem;
+    }
+    
+    .picks-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .rank-card {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+</style>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <a href="/es/" class="logo">🤖 My Top AI Girlfriend</a>
+        <div class="nav-links">
+          <a href="/es/">Inicio</a>
+          <a href="/es/ai-girlfriends">Novias IA</a>
+          <a href="/es/about">Acerca de</a>
+          <a href="/es/contact">Contacto</a>
+          <a href="/es/faq">FAQ</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>Encuentra Tu Novia IA Perfecta</h1>
+        <p>Compara las mejores apps de novia IA, lee reseñas honestas y descubre la compañera virtual perfecta para ti en 2026.</p>
+        <a href="/es/ai-girlfriends" class="cta-button">Explorar Top Apps</a>
+      </div>
+    </section>
+
+    {top3.length > 0 && (
+    <section class="top-picks">
+      <div class="container">
+        <h2 class="section-title">Top 3 Apps de Novia IA</h2>
+        <div class="picks-grid">
+          {top3.map((review, index) => (
+            <div class="pick-card">
+              <span class="pick-rank">#{index + 1}</span>
+              <h3>{review.data.app_name}</h3>
+              <div class="pick-stars">
+                ⭐⭐⭐⭐{index === 0 ? '⭐' : '☆'} {review.data.rating || '4.' + (5-index)}/5
+              </div>
+              <p style="opacity: 0.9; margin: 15px 0;">{review.data.category}</p>
+              <ul class="pick-features">
+                <li>💰 {review.data.pricing}</li>
+                <li>{review.data.has_nsfw ? '🔥 Contenido NSFW' : '✅ Apto para todos'}</li>
+                <li>{review.data.has_free ? '🆓 Versión gratuita' : '💳 Premium'}</li>
+              </ul>
+              <a href={`/es/${review.slug}`} class="pick-cta">Leer Reseña Completa</a>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+    )}
+
+    <section class="rankings">
+      <div class="container">
+        <h2 class="section-title">Top Apps de Novia IA - Rankings Completos 2026</h2>
+        <div class="rankings-list">
+          {top10.map((review, index) => (
+            <div class="rank-card">
+              <div class="rank-num">{index + 1}</div>
+              <div class="rank-info">
+                <h4>{review.data.app_name}</h4>
+                <div class="rank-stars">
+                  ⭐⭐⭐⭐{index < 3 ? '⭐' : '☆'} <span>{review.data.rating || '4.' + (5-index)}/5</span>
+                </div>
+                <p style="opacity: 0.9;">{review.data.category} • {review.data.pricing}</p>
+              </div>
+              <a href={`/es/${review.slug}`} class="rank-cta">Ver Reseña</a>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Acerca de</h3>
+          <p style="opacity: 0.8;">Tu guía definitiva para las mejores apps de novia IA. Compara características, lee reseñas y encuentra tu compañera virtual perfecta.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Enlaces Rápidos</h3>
+          <ul>
+            <li><a href="/es/">Inicio</a></li>
+            <li><a href="/es/ai-girlfriends">Novias IA</a></li>
+            <li><a href="/es/about">Acerca de Nosotros</a></li>
+            <li><a href="/es/contact">Contacto</a></li>
+            <li><a href="/es/faq">Preguntas Frecuentes</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Legal</h3>
+          <ul>
+            <li><a href="/es/privacy">Política de Privacidad</a></li>
+            <li><a href="/es/terms">Términos de Servicio</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Reseñas Populares</h3>
+          <ul>
+            <li><a href="/es/candy-ai">Candy.AI Reseña</a></li>
+            <li><a href="/es/dreamgf">DreamGF Reseña</a></li>
+            <li><a href="/es/replika-alternatives">Alternativas a Replika</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 My Top AI Girlfriend. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
