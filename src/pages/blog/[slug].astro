@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import Breadcrumb from '../../components/Breadcrumb.astro';
 
 export async function getStaticPaths() {
   const reviews = await getCollection('en');
@@ -17,6 +18,13 @@ const fullStars = Math.floor(rating);
 const hasHalfStar = rating % 1 >= 0.5;
 const starsDisplay = '⭐'.repeat(fullStars) + (hasHalfStar ? '⭐' : rating % 1 > 0 ? '☆' : '');
 const isComparison = review.data.type === 'comparison' || review.data.type === 'listicle';
+
+// Breadcrumb data
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Blog', url: '/blog' },
+  { name: review.data.app_name }
+];
 ---
 
 <!DOCTYPE html>
@@ -216,26 +224,9 @@ footer p{color:#6B7280;font-size:14px}
 </header>
 
 <!-- Breadcrumb Navigation -->
-<nav class="breadcrumb" aria-label="Breadcrumb">
-  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
-    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-      <a href="/" itemprop="item">
-        <span itemprop="name">Home</span>
-      </a>
-      <meta itemprop="position" content="1" />
-    </li>
-    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-      <a href={isComparison ? "/blog" : "/ai-girlfriends"} itemprop="item">
-        <span itemprop="name">{isComparison ? "Blog" : "AI Girlfriends"}</span>
-      </a>
-      <meta itemprop="position" content="2" />
-    </li>
-    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" aria-current="page">
-      <span itemprop="name">{isComparison ? review.data.title : review.data.app_name}</span>
-      <meta itemprop="position" content="3" />
-    </li>
-  </ol>
-</nav>
+<div class="container" style="padding-top: 20px; padding-bottom: 0;">
+  <Breadcrumb items={breadcrumbs} />
+</div>
 
 {isComparison ? (
   <!-- Blog/Comparison Layout -->
