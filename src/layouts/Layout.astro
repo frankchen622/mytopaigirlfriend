@@ -2,6 +2,7 @@
 // src/layouts/Layout.astro
 import '../styles/global.css';
 import Breadcrumb from '../components/Breadcrumb.astro';
+import LanguageSwitcher from '../components/LanguageSwitcher.astro';
 
 interface Props {
   title: string;
@@ -58,6 +59,7 @@ const { title, description = 'Your guide to AI girlfriends and dating apps', bre
           <a href="/contact" class="text-gray-700 hover:text-primary-600">
             Contact
           </a>
+          <LanguageSwitcher />
         </div>
       </div>
     </div>
