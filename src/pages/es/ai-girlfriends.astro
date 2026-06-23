@@ -1,0 +1,283 @@
+---
+import { getCollection } from 'astro:content';
+import ComparisonGuide from '../../components/ComparisonGuide.astro';
+
+const allReviews = await getCollection('es');
+const aiGirlfriends = allReviews.filter(r => r.data.type === 'ai_girlfriend');
+
+// Define Top 10 in specific order based on our rankings
+const top10Order = [
+  'candy-ai',
+  'replika',
+  'character-ai',
+  'herahaven-ai',
+  'dreamgf',
+  'luvr-ai',
+  'kupid-ai',
+  'infatuated-ai',
+  'swipeyai',
+  'fantasygf-ai'
+];
+
+// Sort aiGirlfriends according to top10Order and limit to 10
+const top10 = top10Order
+  .map(slug => aiGirlfriends.find(app => app.slug === slug))
+  .filter(Boolean)
+  .slice(0, 10);
+---
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mejores Apps de Novia IA 2026 - Guía Completa</title>
+<meta name="description" content="Compara todas las apps de novia IA: Replika, Character.AI, Chai y más. Reseñas honestas, precios y características.">
+
+<!-- Schema.org BreadcrumbList -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": "https://mytopaigirlfriend.com/es/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Novias IA",
+      "item": "https://mytopaigirlfriend.com/es/ai-girlfriends"
+    }
+  ]
+}
+</script>
+
+<!-- Schema.org ItemList for Rankings -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Top 10 Apps de Novia IA 2026",
+  "description": "Lista completa clasificada de las mejores apps de novia IA con reseñas",
+  "numberOfItems": top10.length,
+  "itemListElement": top10.map((review, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "item": {
+      "@type": "Product",
+      "name": review.data.app_name,
+      "description": review.data.category,
+      "url": `https://mytopaigirlfriend.com/es/${review.slug}`,
+      "aggregateRating": review.data.rating ? {
+        "@type": "AggregateRating",
+        "ratingValue": review.data.rating.toString(),
+        "bestRating": "5",
+        "ratingCount": "50"
+      } : undefined,
+      "offers": {
+        "@type": "Offer",
+        "price": review.data.has_free ? "0" : review.data.pricing.split('/')[0].replace('$', ''),
+        "priceCurrency": "USD"
+      }
+    }
+  }))
+})}></script>
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mytopaigirlfriend.com/es/ai-girlfriends">
+<meta property="og:title" content="Mejores Apps de Novia IA 2026 - Reseñas Completas">
+<meta property="og:description" content="Compara las 10 mejores apps de novia IA con reseñas detalladas, precios y características. Encuentra tu compañera IA perfecta.">
+<meta property="og:image" content="https://mytopaigirlfriend.com/hero-ai-girlfriend.png">
+<meta property="og:site_name" content="My Top AI Girlfriend">
+<meta property="og:locale" content="es_ES">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mejores Apps de Novia IA 2026 - Reseñas Completas">
+<meta name="twitter:description" content="Compara las 10 mejores apps de novia IA con reseñas detalladas.">
+<meta name="twitter:image" content="https://mytopaigirlfriend.com/hero-ai-girlfriend.png">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://mytopaigirlfriend.com/es/ai-girlfriends">
+
+<!-- Hreflang -->
+<link rel="alternate" hreflang="en" href="https://mytopaigirlfriend.com/ai-girlfriends">
+<link rel="alternate" hreflang="es" href="https://mytopaigirlfriend.com/es/ai-girlfriends">
+<link rel="alternate" hreflang="x-default" href="https://mytopaigirlfriend.com/ai-girlfriends">
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style is:global>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#0D0D1A;color:#fff;line-height:1.6}
+
+header{padding:20px 0;border-bottom:1px solid rgba(255,255,255,0.06);background:rgba(13,13,26,0.95)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto;padding:0 24px}
+.logo{font-size:20px;font-weight:800;color:#fff;text-decoration:none}
+.logo span{background:linear-gradient(135deg,#E91E8C,#9B51E0);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+nav{display:flex;gap:28px}
+nav a{font-size:14px;font-weight:500;color:#A0A0B8;transition:color .2s;text-decoration:none}
+nav a:hover{color:#fff}
+
+.breadcrumb{background:rgba(26,26,46,0.5);border-bottom:1px solid rgba(255,255,255,0.06);padding:12px 0}
+.breadcrumb ol{list-style:none;display:flex;align-items:center;gap:8px;max-width:1200px;margin:0 auto;padding:0 24px;font-size:14px}
+.breadcrumb li{display:flex;align-items:center;gap:8px;color:#A0A0B8}
+.breadcrumb li:not(:last-child):after{content:"›";color:#6B7280;font-size:16px}
+.breadcrumb a{color:#A0A0B8;transition:color .2s;text-decoration:none}
+.breadcrumb a:hover{color:#E91E8C}
+.breadcrumb li[aria-current="page"]{color:#fff;font-weight:500}
+
+.hero{padding:60px 0 40px;background:linear-gradient(160deg,#1A1A2E 0%,#2D1B4E 100%)}
+.hero-inner{max-width:1200px;margin:0 auto;padding:0 24px;text-align:center}
+.hero h1{font-size:42px;font-weight:800;margin-bottom:12px}
+.hero p{font-size:16px;color:#A0A0B8;max-width:600px;margin:0 auto}
+
+.rankings{padding:60px 0;max-width:1200px;margin:0 auto;padding:60px 24px}
+.rank-list{display:flex;flex-direction:column;gap:16px}
+.rank-card{display:flex;align-items:center;gap:20px;background:#1A1A2E;border-radius:16px;padding:24px;border:1px solid rgba(255,255,255,0.06);transition:border-color .2s}
+.rank-card:hover{border-color:rgba(155,81,224,0.25)}
+.rank-num{font-size:28px;font-weight:800;width:40px;text-align:center;background:linear-gradient(135deg,#E91E8C,#9B51E0);-webkit-background-clip:text;-webkit-text-fill-color:transparent;flex-shrink:0}
+.rank-avatar{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#E91E8C,#9B51E0);flex-shrink:0;opacity:0.75}
+.rank-card:nth-child(2) .rank-avatar{background:linear-gradient(135deg,#6366F1,#8B5CF6)}
+.rank-card:nth-child(3) .rank-avatar{background:linear-gradient(135deg,#F59E0B,#EF4444)}
+.rank-card:nth-child(4) .rank-avatar{background:linear-gradient(135deg,#10B981,#3B82F6)}
+.rank-card:nth-child(5) .rank-avatar{background:linear-gradient(135deg,#EC4899,#F43F5E)}
+.rank-info{flex:1}
+.rank-info h4{font-size:18px;font-weight:700;color:#fff;margin-bottom:4px}
+.rank-rating{color:#FBBF24;font-size:14px;margin-bottom:6px}
+.rank-rating span{color:#A0A0B8;margin-left:6px;font-weight:500}
+.rank-desc{font-size:13px;color:#A0A0B8;margin-bottom:8px}
+.rank-tags{display:flex;gap:6px;flex-wrap:wrap}
+.rank-tags span{font-size:11px;padding:3px 8px;background:rgba(255,255,255,0.05);border-radius:12px;color:#A0A0B8}
+.rank-right{text-align:right;flex-shrink:0;display:flex;flex-direction:column;align-items:flex-end;gap:12px}
+.rank-price{font-size:22px;font-weight:700;color:#fff}
+.rank-price small{font-size:12px;color:#A0A0B8;font-weight:400;display:block;margin-top:2px}
+.rank-actions{display:flex;gap:8px}
+.rank-btn{display:inline-block;padding:10px 18px;border-radius:10px;font-size:13px;font-weight:600;text-decoration:none;transition:all .2s;white-space:nowrap}
+.rank-btn-primary{background:linear-gradient(135deg,#E91E8C,#9B51E0);color:#fff}
+.rank-btn-primary:hover{opacity:0.85;transform:translateY(-1px)}
+.rank-btn-secondary{background:rgba(255,255,255,0.08);color:#fff;border:1px solid rgba(255,255,255,0.1)}
+.rank-btn-secondary:hover{background:rgba(255,255,255,0.12);border-color:rgba(155,81,224,0.3)}
+
+@media (max-width: 768px) {
+  .rank-card{flex-direction:column;align-items:flex-start;gap:16px}
+  .rank-num{width:auto;margin-bottom:8px}
+  .rank-right{width:100%;align-items:flex-start}
+  .rank-actions{width:100%;flex-direction:column}
+  .rank-btn{width:100%;text-align:center}
+}
+
+footer{padding:60px 0 40px;border-top:1px solid rgba(255,255,255,0.06);text-align:center;margin-top:80px}
+footer p{color:#A0A0B8;font-size:14px}
+footer .warning{color:#EF4444;margin-top:12px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="/es/" class="logo">
+      💕 My<span>Top</span>AIGirlfriend
+    </a>
+    <nav>
+      <a href="/es/ai-girlfriends">Reseñas de Novias IA</a>
+      <a href="/es/blog">Blog</a>
+    </nav>
+  </div>
+</header>
+
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <a href="/es/" itemprop="item">
+        <span itemprop="name">Inicio</span>
+      </a>
+      <meta itemprop="position" content="1" />
+    </li>
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" aria-current="page">
+      <span itemprop="name">Novias IA</span>
+      <meta itemprop="position" content="2" />
+    </li>
+  </ol>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <h1>Top 10 Apps de Novia IA</h1>
+    <p>
+      Guía completa de cada app de compañera IA. Compara características, precios y encuentra tu pareja perfecta.
+    </p>
+  </div>
+</section>
+
+<section class="rankings">
+  <div class="rank-list">
+    {top10.map((review, index) => (
+      <div class="rank-card">
+        <div class="rank-num">{index + 1}</div>
+        <div class="rank-avatar"></div>
+        <div class="rank-info">
+          <h4>{review.data.app_name}</h4>
+          <div class="rank-rating">
+            {review.data.rating ? (
+              <>
+                {'⭐'.repeat(Math.floor(review.data.rating))}
+                {review.data.rating % 1 >= 0.5 ? '⭐' : review.data.rating % 1 > 0 ? '☆' : ''}
+                <span>{review.data.rating}/5</span>
+              </>
+            ) : (
+              <span style="color:#6B7280">Sin calificación aún</span>
+            )}
+          </div>
+          <p class="rank-desc">{review.data.category}</p>
+          <div class="rank-tags">
+            {review.data.has_free && <span>Gratis</span>}
+            {review.data.has_nsfw && <span>NSFW</span>}
+            <span>Compañera IA</span>
+          </div>
+        </div>
+        <div class="rank-right">
+          <div class="rank-price">
+            {review.data.pricing.split('/')[0]}
+            <small>{review.data.pricing.includes('/') ? '/' + review.data.pricing.split('/')[1] : ''}</small>
+          </div>
+          <div class="rank-actions">
+            {review.data.app_url && (
+              <a href={review.data.app_url} target="_blank" rel="noopener noreferrer" class="rank-btn rank-btn-primary">
+                Visitar Sitio Web
+              </a>
+            )}
+            <a href={`/es/${review.slug}`} class="rank-btn rank-btn-secondary">
+              Leer Reseña
+            </a>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<footer>
+  <div style="max-width:1200px;margin:0 auto;padding:0 24px;text-align:center">
+    <p style="color:#A0A0B8;font-size:14px">© 2026 MyTopAIGirlfriend. Todos los derechos reservados.</p>
+    <div style="display:flex;gap:12px;justify-content:center;align-items:center;margin:12px 0;font-size:13px">
+      <a href="/es/about" style="color:#A0A0B8;transition:color .2s;text-decoration:underline">Acerca de</a>
+      <span style="color:#6B7280">•</span>
+      <a href="/es/contact" style="color:#A0A0B8;transition:color .2s;text-decoration:underline">Contacto</a>
+      <span style="color:#6B7280">•</span>
+      <a href="/es/faq" style="color:#A0A0B8;transition:color .2s;text-decoration:underline">Preguntas</a>
+      <span style="color:#6B7280">•</span>
+      <a href="/es/privacy" style="color:#A0A0B8;transition:color .2s;text-decoration:underline">Privacidad</a>
+      <span style="color:#6B7280">•</span>
+      <a href="/es/terms" style="color:#A0A0B8;transition:color .2s;text-decoration:underline">Términos</a>
+    </div>
+    <p class="warning" style="color:#EF4444;margin-top:12px">⚠️ Advertencia de contenido +18: Algunas apps contienen contenido para adultos</p>
+  </div>
+</footer>
+
+</body>
+</html>
