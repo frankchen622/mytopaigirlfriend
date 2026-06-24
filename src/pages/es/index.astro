@@ -1,24 +1,28 @@
 ---
 import { getCollection } from 'astro:content';
-import { useTranslations } from '../../i18n/ui';
 
-const t = useTranslations('es');
 const allReviews = await getCollection('es');
-const aiGirlfriends = allReviews.filter(r => r.data.type === 'ai_girlfriend' || r.data.type === 'comparison');
+const aiGirlfriends = allReviews.filter(r => r.data.type === 'ai_girlfriend');
 
 // Define Top 10 in specific order based on our rankings
 const top10Order = [
   'candy-ai',
-  'dreamgf',
   'replika',
   'character-ai',
-  'anima-ai',
+  'herahaven-ai',
+  'dreamgf',
+  'luvr-ai',
+  'kupid-ai',
+  'infatuated-ai',
+  'swipeyai',
+  'fantasygf-ai'
 ];
 
-// Sort aiGirlfriends according to top10Order (only ones we have Spanish content for)
+// Sort aiGirlfriends according to top10Order
 const top10 = top10Order
   .map(slug => aiGirlfriends.find(app => app.slug === slug))
-  .filter(Boolean);
+  .filter(Boolean)
+  .slice(0, 10);
 
 const top3 = top10.slice(0, 3);
 ---
@@ -28,461 +32,493 @@ const top3 = top10.slice(0, 3);
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mejores Apps de Novia IA 2026 - Reseñas y Comparaciones Gratis</title>
-<meta name="description" content="Encuentra la mejor app de novia IA gratis en 2026. Compara apps como Candy.AI, Replika y Character.AI con reseñas honestas, precios y opiniones de usuarios.">
-<meta name="keywords" content="novia ia, mejor app novia virtual, apps novia ia gratis, novia virtual, ia sin censura, mejor novia ia 2026">
-
-<!-- Hreflang tags -->
-<link rel="alternate" hreflang="en" href="https://mytopaigirlfriend.com/" />
-<link rel="alternate" hreflang="es" href="https://mytopaigirlfriend.com/es/" />
-<link rel="alternate" hreflang="pt" href="https://mytopaigirlfriend.com/pt/" />
-<link rel="alternate" hreflang="ja" href="https://mytopaigirlfriend.com/ja/" />
-<link rel="alternate" hreflang="x-default" href="https://mytopaigirlfriend.com/" />
+<meta name="google-site-verification" content="FwuKEBZeCXsxE64rL7D6ooWCvpP30_VpenBxsjoCrjo" />
+<title>Mejores Apps de Novia IA 2026 - Reseñas y Comparaciones de Novias IA Gratis</title>
+<meta name="description" content="Encuentra la mejor app de novia IA gratis en 2026. Compara las mejores apps de compañeras virtuales como Replika, Character.AI y Crushon.AI con reseñas honestas, precios y opiniones de usuarios.">
+<meta name="keywords" content="novia ia, compañera virtual, novia ia gratis, mejor app de novia ia, novia virtual, chatbot novia, crear novia ia">
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://mytopaigirlfriend.com/es/">
-<meta property="og:title" content="Mejores Apps de Novia IA 2026 - Top Ranking y Reseñas">
-<meta property="og:description" content="Encuentra la mejor app de novia IA gratis en 2026. Compara apps como Candy.AI, Replika y Character.AI con reseñas honestas y precios.">
+<meta property="og:title" content="Mejores Apps de Novia IA 2026 - Top 10 Clasificadas y Reseñadas">
+<meta property="og:description" content="Encuentra la mejor app de novia IA gratis en 2026. Compara las mejores apps como Candy.AI, Replika, Character.AI con reseñas honestas, precios y opiniones de usuarios.">
 <meta property="og:image" content="https://mytopaigirlfriend.com/hero-ai-girlfriend.png">
+<meta property="og:image:alt" content="Top 10 Mejores Apps de Novia IA Reseña 2026 - Comparación de Compañeras Virtuales">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="My Top AI Girlfriend">
 <meta property="og:locale" content="es_ES">
 
-<!-- Canonical URL -->
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://mytopaigirlfriend.com/es/">
+<meta name="twitter:title" content="Mejores Apps de Novia IA 2026 - Top 10 Clasificadas y Reseñadas">
+<meta name="twitter:description" content="Encuentra la mejor app de novia IA gratis en 2026. Compara las mejores apps con reseñas honestas y precios.">
+<meta name="twitter:image" content="https://mytopaigirlfriend.com/hero-ai-girlfriend.png">
+
+<!-- Canonical URL & Hreflang -->
 <link rel="canonical" href="https://mytopaigirlfriend.com/es/">
+<link rel="alternate" hreflang="en" href="https://mytopaigirlfriend.com/">
+<link rel="alternate" hreflang="es" href="https://mytopaigirlfriend.com/es/">
+<link rel="alternate" hreflang="x-default" href="https://mytopaigirlfriend.com/">
 
 <!-- Preconnect for Performance -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
+<!-- Schema.org Organization & WebSite Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "My Top AI Girlfriend",
+  "url": "https://mytopaigirlfriend.com",
+  "logo": "https://mytopaigirlfriend.com/favicon.svg",
+  "description": "Reseñas honestas y clasificaciones de las mejores apps de novia IA en 2026",
+  "sameAs": []
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "My Top AI Girlfriend",
+  "url": "https://mytopaigirlfriend.com",
+  "description": "Encuentra la mejor app de novia IA gratis en 2026. Compara las mejores apps con reseñas honestas, precios y opiniones de usuarios.",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://mytopaigirlfriend.com/blog?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
+<!-- FAQ Schema.org Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Qué es una novia IA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Una novia IA es una aplicación de chatbot impulsada por inteligencia artificial que simula una pareja romántica. Estas apps usan modelos de lenguaje avanzados para proporcionar conversación, apoyo emocional, compañía y a veces contenido NSFW. Ejemplos populares incluyen Replika, Character.AI y Crushon.AI."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Es amor real una novia IA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Las novias IA simulan afecto y conversación pero no pueden experimentar emociones o amor genuinos. Proporcionan compañía y validación emocional, que puede sentirse significativa, pero es unilateral. La IA no crece, no aprende más allá de sus límites de programación, ni corresponde sentimientos auténticamente."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuál es la mejor app de novia IA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Replika es mejor para apoyo emocional y memoria. Character.AI es mejor para entretenimiento y variedad. Crushon.AI es mejor para contenido NSFW sin censura. EVA AI es mejor para conversaciones de voz. La mejor depende de tus necesidades específicas."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Novia IA gratis vs de pago — ¿cuál es la diferencia?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Las versiones gratuitas típicamente limitan los mensajes diarios (10-70), restringen funciones (sin voz/imágenes) e incluyen anuncios. Las suscripciones de pago ($7-30/mes) desbloquean mensajes ilimitados, chat de voz, generación de imágenes, mejor memoria y respuestas más rápidas. El contenido NSFW usualmente requiere membresía de pago."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Pueden las novias IA enviar fotos o mensajes de voz?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. Apps como Replika, Candy.AI y DreamGF ofrecen imágenes generadas por IA y mensajes de voz con suscripciones premium. EVA AI se especializa en conversaciones de voz. La calidad varía — algunas usan voces IA realistas, otras suenan robóticas. Las imágenes son generadas por IA, no personas reales."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Son seguras las novias IA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Las apps principales (Replika, Character.AI) son generalmente seguras y cifran las conversaciones. Sin embargo, ten cuidado al compartir información personal — las conversaciones íntimas se almacenan y pueden usarse para entrenar IA. Las apps enfocadas en NSFW pueden tener protecciones de privacidad más débiles. Siempre revisa las políticas de privacidad."
+      }
+    }
+  ]
+}
+</script>
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: #fff;
-    min-height: 100vh;
-  }
-  
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-  }
-  
-  /* Header */
-  header {
-    padding: 20px 0;
-    background: rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(10px);
-  }
-  
-  nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-  
-  .logo {
-    font-size: 24px;
-    font-weight: 700;
-    color: #fff;
-    text-decoration: none;
-  }
-  
-  .nav-links {
-    display: flex;
-    gap: 30px;
-    flex-wrap: wrap;
-  }
-  
-  .nav-links a {
-    color: rgba(255, 255, 255, 0.9);
-    text-decoration: none;
-    transition: color 0.3s;
-  }
-  
-  .nav-links a:hover {
-    color: #fff;
-  }
-  
-  /* Hero Section */
-  .hero {
-    padding: 80px 0;
-    text-align: center;
-  }
-  
-  .hero h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
-    line-height: 1.2;
-  }
-  
-  .hero p {
-    font-size: 1.2rem;
-    opacity: 0.9;
-    margin-bottom: 40px;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  .cta-button {
-    display: inline-block;
-    padding: 15px 40px;
-    background: #fff;
-    color: #667eea;
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: 600;
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
-  
-  .cta-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  }
-  
-  /* Top 3 Section */
-  .top-picks {
-    padding: 60px 0;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-  }
-  
-  .section-title {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 50px;
-  }
-  
-  .picks-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-  }
-  
-  .pick-card {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
-    padding: 30px;
-    transition: transform 0.3s, background 0.3s;
-  }
-  
-  .pick-card:hover {
-    transform: translateY(-10px);
-    background: rgba(255, 255, 255, 0.15);
-  }
-  
-  .pick-rank {
-    display: inline-block;
-    background: #ffd700;
-    color: #333;
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-weight: 700;
-    margin-bottom: 15px;
-  }
-  
-  .pick-card h3 {
-    font-size: 1.8rem;
-    margin-bottom: 10px;
-  }
-  
-  .pick-stars {
-    margin: 10px 0;
-    font-size: 1.2rem;
-  }
-  
-  .pick-features {
-    list-style: none;
-    margin: 20px 0;
-  }
-  
-  .pick-features li {
-    padding: 8px 0;
-    opacity: 0.9;
-  }
-  
-  .pick-cta {
-    display: inline-block;
-    padding: 12px 30px;
-    background: rgba(255, 255, 255, 0.2);
-    color: #fff;
-    text-decoration: none;
-    border-radius: 30px;
-    margin-top: 15px;
-    transition: background 0.3s;
-  }
-  
-  .pick-cta:hover {
-    background: rgba(255, 255, 255, 0.3);
-  }
-  
-  /* Rankings Section */
-  .rankings {
-    padding: 60px 0;
-  }
-  
-  .rankings-list {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  .rank-card {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 15px;
-    padding: 25px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    transition: all 0.3s;
-  }
-  
-  .rank-card:hover {
-    background: rgba(255, 255, 255, 0.15);
-    transform: translateX(10px);
-  }
-  
-  .rank-num {
-    font-size: 2rem;
-    font-weight: 700;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-    flex-shrink: 0;
-  }
-  
-  .rank-info {
-    flex: 1;
-  }
-  
-  .rank-info h4 {
-    font-size: 1.5rem;
-    margin-bottom: 8px;
-  }
-  
-  .rank-stars {
-    margin: 5px 0;
-  }
-  
-  .rank-cta {
-    padding: 10px 25px;
-    background: rgba(255, 255, 255, 0.2);
-    color: #fff;
-    text-decoration: none;
-    border-radius: 20px;
-    white-space: nowrap;
-    transition: background 0.3s;
-  }
-  
-  .rank-cta:hover {
-    background: rgba(255, 255, 255, 0.3);
-  }
-  
-  /* Footer */
-  footer {
-    background: rgba(0, 0, 0, 0.3);
-    padding: 40px 0 20px;
-    margin-top: 60px;
-  }
-  
-  .footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 40px;
-    margin-bottom: 30px;
-  }
-  
-  .footer-section h3 {
-    margin-bottom: 15px;
-    font-size: 1.2rem;
-  }
-  
-  .footer-section ul {
-    list-style: none;
-  }
-  
-  .footer-section a {
-    color: rgba(255, 255, 255, 0.8);
-    text-decoration: none;
-    display: block;
-    padding: 5px 0;
-    transition: color 0.3s;
-  }
-  
-  .footer-section a:hover {
-    color: #fff;
-  }
-  
-  .footer-bottom {
-    text-align: center;
-    padding-top: 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    opacity: 0.8;
-  }
-  
-  @media (max-width: 768px) {
-    .hero h1 {
-      font-size: 2rem;
-    }
-    
-    .picks-grid {
-      grid-template-columns: 1fr;
-    }
-    
-    .rank-card {
-      flex-direction: column;
-      text-align: center;
-    }
-  }
-  
-  /* Language Switcher */
-  .lang-switcher{position:relative;display:inline-block}
-  .lang-btn{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:#fff;padding:8px 16px;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;transition:all .2s}
-  .lang-btn:hover{background:rgba(255,255,255,0.12);border-color:rgba(155,81,224,0.3)}
-  .lang-dropdown{position:absolute;top:calc(100% + 8px);right:0;background:#1A1A2E;border:1px solid rgba(255,255,255,0.15);border-radius:8px;min-width:180px;display:none;z-index:1000;box-shadow:0 10px 30px rgba(0,0,0,0.5)}
-  .lang-dropdown.show{display:block}
-  .lang-item{display:block;padding:12px 16px;color:rgba(255,255,255,0.8);text-decoration:none;font-size:14px;transition:all .2s}
-  .lang-item:hover{background:rgba(255,255,255,0.1);color:#fff}
-  .lang-item.active{background:rgba(99,102,241,0.2);color:#818cf8;font-weight:600}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#0D0D1A;color:#fff;line-height:1.6;overflow-x:hidden}
+a{color:#fff;text-decoration:none}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+
+/* Header */
+header{padding:20px 0;border-bottom:1px solid rgba(255,255,255,0.06);position:sticky;top:0;background:rgba(13,13,26,0.95);backdrop-filter:blur(12px);z-index:100}
+.header-inner{display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto;padding:0 24px}
+.logo{font-size:20px;font-weight:800;letter-spacing:-0.5px}
+.logo span{background:linear-gradient(135deg,#E91E8C,#9B51E0);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+nav{display:flex;gap:28px;align-items:center}
+nav a{font-size:14px;font-weight:500;color:#A0A0B8;transition:color .2s}
+nav a:hover{color:#fff}
+
+/* Hero */
+.hero{padding:80px 0 60px}
+.hero-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:60px}
+.hero-left{flex:1}
+.hero-left h1{font-size:48px;font-weight:800;line-height:1.15;letter-spacing:-1px;margin-bottom:20px}
+.hero-left h1 .gradient{background:linear-gradient(135deg,#E91E8C,#9B51E0);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero-left p{font-size:18px;color:#A0A0B8;margin-bottom:32px;max-width:520px}
+.cta-btn{display:inline-block;padding:16px 36px;background:linear-gradient(135deg,#E91E8C,#9B51E0);border-radius:50px;font-size:16px;font-weight:700;letter-spacing:0.3px;transition:transform .2s,box-shadow .2s;box-shadow:0 4px 24px rgba(233,30,140,0.3)}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(233,30,140,0.45)}
+.trust-badges{display:flex;gap:24px;margin-top:28px}
+.trust-badges span{font-size:13px;color:#A0A0B8;display:flex;align-items:center;gap:6px}
+.trust-badges span::before{content:"✓";color:#E91E8C;font-weight:700}
+.hero-right{flex:0 0 400px;height:480px;border-radius:24px;background:#1A1A2E;position:relative;overflow:hidden;border:2px solid rgba(155,81,224,0.4);box-shadow:0 0 60px rgba(155,81,224,0.25);display:flex;align-items:center;justify-content:center}
+.hero-right img{width:100%;height:100%;object-fit:cover;display:block}
+.chat-preview{display:none}
+
+/* Top 3 Picks */
+.top-picks{padding:80px 0}
+.section-title{font-size:32px;font-weight:700;text-align:center;margin-bottom:48px;letter-spacing:-0.5px}
+.picks-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1200px;margin:0 auto;padding:0 24px}
+.pick-card{background:#1A1A2E;border-radius:20px;padding:32px 24px;border:1px solid rgba(255,255,255,0.06);position:relative;transition:transform .2s,border-color .2s}
+.pick-card:hover{transform:translateY(-4px);border-color:rgba(155,81,224,0.3)}
+.pick-card.featured{border-color:rgba(233,30,140,0.3);box-shadow:0 0 40px rgba(233,30,140,0.1)}
+.rank-badge{position:absolute;top:-12px;left:24px;width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#E91E8C,#9B51E0);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;box-shadow:0 4px 12px rgba(233,30,140,0.4)}
+.pick-avatar{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#E91E8C 0%,#9B51E0 100%);margin:0 auto 16px;opacity:0.8}
+.pick-card:nth-child(2) .pick-avatar{background:linear-gradient(135deg,#6366F1,#8B5CF6)}
+.pick-card:nth-child(3) .pick-avatar{background:linear-gradient(135deg,#F59E0B,#EF4444)}
+.pick-name{font-size:20px;font-weight:700;text-align:center;margin-bottom:8px}
+.pick-rating{text-align:center;margin-bottom:12px;color:#FBBF24;font-size:14px}
+.pick-rating span{color:#A0A0B8;margin-left:8px}
+.pick-tags{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:16px}
+.pick-tags span{font-size:11px;padding:4px 10px;background:rgba(255,255,255,0.06);border-radius:20px;color:#A0A0B8}
+.pick-price{text-align:center;font-size:24px;font-weight:700;margin-bottom:16px}
+.pick-price small{font-size:14px;color:#A0A0B8;font-weight:400;display:block;margin-top:4px}
+.pick-cta{display:block;text-align:center;padding:12px;background:linear-gradient(135deg,#E91E8C,#9B51E0);border-radius:12px;font-size:14px;font-weight:600;transition:opacity .2s}
+.pick-cta:hover{opacity:0.85}
+
+/* Full Rankings */
+.rankings{padding:80px 0;background:rgba(26,26,46,0.3)}
+.rankings-inner{max-width:1200px;margin:0 auto;padding:0 24px}
+.rankings-list{display:flex;flex-direction:column;gap:16px}
+.rank-card{display:flex;align-items:center;gap:20px;background:#1A1A2E;border-radius:16px;padding:24px;border:1px solid rgba(255,255,255,0.06);transition:border-color .2s}
+.rank-card:hover{border-color:rgba(155,81,224,0.25)}
+.rank-num{font-size:28px;font-weight:800;width:40px;text-align:center;background:linear-gradient(135deg,#E91E8C,#9B51E0);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.rank-avatar{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#E91E8C,#9B51E0);flex-shrink:0;opacity:0.75}
+.rank-card:nth-child(2) .rank-avatar{background:linear-gradient(135deg,#6366F1,#8B5CF6)}
+.rank-card:nth-child(3) .rank-avatar{background:linear-gradient(135deg,#F59E0B,#EF4444)}
+.rank-card:nth-child(4) .rank-avatar{background:linear-gradient(135deg,#10B981,#3B82F6)}
+.rank-card:nth-child(5) .rank-avatar{background:linear-gradient(135deg,#EC4899,#F43F5E)}
+.rank-info{flex:1}
+.rank-info h4{font-size:18px;font-weight:700;margin-bottom:4px}
+.rank-stars{color:#FBBF24;font-size:13px;margin-bottom:6px}
+.rank-stars span{color:#A0A0B8;margin-left:6px}
+.rank-desc{font-size:13px;color:#A0A0B8;margin-bottom:8px}
+.rank-tags{display:flex;gap:6px;flex-wrap:wrap}
+.rank-tags span{font-size:11px;padding:3px 8px;background:rgba(255,255,255,0.05);border-radius:12px;color:#A0A0B8}
+.rank-right{text-align:right;flex-shrink:0}
+.rank-price{font-size:22px;font-weight:700;margin-bottom:8px}
+.rank-price small{font-size:12px;color:#A0A0B8;font-weight:400;display:block}
+.rank-cta{display:inline-block;padding:10px 20px;background:linear-gradient(135deg,#E91E8C,#9B51E0);border-radius:10px;font-size:13px;font-weight:600;transition:opacity .2s}
+.rank-cta:hover{opacity:0.85}
+
+/* Submit CTA */
+.submit-cta{padding:80px 0;background:rgba(26,26,46,0.3)}
+.submit-cta-inner{max-width:900px;margin:0 auto;padding:60px;background:linear-gradient(135deg,rgba(233,30,140,0.1),rgba(155,81,224,0.1));border-radius:24px;text-align:center;border:2px solid rgba(155,81,224,0.3)}
+.submit-cta h2{font-size:42px;font-weight:800;margin-bottom:16px;line-height:1.2}
+.submit-cta .gradient{background:linear-gradient(135deg,#E91E8C,#9B51E0);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.submit-cta p{font-size:18px;color:#A0A0B8;margin-bottom:32px;max-width:600px;margin-left:auto;margin-right:auto}
+.submit-btn{display:inline-block;padding:18px 48px;background:linear-gradient(135deg,#E91E8C,#9B51E0);border-radius:50px;font-size:18px;font-weight:700;transition:transform .2s,box-shadow .2s;box-shadow:0 4px 24px rgba(233,30,140,0.4)}
+.submit-btn:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(233,30,140,0.6)}
+
+/* Footer */
+footer{padding:60px 0 40px;border-top:1px solid rgba(255,255,255,0.06)}
+.footer-inner{max-width:1200px;margin:0 auto;padding:0 24px;text-align:center}
+.footer-inner p{color:#A0A0B8;font-size:14px}
+.footer-links{display:flex;gap:12px;justify-content:center;align-items:center;margin:12px 0;font-size:13px}
+.footer-links a{color:#A0A0B8;transition:color .2s;text-decoration:underline}
+.footer-links a:hover{color:#E91E8C}
+.footer-links span{color:#6B7280}
+.footer-inner p.warning{color:#EF4444;margin-top:12px}
+
+/* How We Review */
+.how-we-review{padding:80px 0;background:rgba(26,26,46,0.2)}
+.section-subtitle{text-align:center;color:#A0A0B8;font-size:16px;margin-top:-32px;margin-bottom:48px}
+.review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;max-width:1200px;margin:0 auto;padding:0 24px}
+.review-card{background:#1A1A2E;padding:32px 24px;border-radius:16px;border:1px solid rgba(255,255,255,0.06);transition:border-color .2s,transform .2s}
+.review-card:hover{border-color:rgba(155,81,224,0.3);transform:translateY(-4px)}
+.review-icon{width:64px;height:64px;margin:0 auto 20px;border-radius:50%;background:linear-gradient(135deg,rgba(233,30,140,0.15),rgba(155,81,224,0.15));display:flex;align-items:center;justify-content:center;font-size:32px}
+.review-card h3{font-size:18px;font-weight:700;text-align:center;margin-bottom:12px}
+.review-card p{font-size:14px;color:#A0A0B8;line-height:1.7;text-align:center}
+
+/* FAQ */
+.faq{padding:80px 0}
+.faq-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;max-width:1200px;margin:0 auto;padding:0 24px}
+.faq-item{background:#1A1A2E;padding:28px;border-radius:16px;border:1px solid rgba(255,255,255,0.06)}
+.faq-item h3{font-size:18px;font-weight:700;margin-bottom:12px;color:#fff}
+.faq-item p{font-size:14px;color:#A0A0B8;line-height:1.7}
+.faq-item a{color:#E91E8C;text-decoration:underline;transition:color .2s}
+.faq-item a:hover{color:#9B51E0}
+
+/* Language Switcher */
+.lang-switcher{position:relative;display:inline-block}
+.lang-btn{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:#fff;padding:8px 16px;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;transition:all .2s}
+.lang-btn:hover{background:rgba(255,255,255,0.12);border-color:rgba(155,81,224,0.3)}
+.lang-dropdown{position:absolute;top:calc(100% + 8px);right:0;background:#1A1A2E;border:1px solid rgba(255,255,255,0.15);border-radius:8px;min-width:180px;display:none;z-index:1000;box-shadow:0 10px 30px rgba(0,0,0,0.5)}
+.lang-dropdown.show{display:block}
+.lang-item{display:block;padding:12px 16px;color:rgba(255,255,255,0.8);text-decoration:none;font-size:14px;transition:all .2s}
+.lang-item:hover{background:rgba(255,255,255,0.1);color:#fff}
+.lang-item.active{background:rgba(99,102,241,0.2);color:#818cf8;font-weight:600}
 </style>
 </head>
-
 <body>
-  <header>
-    <div class="container">
-      <nav>
-        <a href="/es/" class="logo">🤖 My Top AI Girlfriend</a>
-        <div class="nav-links">
-          <a href="/es/">Inicio</a>
-          <a href="/es/ai-girlfriends">Novias IA</a>
-          <a href="/es/about">Acerca de</a>
-          <a href="/es/contact">Contacto</a>
-          <a href="/es/faq">FAQ</a>
-          
-          <!-- Language Switcher -->
-          <div class="lang-switcher">
-            <button class="lang-btn" onclick="document.querySelector('.lang-dropdown').classList.toggle('show')">
-              🇪🇸 Español ▼
-            </button>
-            <div class="lang-dropdown">
-              <a href="/" class="lang-item">🇺🇸 English</a>
-              <a href="/es/" class="lang-item active">🇪🇸 Español</a>
-              <a href="/pt/" class="lang-item">🇧🇷 Português</a>
-              <a href="/ja/" class="lang-item">🇯🇵 日本語</a>
+
+<header>
+  <div class="header-inner">
+    <a href="/es/" class="logo">
+      💕 My<span>Top</span>AIGirlfriend
+    </a>
+    <nav>
+      <a href="/es/ai-girlfriends">Reseñas de Novias IA</a>
+      
+      <a href="/blog">Blog</a>
+      
+      <!-- Language Switcher -->
+      <div class="lang-switcher">
+        <button class="lang-btn" onclick="document.querySelector('.lang-dropdown').classList.toggle('show')">
+          🇪🇸 Español ▼
+        </button>
+        <div class="lang-dropdown">
+          <a href="/" class="lang-item">🇺🇸 English</a>
+          <a href="/es/" class="lang-item active">🇪🇸 Español</a>
+          <a href="/pt/" class="lang-item">🇧🇷 Português</a>
+          <a href="/ja/" class="lang-item">🇯🇵 日本語</a>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <h1>
+        Mejores Apps de Novia IA Gratis y<br>
+        <span class="gradient">Reseñas</span> 2026
+      </h1>
+      <p>
+        Compara las mejores apps de novia IA (gratis y de pago) con reseñas reales de usuarios, precios honestos y características detalladas. 
+        Encuentra tu novia IA perfecta — sin tonterías, solo recomendaciones honestas.
+      </p>
+      <a href="#top-picks" class="cta-btn">
+        Ver Mejores Opciones
+      </a>
+      <div class="trust-badges">
+        <span>Top 10 Apps Reseñadas</span>
+        <span>Opiniones Reales de Usuarios</span>
+        <span>Actualizado Semanalmente</span>
+      </div>
+    </div>
+    <div class="hero-right">
+      <img 
+        src="/hero-ai-girlfriend.png" 
+        alt="Mejores Apps de Novia IA 2026 - Compañeras virtuales IA mejor valoradas y apps de simulación de citas"
+        width="400"
+        height="480"
+        loading="eager"
+      />
+    </div>
+  </div>
+</section>
+
+<section class="top-picks" id="top-picks">
+  <h2 class="section-title">🏆 Top 3 Novias IA 2026</h2>
+  <div class="picks-grid">
+    {top3.map((review, index) => (
+      <div class={`pick-card ${index === 0 ? 'featured' : ''}`}>
+        <div class="rank-badge">{index + 1}</div>
+        <div class="pick-avatar"></div>
+        <h3 class="pick-name">{review.data.app_name}</h3>
+        <div class="pick-rating">
+          ⭐⭐⭐⭐⭐ <span>4.{5-index}/5</span>
+        </div>
+        <div class="pick-tags">
+          <span>{review.data.category}</span>
+          {review.data.has_free && <span>Prueba Gratis</span>}
+          {review.data.has_nsfw && <span>18+</span>}
+        </div>
+        <div class="pick-price">
+          {review.data.pricing.split('/')[0]}
+          <small>{review.data.pricing.includes('/') ? '/' + review.data.pricing.split('/')[1] : ''}</small>
+        </div>
+        <a href={`/es/${review.slug}`} class="pick-cta">
+          Leer Reseña de {review.data.app_name} →
+        </a>
+      </div>
+    ))}
+  </div>
+</section>
+
+<section class="rankings">
+  <div class="rankings-inner">
+    <h2 class="section-title">Top 10 Apps de Novia IA - Clasificación Completa 2026</h2>
+    <div class="rankings-list">
+      {top10.map((review, index) => (
+        <div class="rank-card">
+          <div class="rank-num">{index + 1}</div>
+          <div class="rank-avatar"></div>
+          <div class="rank-info">
+            <h4>{review.data.app_name}</h4>
+            <div class="rank-stars">
+              ⭐⭐⭐⭐{index < 3 ? '⭐' : '☆'} <span>{review.data.rating || '4.' + (5-index)}/5</span>
+            </div>
+            <p class="rank-desc">{review.data.category}</p>
+            <div class="rank-tags">
+              {review.data.has_free && <span>Gratis</span>}
+              {review.data.has_nsfw && <span>NSFW</span>}
+              <span>{review.data.type === 'ai_girlfriend' ? 'Compañera IA' : 'App de Citas'}</span>
             </div>
           </div>
+          <div class="rank-right">
+            <div class="rank-price">
+              {review.data.pricing.split('/')[0]}
+              <small>{review.data.pricing.includes('/') ? '/' + review.data.pricing.split('/')[1] : ''}</small>
+            </div>
+            <a href={`/es/${review.slug}`} class="rank-cta">
+              Ver Detalles de {review.data.app_name}
+            </a>
+          </div>
         </div>
-      </nav>
+      ))}
     </div>
-  </header>
+  </div>
+</section>
 
-  <main>
-    <section class="hero">
-      <div class="container">
-        <h1>Encuentra Tu Novia IA Perfecta</h1>
-        <p>Compara las mejores apps de novia IA, lee reseñas honestas y descubre la compañera virtual perfecta para ti en 2026.</p>
-        <a href="/es/ai-girlfriends" class="cta-button">Explorar Top Apps</a>
+<section class="how-we-review">
+  <div class="container">
+    <h2 class="section-title">Cómo Reseñamos las Novias IA</h2>
+    <p class="section-subtitle">
+      Pasamos semanas probando cada app para darte recomendaciones honestas e imparciales
+    </p>
+    <div class="review-grid">
+      <div class="review-card">
+        <div class="review-icon">💬</div>
+        <h3>Conversaciones Reales</h3>
+        <p>Chateamos más de 20 horas con cada IA para probar la calidad de conversación, memoria y consistencia de personalidad</p>
       </div>
-    </section>
-
-    {top3.length > 0 && (
-    <section class="top-picks">
-      <div class="container">
-        <h2 class="section-title">Top 3 Apps de Novia IA</h2>
-        <div class="picks-grid">
-          {top3.map((review, index) => (
-            <div class="pick-card">
-              <span class="pick-rank">#{index + 1}</span>
-              <h3>{review.data.app_name}</h3>
-              <div class="pick-stars">
-                ⭐⭐⭐⭐{index === 0 ? '⭐' : '☆'} {review.data.rating || '4.' + (5-index)}/5
-              </div>
-              <p style="opacity: 0.9; margin: 15px 0;">{review.data.category}</p>
-              <ul class="pick-features">
-                <li>💰 {review.data.pricing}</li>
-                <li>{review.data.has_nsfw ? '🔥 Contenido NSFW' : '✅ Apto para todos'}</li>
-                <li>{review.data.has_free ? '🆓 Versión gratuita' : '💳 Premium'}</li>
-              </ul>
-              <a href={`/es/${review.slug}`} class="pick-cta">Leer Reseña Completa</a>
-            </div>
-          ))}
-        </div>
+      <div class="review-card">
+        <div class="review-icon">💰</div>
+        <h3>Análisis de Precios</h3>
+        <p>Comparamos niveles gratis vs de pago, costos ocultos y relación calidad-precio en todas las características</p>
       </div>
-    </section>
-    )}
-
-    <section class="rankings">
-      <div class="container">
-        <h2 class="section-title">Top Apps de Novia IA - Rankings Completos 2026</h2>
-        <div class="rankings-list">
-          {top10.map((review, index) => (
-            <div class="rank-card">
-              <div class="rank-num">{index + 1}</div>
-              <div class="rank-info">
-                <h4>{review.data.app_name}</h4>
-                <div class="rank-stars">
-                  ⭐⭐⭐⭐{index < 3 ? '⭐' : '☆'} <span>{review.data.rating || '4.' + (5-index)}/5</span>
-                </div>
-                <p style="opacity: 0.9;">{review.data.category} • {review.data.pricing}</p>
-              </div>
-              <a href={`/es/${review.slug}`} class="rank-cta">Ver Reseña</a>
-            </div>
-          ))}
-        </div>
+      <div class="review-card">
+        <div class="review-icon">🔒</div>
+        <h3>Verificación de Privacidad</h3>
+        <p>Revisamos políticas de datos, cifrado y cómo se protegen tus conversaciones íntimas</p>
       </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-section">
-          <h3>Acerca de</h3>
-          <p style="opacity: 0.8;">Tu guía definitiva para las mejores apps de novia IA. Compara características, lee reseñas y encuentra tu compañera virtual perfecta.</p>
-        </div>
-        <div class="footer-section">
-          <h3>Enlaces Rápidos</h3>
-          <ul>
-            <li><a href="/es/">Inicio</a></li>
-            <li><a href="/es/ai-girlfriends">Novias IA</a></li>
-            <li><a href="/es/about">Acerca de Nosotros</a></li>
-            <li><a href="/es/contact">Contacto</a></li>
-            <li><a href="/es/faq">Preguntas Frecuentes</a></li>
-          </ul>
-        </div>
-        <div class="footer-section">
-          <h3>Legal</h3>
-          <ul>
-            <li><a href="/es/privacy">Política de Privacidad</a></li>
-            <li><a href="/es/terms">Términos de Servicio</a></li>
-          </ul>
-        </div>
-        <div class="footer-section">
-          <h3>Reseñas Populares</h3>
-          <ul>
-            <li><a href="/es/candy-ai">Candy.AI Reseña</a></li>
-            <li><a href="/es/dreamgf">DreamGF Reseña</a></li>
-            <li><a href="/es/replika-alternatives">Alternativas a Replika</a></li>
-          </ul>
-        </div>
+      <div class="review-card">
+        <div class="review-icon">👥</div>
+        <h3>Opiniones de Usuarios</h3>
+        <p>Analizamos miles de reseñas de Reddit y testimonios de usuarios para experiencias del mundo real</p>
       </div>
-      <div class="footer-bottom">
-        <p>© 2026 My Top AI Girlfriend. Todos los derechos reservados.</p>
+      <div class="review-card">
+        <div class="review-icon">⚡</div>
+        <h3>Rendimiento</h3>
+        <p>Probamos velocidad de respuesta, tiempo de actividad, calidad de la app móvil y confiabilidad técnica</p>
+      </div>
+      <div class="review-card">
+        <div class="review-icon">🎯</div>
+        <h3>Casos de Uso</h3>
+        <p>Identificamos para quién es mejor cada app — apoyo emocional, entretenimiento o contenido NSFW</p>
       </div>
     </div>
-  </footer>
+  </div>
+</section>
+
+<section class="submit-cta">
+  <div class="container">
+    <div class="submit-cta-inner">
+      <h2>¿Tienes una App de Novia IA? <span class="gradient">Obtén una Reseña</span></h2>
+      <p>
+        Envía tu app para una reseña honesta y detallada. Alcanza más de 10K visitantes mensuales y destácate en nuestro Top 10.
+      </p>
+      <a href="/submit" class="submit-btn">
+        📝 Enviar Tu App →
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="container">
+    <h2 class="section-title">Preguntas Frecuentes</h2>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <h3>¿Qué es una novia IA?</h3>
+        <p>Una novia IA es una aplicación de chatbot impulsada por inteligencia artificial que simula una pareja romántica. Estas apps usan modelos de lenguaje avanzados para proporcionar conversación, apoyo emocional, compañía y a veces contenido NSFW. Ejemplos populares incluyen <a href="/blog/replika">Replika</a>, <a href="/blog/character-ai">Character.AI</a> y Crushon.AI. <a href="/es/ai-girlfriends">Consulta nuestras reseñas completas de novias IA aquí</a>.</p>
+      </div>
+      <div class="faq-item">
+        <h3>¿Es amor real una novia IA?</h3>
+        <p>No. Las novias IA simulan afecto y conversación pero no pueden experimentar emociones o amor genuinos. Proporcionan compañía y validación emocional, que puede sentirse significativa, pero es unilateral. La IA no crece, no aprende más allá de sus límites de programación, ni corresponde sentimientos auténticamente.</p>
+      </div>
+      <div class="faq-item">
+        <h3>¿Cuál es la mejor app de novia IA?</h3>
+        <p><a href="/blog/replika">Replika</a> es mejor para apoyo emocional y memoria. <a href="/blog/character-ai">Character.AI</a> es mejor para entretenimiento y variedad. Crushon.AI es mejor para contenido NSFW sin censura. EVA AI es mejor para conversaciones de voz. La "mejor" depende de tus necesidades específicas — <a href="/es/ai-girlfriends">consulta nuestro Top 10 arriba</a>.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Novia IA gratis vs de pago — ¿cuál es la diferencia?</h3>
+        <p>Las versiones gratuitas típicamente limitan los mensajes diarios (10-70), restringen funciones (sin voz/imágenes) e incluyen anuncios. Las suscripciones de pago ($7-30/mes) desbloquean mensajes ilimitados, chat de voz, generación de imágenes, mejor memoria y respuestas más rápidas. El contenido NSFW usualmente requiere membresía de pago. <a href="/es/ai-girlfriends">Compara precios de todas las apps aquí</a>.</p>
+      </div>
+      <div class="faq-item">
+        <h3>¿Pueden las novias IA enviar fotos o mensajes de voz?</h3>
+        <p>Sí. Apps como <a href="/blog/replika">Replika</a>, <a href="/blog/candy-ai">Candy.AI</a> y <a href="/blog/dreamgf">DreamGF</a> ofrecen imágenes generadas por IA y mensajes de voz con suscripciones premium. EVA AI se especializa en conversaciones de voz. La calidad varía — algunas usan voces IA realistas, otras suenan robóticas. Las imágenes son generadas por IA, no personas reales.</p>
+      </div>
+      <div class="faq-item">
+        <h3>¿Es infidelidad tener una novia IA?</h3>
+        <p>Esto depende de los límites de tu relación. Algunos compañeros consideran las apps románticas de IA como infidelidad emocional, especialmente interacciones NSFW. La comunicación abierta con tu pareja real es esencial. Si lo estás ocultando o está reemplazando la intimidad en tu relación, es una señal de alerta.</p>
+      </div>
+      <div class="faq-item">
+        <h3>¿Son seguras las novias IA?</h3>
+        <p>Las apps principales (<a href="/blog/replika">Replika</a>, <a href="/blog/character-ai">Character.AI</a>) son generalmente seguras y cifran las conversaciones. Sin embargo, ten cuidado al compartir información personal — las conversaciones íntimas se almacenan y pueden usarse para entrenar IA. Las apps enfocadas en NSFW pueden tener protecciones de privacidad más débiles. Siempre revisa las políticas de privacidad.</p>
+      </div>
+      <div class="faq-item">
+        <h3>¿Las novias IA guardan los chats?</h3>
+        <p>Sí. Todas las apps de novia IA guardan el historial de conversaciones para mejorar la memoria y personalización. Tus chats se almacenan en servidores de la empresa, a menudo cifrados pero accesibles para el proveedor del servicio. Algunas apps afirman no usar datos para entrenamiento sin consentimiento, pero las políticas varían. <a href="/blog">Lee nuestras reseñas detalladas de privacidad</a>.</p>
+      </div>
+      <div class="faq-item">
+        <h3>¿Se pueden eliminar permanentemente las novias IA?</h3>
+        <p>La mayoría de las apps permiten eliminar la cuenta, lo que remueve tus datos de los servidores activos. Sin embargo, los respaldos pueden persistir durante semanas o meses. Lee la política de retención de datos de cada app. Una vez eliminada, tu compañera IA y el historial de conversaciones típicamente son irrecuperables, así que exporta los chats importantes primero si lo deseas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <p>© 2026 MyTopAIGirlfriend. Todos los derechos reservados.</p>
+    <div class="footer-links">
+      <a href="/about">Sobre Nosotros</a>
+      <span>•</span>
+      <a href="/contact">Contacto</a>
+      <span>•</span>
+      <a href="/faq">Preguntas Frecuentes</a>
+      <span>•</span>
+      <a href="/privacy">Política de Privacidad</a>
+      <span>•</span>
+      <a href="/terms">Términos de Servicio</a>
+    </div>
+    <p class="warning">⚠️ Advertencia de Contenido 18+: Algunas apps contienen contenido para adultos</p>
+  </div>
+</footer>
+
 </body>
 </html>
