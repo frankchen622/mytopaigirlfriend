@@ -6,13 +6,18 @@
     "dev": "astro dev",
     "prebuild": "npm config set registry https://registry.npmjs.org/",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "npm run build && wrangler dev",
+    "deploy": "npm run build && wrangler deploy"
   },
   "dependencies": {
+    "@astrojs/cloudflare": "11",
     "@astrojs/tailwind": "^5.0.0",
     "astro": "^4.0.0",
     "gray-matter": "^4.0.3",
     "marked": "^18.0.5",
     "tailwindcss": "^3.3.0"
+  },
+  "devDependencies": {
+    "wrangler": "^4.105.0"
   }
 }
