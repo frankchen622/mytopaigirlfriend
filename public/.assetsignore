@@ -1,1 +1,2 @@
-# Assets to ignore during build
+_worker.js
+_routes.json
