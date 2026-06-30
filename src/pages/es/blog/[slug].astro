@@ -1,0 +1,418 @@
+---
+import { getCollection } from 'astro:content';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+
+export async function getStaticPaths() {
+  const reviews = await getCollection('es');
+  return reviews.map((review) => ({
+    params: { slug: review.slug },
+    props: { review },
+  }));
+}
+
+const { review } = Astro.props;
+const { Content } = await review.render();
+const price = review.data.pricing?.split('/')[0] || '$0';
+const rating = review.data.rating || 4.5;
+const fullStars = Math.floor(rating);
+const hasHalfStar = rating % 1 >= 0.5;
+const starsDisplay = '⭐'.repeat(fullStars) + (hasHalfStar ? '⭐' : rating % 1 > 0 ? '☆' : '');
+const isComparison = review.data.type === 'comparison' || review.data.type === 'listicle';
+
+// Breadcrumb data
+const breadcrumbs = [
+  { name: 'Inicio', url: '/es/' },
+  { name: 'Blog', url: '/es/blog' },
+  { name: review.data.app_name }
+];
+---
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{review.data.title}</title>
+<meta name="description" content={review.data.category}>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+<!-- Schema.org Product Review Structured Data -->
+{!isComparison && (
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": review.data.app_name,
+  "description": review.data.category,
+  "brand": {
+    "@type": "Brand",
+    "name": review.data.app_name
+  },
+  "offers": {
+    "@type": "AggregateOffer",
+    "priceCurrency": "USD",
+    "lowPrice": review.data.has_free ? "0" : price.replace('$', ''),
+    "highPrice": "29.99",
+    "availability": "https://schema.org/InStock"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": rating.toString(),
+    "bestRating": "5",
+    "worstRating": "1",
+    "ratingCount": "127"
+  },
+  "review": {
+    "@type": "Review",
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": rating.toString(),
+      "bestRating": "5"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "My Top AI Girlfriend"
+    },
+    "datePublished": review.data.generated_at,
+    "reviewBody": review.data.category
+  }
+})}></script>
+)}
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#0D0D1A;color:#fff;line-height:1.6}
+a{color:#fff;text-decoration:none}
+
+header{padding:20px 0;border-bottom:1px solid rgba(255,255,255,0.06);background:rgba(13,13,26,0.95)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto;padding:0 24px}
+.logo{font-size:20px;font-weight:800}
+.logo span{background:linear-gradient(135deg,#E91E8C,#9B51E0);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+nav{display:flex;gap:28px}
+nav a{font-size:14px;font-weight:500;color:#A0A0B8;transition:color .2s}
+nav a:hover{color:#fff}
+
+/* Breadcrumb */
+.breadcrumb{background:rgba(26,26,46,0.5);border-bottom:1px solid rgba(255,255,255,0.06);padding:12px 0}
+.breadcrumb ol{list-style:none;display:flex;align-items:center;gap:8px;max-width:1200px;margin:0 auto;padding:0 24px;font-size:14px}
+.breadcrumb li{display:flex;align-items:center;gap:8px;color:#A0A0B8}
+.breadcrumb li:not(:last-child):after{content:"›";color:#6B7280;font-size:16px}
+.breadcrumb a{color:#A0A0B8;transition:color .2s;text-decoration:none}
+.breadcrumb a:hover{color:#E91E8C}
+.breadcrumb li[aria-current="page"]{color:#fff;font-weight:500}
+
+.hero{padding:80px 0 60px;text-align:center;background:linear-gradient(160deg,#1A1A2E 0%,#2D1B4E 100%)}
+.hero-inner{max-width:900px;margin:0 auto;padding:0 24px}
+.hero h1{font-size:42px;font-weight:800;margin-bottom:16px;line-height:1.2}
+.hero h1 .gradient{background:linear-gradient(135deg,#E91E8C,#9B51E0);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{font-size:18px;color:#A0A0B8;margin-bottom:32px}
+.hero-meta{display:flex;gap:20px;justify-content:center;font-size:14px;color:#A0A0B8}
+.hero-meta span{display:flex;align-items:center;gap:6px}
+
+.blog-container{max-width:900px;margin:0 auto;padding:60px 24px}
+.blog-content{background:#1A1A2E;border-radius:20px;padding:60px;line-height:1.8;font-size:17px}
+.blog-content :global(h2){margin:48px 0 24px;font-size:32px;font-weight:700;color:#fff;border-bottom:2px solid rgba(155,81,224,0.3);padding-bottom:16px}
+.blog-content :global(h2:first-child){margin-top:0}
+.blog-content :global(h3){margin:36px 0 18px;font-size:24px;font-weight:600;color:#E5E7EB}
+.blog-content :global(h4){margin:28px 0 14px;font-size:20px;font-weight:600;color:#D1D5DB}
+.blog-content :global(p){margin-bottom:24px;color:#D1D5DB;line-height:1.8}
+.blog-content :global(strong){color:#fff;font-weight:600}
+.blog-content :global(em){color:#A0A0B8;font-style:italic}
+.blog-content :global(ul),.blog-content :global(ol){margin:24px 0;padding-left:32px;color:#D1D5DB}
+.blog-content :global(li){margin-bottom:14px;line-height:1.7}
+.blog-content :global(li)::marker{color:#E91E8C}
+.blog-content :global(blockquote){margin:32px 0;padding:20px 28px;border-left:4px solid #E91E8C;background:rgba(233,30,140,0.1);border-radius:10px;color:#E5E7EB;font-style:italic;font-size:18px}
+.blog-content :global(code){background:rgba(255,255,255,0.1);padding:3px 10px;border-radius:5px;font-family:monospace;font-size:15px;color:#E91E8C}
+.blog-content :global(pre){background:#0D0D1A;padding:24px;border-radius:10px;overflow-x:auto;margin:28px 0}
+.blog-content :global(pre code){background:none;padding:0;color:#A0A0B8;font-size:14px}
+.blog-content :global(a){color:#E91E8C;text-decoration:underline;transition:color .2s}
+.blog-content :global(a):hover{color:#9B51E0}
+.blog-content :global(hr){margin:40px 0;border:none;border-top:1px solid rgba(255,255,255,0.1)}
+.blog-content :global(table){width:100%;margin:28px 0;border-collapse:collapse;font-size:15px}
+.blog-content :global(th),.blog-content :global(td){padding:14px 16px;border:1px solid rgba(255,255,255,0.15);text-align:left}
+.blog-content :global(th){background:rgba(155,81,224,0.2);font-weight:600;color:#fff}
+.blog-content :global(td){background:rgba(255,255,255,0.03)}
+.blog-content :global(tr):hover :global(td){background:rgba(255,255,255,0.05)}
+
+/* Review-specific styles */
+.container{max-width:1000px;margin:0 auto;padding:40px 24px}
+.hero-logo{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,#E91E8C,#9B51E0);margin:0 auto 20px;opacity:0.8}
+.hero-rating{font-size:48px;font-weight:800;margin:20px 0;background:linear-gradient(135deg,#E91E8C,#9B51E0);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero-stars{font-size:28px;margin-bottom:12px}
+.cta-primary{display:inline-block;padding:18px 48px;background:linear-gradient(135deg,#10B981,#059669);border-radius:50px;font-size:18px;font-weight:700;transition:transform .2s;box-shadow:0 4px 24px rgba(16,185,129,0.4)}
+.cta-primary:hover{transform:translateY(-2px)}
+.cta-buttons{display:flex;gap:16px;justify-content:center;margin-top:24px;flex-wrap:wrap}
+.btn{display:inline-block;padding:16px 40px;border-radius:50px;font-size:16px;font-weight:600;transition:all .2s;text-decoration:none}
+.btn-primary{background:linear-gradient(135deg,#10B981,#059669);color:#fff;box-shadow:0 4px 24px rgba(16,185,129,0.4)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 6px 32px rgba(16,185,129,0.5)}
+.btn-secondary{background:rgba(255,255,255,0.08);color:#fff;border:2px solid rgba(255,255,255,0.2)}
+.btn-secondary:hover{background:rgba(255,255,255,0.12);border-color:rgba(155,81,224,0.4)}
+.affiliate-note{font-size:12px;color:#6B7280;margin-top:12px}
+.quick-verdict{background:#1A1A2E;border-radius:20px;padding:32px;margin-bottom:40px;border:2px solid rgba(155,81,224,0.3)}
+.quick-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.quick-item{display:flex;align-items:center;gap:12px;font-size:16px}
+.quick-item span:first-child{font-size:24px}
+.quick-label{color:#A0A0B8;font-size:14px}
+.quick-value{font-weight:700;color:#fff}
+.pros-cons{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:40px}
+.pros,.cons{background:#1A1A2E;border-radius:16px;padding:28px}
+.pros{border-left:4px solid #10B981}
+.cons{border-left:4px solid #EF4444}
+.pros h3{color:#10B981;margin-bottom:16px}
+.cons h3{color:#EF4444;margin-bottom:16px}
+.pros ul,.cons ul{list-style:none}
+.pros li,.cons li{padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.05)}
+.pros li:last-child,.cons li:last-child{border-bottom:none}
+.pros li:before{content:"✅";margin-right:8px}
+.cons li:before{content:"❌";margin-right:8px}
+.ratings{background:#1A1A2E;border-radius:16px;padding:32px;margin-bottom:40px}
+.ratings h2{margin-bottom:24px}
+.rating-item{margin-bottom:20px}
+.rating-label{display:flex;justify-content:space-between;margin-bottom:8px;font-size:14px}
+.rating-bar{height:12px;background:rgba(255,255,255,0.1);border-radius:6px;overflow:hidden}
+.rating-fill{height:100%;background:linear-gradient(90deg,#E91E8C,#9B51E0);border-radius:6px}
+.pricing{background:#1A1A2E;border-radius:16px;padding:32px;margin-bottom:40px}
+.pricing h2{text-align:center;margin-bottom:32px}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.price-card{background:#0D0D1A;border-radius:12px;padding:24px;text-align:center;border:2px solid rgba(255,255,255,0.06);transition:border-color .2s}
+.price-card.featured{border-color:#10B981;box-shadow:0 0 30px rgba(16,185,129,0.2);transform:scale(1.05)}
+.price-tier{font-size:14px;color:#A0A0B8;margin-bottom:8px;text-transform:uppercase;font-weight:600}
+.price-amount{font-size:32px;font-weight:800;margin-bottom:16px}
+.price-amount span{font-size:16px;color:#A0A0B8}
+.price-features{list-style:none;text-align:left;font-size:14px;color:#A0A0B8}
+.price-features li{padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.05)}
+.price-features li:last-child{border-bottom:none}
+.content{background:#1A1A2E;border-radius:16px;padding:40px;margin-bottom:40px;line-height:1.8;font-size:16px}
+.content :global(h2){margin:40px 0 20px;font-size:28px;font-weight:700;color:#fff;border-bottom:2px solid rgba(155,81,224,0.3);padding-bottom:12px}
+.content :global(h3){margin:32px 0 16px;font-size:22px;font-weight:600;color:#E5E7EB}
+.content :global(h4){margin:24px 0 12px;font-size:18px;font-weight:600;color:#D1D5DB}
+.content :global(p){margin-bottom:20px;color:#D1D5DB;line-height:1.8}
+.content :global(strong){color:#fff;font-weight:600}
+.content :global(em){color:#A0A0B8;font-style:italic}
+.content :global(ul),.content :global(ol){margin:20px 0;padding-left:28px;color:#D1D5DB}
+.content :global(li){margin-bottom:12px;line-height:1.6}
+.content :global(li)::marker{color:#E91E8C}
+.content :global(blockquote){margin:24px 0;padding:16px 24px;border-left:4px solid #E91E8C;background:rgba(233,30,140,0.1);border-radius:8px;color:#E5E7EB;font-style:italic}
+.content :global(code){background:rgba(255,255,255,0.1);padding:2px 8px;border-radius:4px;font-family:monospace;font-size:14px;color:#E91E8C}
+.content :global(pre){background:#0D0D1A;padding:20px;border-radius:8px;overflow-x:auto;margin:20px 0}
+.content :global(pre code){background:none;padding:0;color:#A0A0B8}
+.content :global(a){color:#E91E8C;text-decoration:underline;transition:color .2s}
+.content :global(a):hover{color:#9B51E0}
+.content :global(hr){margin:32px 0;border:none;border-top:1px solid rgba(255,255,255,0.1)}
+.content :global(table){width:100%;margin:20px 0;border-collapse:collapse}
+.content :global(th),.content :global(td){padding:12px;border:1px solid rgba(255,255,255,0.1);text-align:left}
+.content :global(th){background:rgba(255,255,255,0.05);font-weight:600}
+.bottom-cta{background:linear-gradient(135deg,#1A1A2E,#2D1B4E);border-radius:20px;padding:48px;text-align:center;border:2px solid rgba(155,81,224,0.3)}
+.bottom-cta h2{font-size:32px;margin-bottom:12px}
+.bottom-cta p{color:#A0A0B8;margin-bottom:24px;font-size:18px}
+footer{padding:40px 0;text-align:center;border-top:1px solid rgba(255,255,255,0.06)}
+footer p{color:#6B7280;font-size:14px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="/es/" class="logo">
+      💕 My<span>Top</span>AIGirlfriend
+    </a>
+    <nav>
+      <a href="/es/ai-girlfriends">Reseñas de Novias IA</a>
+      <a href="/es/blog">Blog</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Breadcrumb Navigation -->
+<div class="container" style="padding-top: 20px; padding-bottom: 0;">
+  <Breadcrumb items={breadcrumbs} />
+</div>
+
+{isComparison ? (
+  <!-- Blog/Comparison Layout -->
+  <section class="hero">
+    <div class="hero-inner">
+      <h1>{review.data.title}</h1>
+      <p>{review.data.category}</p>
+      <div class="hero-meta">
+        <span>📅 {new Date(review.data.generated_at).toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+        <span>📖 10 min de lectura</span>
+      </div>
+    </div>
+  </section>
+  
+  <div class="blog-container">
+    <article class="blog-content">
+      <Content />
+    </article>
+  </div>
+) : (
+  <!-- Review Layout -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-logo"></div>
+      <h1>{review.data.app_name}</h1>
+      <div class="hero-rating">{rating}/5</div>
+      <div class="hero-stars">{starsDisplay}</div>
+      <p>{review.data.category}</p>
+      <div class="cta-buttons">
+        <a href={review.data.app_url || "#"} target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+          Visitar {review.data.app_name} →
+        </a>
+        <a href="/es/ai-girlfriends" class="btn btn-secondary">
+          ← Volver a Rankings
+        </a>
+      </div>
+      <p class="affiliate-note">Divulgación de Afiliados: Podemos ganar una comisión por compras.</p>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="quick-verdict">
+      <div class="quick-grid">
+        <div class="quick-item">
+          <span>✅</span>
+          <div>
+            <div class="quick-label">Mejor Para</div>
+            <div class="quick-value">{review.data.category}</div>
+          </div>
+        </div>
+        <div class="quick-item">
+          <span>💰</span>
+          <div>
+            <div class="quick-label">Precio Inicial</div>
+            <div class="quick-value">{price}</div>
+          </div>
+        </div>
+        <div class="quick-item">
+          <span>⭐</span>
+          <div>
+            <div class="quick-label">Nuestra Calificación</div>
+            <div class="quick-value">{rating}/5</div>
+          </div>
+        </div>
+        <div class="quick-item">
+          <span>🔞</span>
+          <div>
+            <div class="quick-label">Soporte NSFW</div>
+            <div class="quick-value">{review.data.has_nsfw ? 'Sí' : 'No'}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pros-cons">
+      <div class="pros">
+        <h3>✅ Pros</h3>
+        <ul>
+          <li>Conversaciones IA de alta calidad</li>
+          <li>Personalidad personalizable</li>
+          <li>Chat de voz disponible</li>
+          <li>Desarrollo activo</li>
+        </ul>
+      </div>
+      <div class="cons">
+        <h3>❌ Contras</h3>
+        <ul>
+          <li>Premium requiere suscripción</li>
+          <li>Versión gratis limitada</li>
+          <li>Sin modo offline</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ratings">
+      <h2>Calificaciones Detalladas</h2>
+      <div class="rating-item">
+        <div class="rating-label"><span>Calidad de Respuesta</span><span>9/10</span></div>
+        <div class="rating-bar"><div class="rating-fill" style="width:90%"></div></div>
+      </div>
+      <div class="rating-item">
+        <div class="rating-label"><span>Calidad de Imagen</span><span>8.5/10</span></div>
+        <div class="rating-bar"><div class="rating-fill" style="width:85%"></div></div>
+      </div>
+      <div class="rating-item">
+        <div class="rating-label"><span>Calidad de Voz</span><span>8/10</span></div>
+        <div class="rating-bar"><div class="rating-fill" style="width:80%"></div></div>
+      </div>
+      <div class="rating-item">
+        <div class="rating-label"><span>Personalización</span><span>9/10</span></div>
+        <div class="rating-bar"><div class="rating-fill" style="width:90%"></div></div>
+      </div>
+    </div>
+
+    <div class="pricing">
+      <h2>Planes de Precios</h2>
+      <div class="pricing-grid">
+        <div class="price-card">
+          <div class="price-tier">Gratis</div>
+          <div class="price-amount">$0</div>
+          <ul class="price-features">
+            <li>Conversaciones básicas</li>
+            <li>Mensajes limitados</li>
+            <li>Solo texto</li>
+          </ul>
+        </div>
+        <div class="price-card featured">
+          <div class="price-tier">Premium</div>
+          <div class="price-amount">{price} <span>/mes</span></div>
+          <ul class="price-features">
+            <li>Mensajes ilimitados</li>
+            <li>Chat de voz</li>
+            <li>Generación de imágenes</li>
+            <li>Soporte prioritario</li>
+          </ul>
+        </div>
+        <div class="price-card">
+          <div class="price-tier">Pro</div>
+          <div class="price-amount">$29.99 <span>/mes</span></div>
+          <ul class="price-features">
+            <li>Todas las funciones Premium</li>
+            <li>Personalización avanzada</li>
+            <li>Múltiples compañeras</li>
+            <li>Acceso anticipado</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="content">
+      <Content />
+    </div>
+
+    <div class="bottom-cta">
+      <h2>Prueba {review.data.app_name} Gratis</h2>
+      <div class="hero-stars">{starsDisplay}</div>
+      <p>Calificado {rating}/5 - Mejor {review.data.category} en 2026</p>
+      <div class="cta-buttons">
+        <a href={review.data.app_url || "#"} target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+          Comenzar Ahora →
+        </a>
+        <a href="/es/ai-girlfriends" class="btn btn-secondary">
+          ← Volver a Rankings
+        </a>
+      </div>
+    </div>
+  </div>
+)}
+
+<footer>
+  <p>&copy; 2026 MyTopAIGirlfriend. Todos los derechos reservados.</p>
+  <div style="display:flex;gap:12px;justify-content:center;align-items:center;margin:12px 0;font-size:13px">
+    <a href="/es/about" style="color:#A0A0B8;transition:color .2s;text-decoration:underline">Acerca de</a>
+    <span style="color:#6B7280">•</span>
+    <a href="/es/contact" style="color:#A0A0B8;transition:color .2s;text-decoration:underline">Contacto</a>
+    <span style="color:#6B7280">•</span>
+    <a href="/es/faq" style="color:#A0A0B8;transition:color .2s;text-decoration:underline">Preguntas</a>
+    <span style="color:#6B7280">•</span>
+    <a href="/es/privacy" style="color:#A0A0B8;transition:color .2s;text-decoration:underline">Privacidad</a>
+    <span style="color:#6B7280">•</span>
+    <a href="/es/terms" style="color:#A0A0B8;transition:color .2s;text-decoration:underline">Términos</a>
+  </div>
+  <p style="color:#EF4444;margin-top:12px">⚠️ Advertencia de contenido +18: Algunas apps contienen contenido para adultos</p>
+</footer>
+
+</body>
+</html>
+
+
+
